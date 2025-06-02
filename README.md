@@ -65,7 +65,7 @@ coinestate-platform/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/coinestate-platform.git
+git clone https://github.com/finsterfurz/coinestate-platform.git
 cd coinestate-platform
 ```
 
