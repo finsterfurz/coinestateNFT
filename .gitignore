@@ -139,6 +139,16 @@ keys/
 .vscode/launch.json
 .vscode/extensions.json
 
+# Visual Studio files
+.vs/
+*.vsidx
+*.vspscc
+*.vssscc
+.builds/
+*.pidb
+*.svclog
+*.scc
+
 # Misc
 .nyc_output
 .eslintcache
