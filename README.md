@@ -1,36 +1,28 @@
 # CoinEstate Platform
 
-**Fractional Real Estate Investment through Blockchain Technology**
+**Blockchain-based Real Estate Investment Platform**
 
-CoinEstate enables fractional real estate ownership through NFTs, powered by VaultBrick (VBK) tokens. Investors can own property shares starting at €2,000 and earn passive income through automated stablecoin distributions.
-
-## 🏗️ Project Overview
-
-- **Token**: VaultBrick (VBK) - ERC20, capped at 2.5M, pegged to €1
-- **NFTs**: Fractional ownership of real-world properties
-- **Target**: €2M initial capital through 1,000 NFTs at €2,000 each
-- **Legal**: Estonian company structure
-- **Returns**: Stablecoin distributions tied to property income
+A modern platform enabling fractional real estate ownership through blockchain technology. Built with React, Node.js, and Solidity smart contracts.
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 - **React** with TypeScript
 - **GSAP** for animations
-- **Web3.js/Ethers.js** for blockchain interaction
+- **Web3.js** for blockchain interaction
 - **Tailwind CSS** for styling
 
 ### Smart Contracts
 - **Solidity** for ERC20 and ERC721 contracts
 - **Hardhat** development environment
 - **OpenZeppelin** security standards
-- **Ethereum** mainnet/Layer 2 deployment
+- **Ethereum** compatible networks
 
 ### Backend
 - **Node.js** with Express
-- **PostgreSQL** for user data
+- **PostgreSQL** for data storage
 - **Redis** for caching
-- **IPFS** for NFT metadata storage
+- **IPFS** for metadata storage
 
 ## 📁 Project Structure
 
@@ -38,11 +30,10 @@ CoinEstate enables fractional real estate ownership through NFTs, powered by Vau
 coinestate-platform/
 ├── frontend/           # React application
 │   ├── src/
-│   │   ├── components/ # Reusable UI components
+│   │   ├── components/ # UI components
 │   │   ├── pages/      # Page components
 │   │   ├── hooks/      # Custom React hooks
-│   │   ├── utils/      # Utility functions
-│   │   └── styles/     # CSS and styling
+│   │   └── utils/      # Utility functions
 │   └── public/         # Static assets
 ├── contracts/          # Smart contracts
 │   ├── contracts/      # Solidity files
@@ -58,7 +49,6 @@ coinestate-platform/
 ### Prerequisites
 - Node.js 18+
 - npm or yarn
-- MetaMask wallet
 - Git
 
 ### Installation
@@ -71,17 +61,13 @@ cd coinestate-platform
 
 2. **Install dependencies**
 ```bash
-# Frontend
-cd frontend
-npm install
+# Install all dependencies
+npm run install:all
 
-# Backend
-cd ../backend
-npm install
-
-# Smart contracts
-cd ../contracts
-npm install
+# Or install individually
+cd frontend && npm install
+cd ../backend && npm install
+cd ../contracts && npm install
 ```
 
 3. **Environment setup**
@@ -94,46 +80,59 @@ cp contracts/.env.example contracts/.env
 
 4. **Start development servers**
 ```bash
-# Terminal 1: Frontend
-cd frontend
-npm start
-
-# Terminal 2: Backend
-cd backend
+# Start all services
 npm run dev
 
-# Terminal 3: Local blockchain (optional)
-cd contracts
-npx hardhat node
+# Or start individually
+npm run dev:frontend  # React app (port 3000)
+npm run dev:backend   # API server (port 3001)
+npm run dev:contracts # Local blockchain
 ```
 
-## 📋 Development Workflow
+## 🧪 Testing
 
-### Smart Contract Development
 ```bash
-cd contracts
-npx hardhat compile
-npx hardhat test
-npx hardhat deploy --network localhost
+# Run all tests
+npm run test
+
+# Test individually
+npm run test:frontend
+npm run test:backend
+npm run test:contracts
 ```
 
-### Frontend Development
+## 🏗️ Building
+
 ```bash
-cd frontend
-npm start          # Development server
-npm run build      # Production build
-npm run test       # Run tests
+# Build for production
+npm run build
+
+# Build individually
+npm run build:frontend
+npm run build:contracts
 ```
 
-### Backend Development
+## 📋 Available Scripts
+
 ```bash
-cd backend
-npm run dev        # Development with hot reload
-npm run test       # Run API tests
-npm run migrate    # Database migrations
+# Development
+npm run dev                    # Start all services
+npm run install:all           # Install all dependencies
+
+# Testing
+npm run test                  # Run all tests
+npm run test:contracts        # Smart contract tests
+
+# Building
+npm run build                 # Build all components
+npm run lint                  # Lint all code
+
+# Deployment
+npm run deploy:contracts:localhost  # Deploy to local network
+npm run deploy:contracts:goerli    # Deploy to testnet
 ```
 
-## 🔐 Environment Variables
+## 🔧 Environment Variables
 
 ### Frontend (.env)
 ```
@@ -141,7 +140,6 @@ REACT_APP_API_URL=http://localhost:3001
 REACT_APP_CHAIN_ID=1
 REACT_APP_VBK_CONTRACT_ADDRESS=
 REACT_APP_PROPERTY_NFT_CONTRACT_ADDRESS=
-REACT_APP_IPFS_GATEWAY=https://ipfs.io/ipfs/
 ```
 
 ### Backend (.env)
@@ -150,8 +148,6 @@ PORT=3001
 DATABASE_URL=postgresql://user:password@localhost:5432/coinestate
 REDIS_URL=redis://localhost:6379
 JWT_SECRET=your_jwt_secret
-PINATA_API_KEY=your_pinata_key
-PINATA_SECRET_KEY=your_pinata_secret
 ```
 
 ### Contracts (.env)
@@ -161,66 +157,10 @@ INFURA_PROJECT_ID=your_infura_id
 ETHERSCAN_API_KEY=your_etherscan_key
 ```
 
-## 📊 Token Economics
-
-- **VaultBrick (VBK)**: €1 pegged ERC20 token
-- **Total Supply**: 2.5M VBK (capped)
-- **NFT Price**: €2,000 per property share
-- **Target Raise**: €2M (1,000 NFTs)
-- **Property Purchase**: €1.4-1.5M per property
-- **Income Distribution**: Automated stablecoin payouts
-
-## 🧪 Testing
-
-### Smart Contract Tests
-```bash
-cd contracts
-npx hardhat test
-npx hardhat coverage
-```
-
-### Frontend Tests
-```bash
-cd frontend
-npm run test
-npm run test:coverage
-```
-
-### Backend Tests
-```bash
-cd backend
-npm run test
-npm run test:e2e
-```
-
-## 🚢 Deployment
-
-### Smart Contracts
-```bash
-cd contracts
-npx hardhat deploy --network mainnet
-npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS
-```
-
-### Frontend (Vercel/Netlify)
-```bash
-cd frontend
-npm run build
-# Deploy build/ directory
-```
-
-### Backend (Railway/Heroku)
-```bash
-cd backend
-# Configure production environment
-# Deploy via platform-specific methods
-```
-
 ## 📚 Documentation
 
 - [Smart Contract Documentation](./docs/contracts.md)
 - [API Documentation](./docs/api.md)
-- [Frontend Components](./docs/frontend.md)
 - [Deployment Guide](./docs/deployment.md)
 
 ## 🤝 Contributing
@@ -231,25 +171,25 @@ cd backend
 4. Push to branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-## ⚖️ Legal & Compliance
-
-- Estonian company incorporation
-- EU securities compliance
-- Anti-money laundering (AML) procedures
-- Know Your Customer (KYC) requirements
-- Property ownership transparency
-
-## 📞 Support
-
-- **Documentation**: [docs/](./docs/)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/coinestate-platform/issues)
-- **Discord**: [CoinEstate Community](#)
-- **Email**: support@coinestate.io
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🔗 Architecture
+
+The platform consists of three main components:
+
+- **Smart Contracts**: ERC20 tokens and ERC721 NFTs for ownership representation
+- **Frontend Application**: React-based user interface with Web3 integration
+- **Backend API**: Node.js server for data management and automation
+
+## 🛡️ Security
+
+- Smart contracts follow OpenZeppelin standards
+- Comprehensive test coverage
+- Regular security audits recommended
+- Environment variables for sensitive data
+
 ---
 
-**⚠️ Investment Disclaimer**: This platform facilitates real estate investment opportunities. All investments carry risk. Please conduct your own research and consult with financial advisors before investing.
+**Note**: This is a development platform. Ensure proper security audits and legal compliance before production deployment.
