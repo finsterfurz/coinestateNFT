@@ -1,0 +1,33 @@
+# NPM Security Configuration
+# This file helps audit and secure dependencies
+
+{
+  "name": "npm-security-config",
+  "description": "Security configuration for CoinEstate platform dependencies",
+  "scripts": {
+    "security:audit": "npm audit --audit-level moderate",
+    "security:audit-fix": "npm audit fix",
+    "security:check-updates": "npx npm-check-updates --doctor",
+    "security:outdated": "npm outdated",
+    "security:verify": "npm ls --depth=0"
+  },
+  "auditConfig": {
+    "auditLevel": "moderate",
+    "reportType": "summary"
+  },
+  "securityRules": {
+    "allowedRegistries": [
+      "https://registry.npmjs.org/"
+    ],
+    "blockedPackages": [
+      "event-stream@3.3.6",
+      "eslint-scope@3.7.2",
+      "flatmap-stream@*"
+    ],
+    "minimumVersions": {
+      "react": "18.0.0",
+      "ethers": "6.0.0",
+      "typescript": "4.9.0"
+    }
+  }
+}

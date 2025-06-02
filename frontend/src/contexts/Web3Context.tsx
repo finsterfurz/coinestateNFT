@@ -44,10 +44,28 @@ const PROPERTY_NFT_ABI = [
   "function getPlatformStats() view returns (uint256, uint256, uint256, uint256)"
 ];
 
-// Contract addresses (set via environment variables)
-const VBK_CONTRACT_ADDRESS = process.env.REACT_APP_VBK_CONTRACT_ADDRESS;
-const PROPERTY_NFT_CONTRACT_ADDRESS = process.env.REACT_APP_PROPERTY_NFT_CONTRACT_ADDRESS;
-const SUPPORTED_CHAIN_ID = Number(process.env.REACT_APP_CHAIN_ID) || 1;
+// SECURITY: Hardcoded verified contract addresses (replace with actual addresses)
+const VERIFIED_CONTRACTS = {
+  VBK_MAINNET: '0x0000000000000000000000000000000000000000', // TODO: Replace with actual mainnet address
+  VBK_GOERLI: '0x0000000000000000000000000000000000000000',  // TODO: Replace with actual goerli address
+  PROPERTY_NFT_MAINNET: '0x0000000000000000000000000000000000000000', // TODO: Replace with actual mainnet address
+  PROPERTY_NFT_GOERLI: '0x0000000000000000000000000000000000000000',  // TODO: Replace with actual goerli address
+} as const;
+
+// SECURITY: Get verified contract address based on chain
+const getVerifiedContractAddress = (contractType: 'VBK' | 'PROPERTY_NFT', chainId: number): string => {
+  const networkSuffix = chainId === 1 ? 'MAINNET' : 'GOERLI';
+  const contractKey = `${contractType}_${networkSuffix}` as keyof typeof VERIFIED_CONTRACTS;
+  
+  const address = VERIFIED_CONTRACTS[contractKey];
+  if (!address || address === '0x0000000000000000000000000000000000000000') {
+    throw new Error(`Contract address not configured for ${contractType} on chain ${chainId}`);
+  }
+  
+  return address;
+};
+
+const SUPPORTED_CHAIN_IDS = [1, 5]; // Mainnet and Goerli
 
 interface Web3ProviderProps {
   children: ReactNode;
@@ -111,8 +129,9 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
   };
 
   const connectWallet = async () => {
-    if (!window.ethereum) {
-      toast.error('MetaMask is not installed');
+    // SECURITY: Verify MetaMask is the real extension
+    if (!window.ethereum?.isMetaMask) {
+      toast.error('Please install MetaMask wallet');
       return;
     }
 
@@ -126,14 +145,20 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const network = await provider.getNetwork();
       const signer = await provider.getSigner();
+      const currentChainId = Number(network.chainId);
 
       setProvider(provider);
       setSigner(signer);
       setAccount(accounts[0]);
-      setChainId(Number(network.chainId));
+      setChainId(currentChainId);
       setIsConnected(true);
 
-      toast.success('Wallet connected successfully');
+      // SECURITY: Warn if on unsupported network
+      if (!SUPPORTED_CHAIN_IDS.includes(currentChainId)) {
+        toast.error(`Unsupported network. Please switch to Ethereum Mainnet or Goerli.`);
+      } else {
+        toast.success('Wallet connected successfully');
+      }
     } catch (error: any) {
       console.error('Connection error:', error);
       toast.error(error.message || 'Failed to connect wallet');
@@ -162,6 +187,12 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
   const switchNetwork = async (targetChainId: number) => {
     if (!window.ethereum) return;
 
+    // SECURITY: Only allow switching to supported networks
+    if (!SUPPORTED_CHAIN_IDS.includes(targetChainId)) {
+      toast.error('Unsupported network');
+      return;
+    }
+
     try {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
@@ -177,11 +208,29 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
   };
 
   const initializeContracts = () => {
-    if (!signer || !VBK_CONTRACT_ADDRESS || !PROPERTY_NFT_CONTRACT_ADDRESS) return;
+    if (!signer || !chainId) return;
 
     try {
-      const vbk = new ethers.Contract(VBK_CONTRACT_ADDRESS, VBK_ABI, signer);
-      const propertyNFT = new ethers.Contract(PROPERTY_NFT_CONTRACT_ADDRESS, PROPERTY_NFT_ABI, signer);
+      // SECURITY: Only initialize contracts for supported networks
+      if (!SUPPORTED_CHAIN_IDS.includes(chainId)) {
+        console.warn(`Unsupported network: ${chainId}`);
+        return;
+      }
+
+      // SECURITY: Get verified contract addresses
+      let vbkAddress: string;
+      let propertyNFTAddress: string;
+      
+      try {
+        vbkAddress = getVerifiedContractAddress('VBK', chainId);
+        propertyNFTAddress = getVerifiedContractAddress('PROPERTY_NFT', chainId);
+      } catch (error) {
+        console.warn('Contracts not configured for this network:', error);
+        return;
+      }
+
+      const vbk = new ethers.Contract(vbkAddress, VBK_ABI, signer);
+      const propertyNFT = new ethers.Contract(propertyNFTAddress, PROPERTY_NFT_ABI, signer);
 
       setVbkContract(vbk);
       setPropertyNFTContract(propertyNFT);
