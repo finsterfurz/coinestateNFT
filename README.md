@@ -74,51 +74,6 @@ coinestate-platform/
 - Secure authentication patterns
 - Error handling and logging
 
-## 🧪 Development Features
-
-### **Smart Contract Development**
-```bash
-cd contracts
-npx hardhat compile        # Compile contracts
-npx hardhat test          # Run comprehensive tests
-npx hardhat coverage      # Check test coverage
-```
-
-### **Frontend Development**
-```bash
-cd frontend
-npm start                 # Development server with hot reload
-npm run build            # Production optimization
-npm run test             # Component testing
-```
-
-### **Backend Development**
-```bash
-cd backend
-npm run dev              # Development with auto-restart
-npm run test             # API endpoint testing
-```
-
-## 📊 Technical Highlights
-
-### **Blockchain Integration**
-- Multi-network deployment support (Ethereum, Polygon, Arbitrum)
-- Event-based state synchronization
-- Gas optimization techniques
-- Security-first development approach
-
-### **Modern Web Development**
-- Component-driven architecture
-- State management patterns
-- Performance optimization
-- Accessibility standards
-
-### **DevOps & Testing**
-- Automated testing pipelines
-- Code quality enforcement
-- Environment configuration management
-- Deployment automation scripts
-
 ## 🛡️ Security Implementation
 
 ### **Smart Contract Security**
@@ -134,11 +89,78 @@ npm run test             # API endpoint testing
 - Rate limiting and DDoS protection
 - Secure environment variable handling
 
-## 📚 Documentation
+## 📊 Technical Highlights
 
-- [Smart Contract Architecture](./docs/SMART_CONTRACTS.md)
-- [API Documentation](./docs/api.md)
-- [Deployment Guide](./docs/deployment.md)
+### **Code Examples**
+
+#### Smart Contract Patterns
+```solidity
+// Upgradeable proxy pattern
+contract VaultBrickToken is ERC20Upgradeable, OwnableUpgradeable {
+    function mint(address to, uint256 amount) external onlyAuthorized {
+        require(totalSupply() + amount <= MAX_SUPPLY, "Exceeds cap");
+        _mint(to, amount);
+    }
+}
+
+// Security patterns
+modifier onlyAuthorized() {
+    require(authorizedMinters[msg.sender], "Not authorized");
+    _;
+}
+```
+
+#### React Integration
+```typescript
+// Custom Web3 hook
+const useWeb3 = () => {
+    const [account, setAccount] = useState<string>();
+    const [balance, setBalance] = useState<string>('0');
+    
+    const connect = async () => {
+        // Wallet connection logic
+    };
+    
+    return { account, balance, connect };
+};
+
+// Component with Web3 integration
+const VBKSalesWidget: React.FC = () => {
+    const { account, signer } = useWeb3();
+    // Purchase flow implementation
+};
+```
+
+#### Backend Services
+```javascript
+// Automated distribution service
+class AutomatedDistribution {
+    async distributeMonthlyIncome() {
+        const snapshot = await this.createSnapshot();
+        await this.processDistributions(snapshot);
+    }
+    
+    async monitorContractEvents() {
+        // Real-time blockchain monitoring
+    }
+}
+```
+
+## 🏗️ Architecture Decisions
+
+### **Why This Tech Stack?**
+- **React + TypeScript**: Type safety and modern component patterns
+- **GSAP**: Premium animation capabilities for enhanced UX
+- **Hardhat**: Comprehensive smart contract development environment
+- **OpenZeppelin**: Battle-tested security standards
+- **PostgreSQL**: Reliable data persistence for off-chain data
+
+### **Design Patterns Implemented**
+- **Proxy Pattern**: For upgradeable smart contracts
+- **Event Sourcing**: For blockchain state synchronization
+- **Repository Pattern**: For data access abstraction
+- **Factory Pattern**: For contract deployment
+- **Observer Pattern**: For real-time UI updates
 
 ## 🎓 Educational Value
 
@@ -155,29 +177,21 @@ Perfect for developers interested in:
 - Smart contract architecture
 - Web3 integration techniques
 
-## 🏗️ Architecture Decisions
+## 📚 Documentation
 
-### **Why This Tech Stack?**
-- **React + TypeScript**: Type safety and modern component patterns
-- **GSAP**: Premium animation capabilities for enhanced UX
-- **Hardhat**: Comprehensive smart contract development environment
-- **OpenZeppelin**: Battle-tested security standards
-- **PostgreSQL**: Reliable data persistence for off-chain data
+- [Smart Contract Architecture](./docs/SMART_CONTRACTS.md)
+- [Technical Overview](./PROJECT_OVERVIEW.md)
 
-### **Design Patterns Used**
-- **Proxy Pattern**: For upgradeable smart contracts
-- **Event Sourcing**: For blockchain state synchronization
-- **Repository Pattern**: For data access abstraction
-- **Factory Pattern**: For contract deployment
-- **Observer Pattern**: For real-time UI updates
+## 🤝 Technical Discussion
 
-## 🤝 Contributing
+This is a technical demonstration project showcasing modern blockchain development practices. The codebase serves as:
 
-This is a technical demonstration project. Feel free to:
-- Explore the codebase
-- Learn from the implementation patterns
-- Use as reference for your own projects
-- Provide feedback on technical approaches
+- **Learning Resource** for blockchain developers
+- **Reference Implementation** for Web3 applications  
+- **Portfolio Showcase** of technical capabilities
+- **Educational Tool** for understanding full-stack blockchain development
+
+Feel free to explore the implementation details and use the patterns demonstrated here as reference for your own projects.
 
 ## 📄 License
 
@@ -185,7 +199,7 @@ MIT License - feel free to use this code for learning and reference.
 
 ---
 
-**Note**: This is a technical demonstration platform showcasing modern blockchain development practices. Not intended for production use without proper security audits and legal compliance.
+**Note**: This is a technical demonstration platform showcasing modern blockchain development practices. The codebase is designed for educational purposes and technical reference.
 
 ## 🔗 Technical Contact
 
