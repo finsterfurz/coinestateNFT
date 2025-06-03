@@ -14,6 +14,7 @@
     <meta property="og:url" content="https://coinestate.io">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="css/enhanced.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -1346,6 +1347,7 @@
                 <a href="#calculator" class="nav-link">Calculator</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#legal" class="nav-link">Legal</a>
+                <button class="wallet-connect">Connect Wallet</button>
                 <a href="#invest" class="header-cta">Get Early Access</a>
             </nav>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -1374,12 +1376,12 @@
             </p>
             
             <div class="hero-cta-group">
-                <a href="#invest" class="primary-cta">
+                <button class="primary-cta start-investing">
                     <svg class="icon" style="margin-right: 0.5rem;">
                         <use href="#icon-rocket"></use>
                     </svg>
                     Start Investing
-                </a>
+                </button>
                 <a href="#property" class="secondary-cta">View Property Details</a>
             </div>
         </div>
@@ -1571,6 +1573,10 @@
                         <input type="range" class="input-slider" id="yieldSlider" min="3" max="10" step="0.5" value="6">
                         <input type="number" class="input-field" id="expectedYield" min="3" max="10" step="0.5" value="6">
                     </div>
+                </div>
+                
+                <div class="investment-breakdown" id="investmentBreakdown">
+                    <!-- Investment breakdown will be populated by JavaScript -->
                 </div>
                 
                 <div class="calculator-results">
@@ -1976,5 +1982,8 @@
             }
         });
     </script>
+    
+    <!-- Enhanced JavaScript Functionality -->
+    <script src="js/main.js"></script>
 </body>
 </html>
