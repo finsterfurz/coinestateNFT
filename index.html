@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinEstate - Professional Real Estate Investment NFTs | €1,795,000 Kamp-Lintfort Property</title>
+    <meta name="description" content="Invest in premium German real estate through NFTs. Own shares of a €1,795,000 mixed-use property in Kamp-Lintfort starting from €1,000. 5-7% expected yield.">
+    <meta name="keywords" content="real estate NFT, property investment, German real estate, blockchain property, fractional ownership">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CoinEstate - Real Estate Investment NFTs">
+    <meta property="og:description" content="Own premium German real estate through blockchain technology. Starting from €1,000.">
+    <meta property="og:url" content="https://coinestate.io">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-900: #0c1526;
+            --primary-800: #1e293b;
+            --primary-700: #334155;
+            --primary-600: #475569;
+            --primary-500: #64748b;
+            --primary-400: #94a3b8;
+            --primary-300: #cbd5e1;
+            --primary-200: #e2e8f0;
+            --primary-100: #f1f5f9;
+            
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+            --green-500: #10b981;
+            --green-400: #34d399;
+            --purple-500: #8b5cf6;
+            --yellow-500: #eab308;
+            --red-500: #ef4444;
+            --orange-500: #f97316;
+            
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(148, 163, 184, 0.1);
+            --glass-hover: rgba(59, 130, 246, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary-900) 0%, #0f172a 50%, var(--primary-800) 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-content {
+            text-align: center;
+        }
+        
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem auto;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Enhanced Header */
+        .header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(15, 23, 42, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--blue-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo span {
+            color: var(--primary-400);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--primary-400);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--blue-500);
+            border-radius: 1px;
+        }
+        
+        .header-cta {
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Enhanced Hero */
+        .hero {
+            padding: 8rem 2rem 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(59,130,246,0.05)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23g1)"/><circle cx="800" cy="700" r="150" fill="url(%23g1)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--blue-400) 30%, var(--purple-500) 70%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-300);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--primary-400);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 1s both;
+        }
+        
+        .primary-cta {
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .primary-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .primary-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+        }
+        
+        .primary-cta:hover::before {
+            left: 100%;
+        }
+        
+        .secondary-cta {
+            background: var(--glass-bg);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .secondary-cta:hover {
+            border-color: var(--blue-500);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Trust Indicators */
+        .trust-section {
+            padding: 4rem 2rem;
+            background: var(--glass-bg);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+        
+        .trust-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .trust-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--primary-200);
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-500);
+        }
+        
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .trust-text {
+            font-weight: 600;
+            color: var(--primary-200);
+        }
+        
+        .trust-description {
+            font-size: 0.875rem;
+            color: var(--primary-400);
+            text-align: center;
+        }
+        
+        /* Property Showcase */
+        .property-section {
+            padding: 6rem 2rem;
+        }
+        
+        .property-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--primary-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .property-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .property-visual {
+            position: relative;
+        }
+        
+        .property-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .property-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+        
+        .property-badges {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+        }
+        
+        .property-badge {
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+        }
+        
+        .property-info {
+            padding: 2rem;
+        }
+        
+        .property-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-100);
+        }
+        
+        .property-location {
+            color: var(--primary-400);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .property-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value.price {
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-value.area {
+            color: var(--green-500);
+        }
+        
+        .stat-label {
+            color: var(--primary-400);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .property-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .property-features li {
+            padding: 0.5rem 0;
+            color: var(--primary-300);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .property-features li::before {
+            content: '✓';
+            color: var(--green-500);
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+        
+        /* Enhanced Investment Calculator */
+        .calculator-section {
+            padding: 6rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+        }
+        
+        .calculator-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .calculator-container {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .input-label {
+            font-weight: 600;
+            color: var(--primary-300);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .input-field {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .input-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: var(--primary-700);
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .input-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .result-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-500);
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-value.primary {
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .result-value.income {
+            color: var(--green-500);
+        }
+        
+        .result-value.yield {
+            color: var(--yellow-500);
+        }
+        
+        .result-label {
+            color: var(--primary-400);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* NFT Information Section */
+        .nft-info-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+        }
+        
+        .nft-info-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .nft-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .nft-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--blue-500);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        .nft-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem auto;
+        }
+        
+        .nft-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-100);
+        }
+        
+        .nft-description {
+            color: var(--primary-400);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nft-highlight {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--blue-500);
+            border-radius: 12px;
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--blue-400);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+        }
+        
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-200);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .faq-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 2rem 1.5rem 2rem;
+            color: var(--primary-400);
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.25rem;
+            color: var(--primary-400);
+            margin-bottom: 3rem;
+        }
+        
+        .email-capture {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            background: var(--glass-bg);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .email-input::placeholder {
+            color: var(--primary-500);
+        }
+        
+        .email-submit {
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .email-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-900);
+            padding: 4rem 2rem 2rem 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-200);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: var(--primary-400);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--blue-400);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--primary-500);
+            font-size: 0.875rem;
+        }
+        
+        /* Risk Disclosure */
+        .risk-disclosure {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--red-500);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .risk-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: var(--red-500);
+            margin-bottom: 1rem;
+        }
+        
+        .risk-text {
+            color: var(--primary-300);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 4rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .property-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .property-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-inputs,
+            .calculator-results {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-capture {
+                flex-direction: column;
+            }
+            
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nft-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Performance optimizations */
+        .property-image,
+        .trust-icon,
+        .nft-icon {
+            will-change: transform;
+        }
+        
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-bg: rgba(0, 0, 0, 0.8);
+                --glass-border: rgba(255, 255, 255, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">🏢</div>
+            <h3>CoinEstate</h3>
+            <p>Loading investment opportunity...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🏢</div>
+                <div>
+                    <h1>CoinEstate</h1>
+                    <span>Real Estate Investment NFTs</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#property" class="nav-link active">Investment</a>
+                <a href="#nft-info" class="nav-link">NFTs</a>
+                <a href="#calculator" class="nav-link">Calculator</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#legal" class="nav-link">Legal</a>
+                <a href="#invest" class="header-cta">Get Early Access</a>
+            </nav>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🎯</span>
+                <span>Live Investment • €1,795,000 Property • Kamp-Lintfort, Germany</span>
+            </div>
+            
+            <h1>Own Premium German Real Estate Through NFTs</h1>
+            <p class="hero-subtitle">2,500 NFTs Available • €1,000 each • Expected 5-7% Yield</p>
+            <p class="hero-description">
+                Invest in a prime 2,103 sqm mixed-use property in Kamp-Lintfort city center. 
+                Each NFT represents fractional ownership with monthly income distribution in USDC.
+            </p>
+            
+            <div class="hero-cta-group">
+                <a href="#invest" class="primary-cta">🚀 Start Investing</a>
+                <a href="#property" class="secondary-cta">View Property Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="trust-content">
+            <h3 class="trust-title">Trusted Investment Platform</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🏛️</div>
+                    <div class="trust-text">Estonian Licensed</div>
+                    <div class="trust-description">Official company formation & EU compliance</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-text">Smart Contract Audited</div>
+                    <div class="trust-description">Security verified by blockchain experts</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📊</div>
+                    <div class="trust-text">2,500 NFTs Total</div>
+                    <div class="trust-description">Limited fractional ownership available</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">💰</div>
+                    <div class="trust-text">Monthly Distributions</div>
+                    <div class="trust-description">Consistent income payments in USDC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Showcase -->
+    <section class="property-section" id="property">
+        <div class="property-content">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Target Investment Property</h2>
+                <p class="section-subtitle">Prime mixed-use building in Kamp-Lintfort city center with significant development potential</p>
+            </div>
+            
+            <div class="property-showcase scroll-reveal">
+                <div class="property-visual">
+                    <div class="property-image">
+                        <div class="property-badges">
+                            <div class="property-badge">Mixed-Use Building</div>
+                            <div class="property-badge" style="background: rgba(59, 130, 246, 0.95);">✓ Verified</div>
+                        </div>
+                        <span style="z-index: 2; position: relative;">🏢</span>
+                    </div>
+                </div>
+                
+                <div class="property-info">
+                    <h3 class="property-title">Kamp-Lintfort Center</h3>
+                    <p class="property-location">
+                        <span>📍</span>
+                        <span>City Center, Kamp-Lintfort, Germany</span>
+                    </p>
+                    
+                    <div class="property-stats">
+                        <div class="stat-item">
+                            <div class="stat-value price">€1.795M</div>
+                            <div class="stat-label">Purchase Price</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value area">2,103 m²</div>
+                            <div class="stat-label">Rentable Area</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,009 m²</div>
+                            <div class="stat-label">Residential</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,094 m²</div>
+                            <div class="stat-label">Commercial</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="property-features">
+                        <li>Central city location with high foot traffic</li>
+                        <li>Mixed residential and commercial income streams</li>
+                        <li>15 dedicated parking spaces</li>
+                        <li>1,797 sqm land for future development</li>
+                        <li>Near university and transport links</li>
+                        <li>Only 3 similar properties available in market</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Information Section -->
+    <section class="nft-info-section" id="nft-info">
+        <div class="nft-info-content">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">How NFT Ownership Works</h2>
+                <p class="section-subtitle">Each NFT represents €1,000 of direct property ownership with transparent income distribution</p>
+            </div>
+            
+            <div class="nft-grid scroll-reveal">
+                <div class="nft-card">
+                    <div class="nft-icon">🎨</div>
+                    <h3 class="nft-title">Digital Ownership</h3>
+                    <p class="nft-description">
+                        Each NFT is a unique digital certificate representing €1,000 of direct property ownership. 
+                        Stored securely on IPFS with full property documentation.
+                    </p>
+                    <div class="nft-highlight">2,500 NFTs Total Available</div>
+                </div>
+                
+                <div class="nft-card">
+                    <div class="nft-icon">💎</div>
+                    <h3 class="nft-title">Fractional Ownership</h3>
+                    <p class="nft-description">
+                        Own a proportional share of the property with rights to rental income, 
+                        appreciation, and voting on major property decisions.
+                    </p>
+                    <div class="nft-highlight">Starting at €1,000 per NFT</div>
+                </div>
+                
+                <div class="nft-card">
+                    <div class="nft-icon">🔄</div>
+                    <h3 class="nft-title">Tradeable Assets</h3>
+                    <p class="nft-description">
+                        NFTs can be traded on secondary markets, providing liquidity 
+                        without traditional real estate transaction delays and costs.
+                    </p>
+                    <div class="nft-highlight">Full Trading Flexibility</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Calculator -->
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-content">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Investment Calculator</h2>
+                <p class="section-subtitle">Calculate your potential returns and monthly income from this property</p>
+            </div>
+            
+            <div class="calculator-container scroll-reveal">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label class="input-label">Investment Amount (€)</label>
+                        <input type="range" class="input-slider" id="investmentSlider" min="1000" max="50000" step="1000" value="5000">
+                        <input type="number" class="input-field" id="investmentAmount" min="1000" step="1000" value="5000" placeholder="5000">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Investment Period (Years)</label>
+                        <input type="range" class="input-slider" id="periodSlider" min="1" max="10" step="1" value="5">
+                        <input type="number" class="input-field" id="investmentPeriod" min="1" max="10" value="5">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Expected Yield (%)</label>
+                        <input type="range" class="input-slider" id="yieldSlider" min="3" max="10" step="0.5" value="6">
+                        <input type="number" class="input-field" id="expectedYield" min="3" max="10" step="0.5" value="6">
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <div class="result-value primary" id="nftShares">5</div>
+                        <div class="result-label">NFT Shares</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value income" id="monthlyIncome">€25</div>
+                        <div class="result-label">Monthly Income</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value income" id="annualIncome">€300</div>
+                        <div class="result-label">Annual Income</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value yield" id="totalReturn">€6,500</div>
+                        <div class="result-label">5-Year Total</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-content">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about investing in real estate NFTs</p>
+            </div>
+            
+            <div class="scroll-reveal">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does real estate NFT investment work?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Each NFT represents a €1,000 fractional ownership stake in the property. When you purchase an NFT, you own a proportional share and receive rental income distributions. All ownership and income distribution is managed transparently through smart contracts.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What are the expected returns?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Based on current German mixed-use property markets, we project 5-7% annual yields. This includes rental income from both residential and commercial tenants, distributed monthly in USDC stablecoin directly to your wallet.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How many NFTs are available and at what price?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        There are 2,500 NFTs total, each priced at €1,000. This represents the full €2.5M fundraising goal to acquire the €1.795M property and cover formation costs, legal fees, and initial operating capital.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is this investment regulated?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, CoinEstate operates under Estonian financial regulations as an EU-licensed entity. All property acquisitions follow German real estate law, and our smart contracts have been independently audited for security and compliance.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What are the fees and minimum investment?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The minimum investment is €1,000 (1 NFT). We charge a 2% annual management fee, deducted from rental income before distribution. There are no hidden fees, exit penalties, or additional charges for income distributions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I receive rental income?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Rental income is distributed monthly directly to your wallet in USDC stablecoin. You can claim your proportional share at any time through our platform or directly from the smart contract with no additional fees.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I sell my NFTs before the property is sold?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, NFTs can be traded on secondary markets or through our planned marketplace. This provides liquidity compared to traditional real estate investments, though market demand may vary and affect pricing.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="invest">
+        <div class="cta-content scroll-reveal">
+            <h2 class="cta-title">Ready to Start Investing?</h2>
+            <p class="cta-description">
+                Join the future of real estate investment with fractional NFT ownership. 
+                Get early access to our investment platform and this exclusive property opportunity.
+            </p>
+            
+            <form class="email-capture" onsubmit="handleEmailSignup(event)">
+                <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="email-submit">Get Early Access</button>
+            </form>
+            
+            <div class="risk-disclosure">
+                <div class="risk-title">
+                    <span>⚠️</span>
+                    <span>Investment Risk Warning</span>
+                </div>
+                <div class="risk-text">
+                    Real estate investments carry risks including market volatility, liquidity constraints, and potential capital loss. Rental income is not guaranteed. Property values may fluctuate based on market conditions. NFTs are digital assets subject to technology risks. This is not financial advice - please consult qualified advisors before investing. All investments are subject to German and Estonian regulations.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="legal">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>CoinEstate</h4>
+                    <p>Professional real estate investment through blockchain technology. Regulated, transparent, and accessible fractional ownership of premium properties.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Investment</h4>
+                    <ul class="footer-links">
+                        <li><a href="#property">Current Property</a></li>
+                        <li><a href="#calculator">ROI Calculator</a></li>
+                        <li><a href="#nft-info">NFT Information</a></li>
+                        <li><a href="#">Investment Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Risk Disclosure</a></li>
+                        <li><a href="#">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#faq">Investment FAQ</a></li>
+                        <li><a href="#">Technical Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CoinEstate. All rights reserved. Licensed in Estonia, operating under EU regulations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Investment calculator
+        function updateCalculator() {
+            const investment = parseFloat(document.getElementById('investmentAmount').value) || 0;
+            const period = parseFloat(document.getElementById('investmentPeriod').value) || 1;
+            const yieldRate = parseFloat(document.getElementById('expectedYield').value) || 6;
+            
+            const nftShares = Math.floor(investment / 1000);
+            const annualIncome = investment * (yieldRate / 100);
+            const monthlyIncome = annualIncome / 12;
+            const totalReturn = investment + (annualIncome * period);
+            
+            document.getElementById('nftShares').textContent = nftShares;
+            document.getElementById('monthlyIncome').textContent = `€${Math.round(monthlyIncome)}`;
+            document.getElementById('annualIncome').textContent = `€${Math.round(annualIncome)}`;
+            document.getElementById('totalReturn').textContent = `€${Math.round(totalReturn).toLocaleString()}`;
+        }
+
+        // Sync sliders with inputs
+        function syncSliderInput(sliderId, inputId) {
+            const slider = document.getElementById(sliderId);
+            const input = document.getElementById(inputId);
+            
+            slider.addEventListener('input', function() {
+                input.value = this.value;
+                updateCalculator();
+            });
+            
+            input.addEventListener('input', function() {
+                slider.value = this.value;
+                updateCalculator();
+            });
+        }
+
+        syncSliderInput('investmentSlider', 'investmentAmount');
+        syncSliderInput('periodSlider', 'investmentPeriod');
+        syncSliderInput('yieldSlider', 'expectedYield');
+
+        updateCalculator(); // Initial calculation
+
+        // FAQ functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Email signup
+        function handleEmailSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Here you would typically send to your backend
+            alert(`Thank you! We'll send early access information to ${email}`);
+            event.target.reset();
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('.nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Performance optimization: Intersection Observer for animations
+        if ('IntersectionObserver' in window) {
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                animationObserver.observe(el);
+            });
+        }
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('Error:', e.error);
+        });
+
+        // Add keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals or menus
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

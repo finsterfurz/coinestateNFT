@@ -1,206 +1,139 @@
-# CoinEstate Platform
+# CoinEstate - Real Estate Investment NFTs
 
-**Blockchain-based Real Estate Investment Platform - Technical Demonstration**
+Professional real estate investment platform enabling fractional ownership through NFTs. Invest in premium German properties starting from €1,000.
 
-A modern platform showcasing fractional real estate ownership through blockchain technology. Built with React, Node.js, and Solidity smart contracts.
+## 🏢 Current Investment Opportunity
 
-## 🎯 About This Project
+**Kamp-Lintfort Mixed-Use Property**
+- Purchase Price: €1,795,000
+- Total NFTs: 2,500 (€1,000 each)
+- Rentable Area: 2,103 sqm
+- Expected Yield: 5-7% annually
+- Location: City Center, Kamp-Lintfort, Germany
 
-This is a **technical demonstration** of a full-stack blockchain platform featuring:
-- Modern web development practices
-- Smart contract architecture
-- Web3 integration patterns
-- Automated blockchain services
+## ✨ Features
 
-## 🛠️ Tech Stack
+- **Fractional Ownership**: Each NFT represents €1,000 of direct property ownership
+- **Monthly Income**: USDC distributions from rental income
+- **EU Regulated**: Estonian company formation with full compliance
+- **Blockchain Technology**: Smart contracts for transparent ownership and distributions
+- **Secondary Market**: Trade NFTs for liquidity without traditional real estate delays
 
-### Frontend
-- **React** with TypeScript
-- **GSAP** for animations  
-- **Web3.js** for blockchain interaction
-- **Tailwind CSS** for styling
+## 🚀 Technology Stack
 
-### Smart Contracts
-- **Solidity** with OpenZeppelin standards
-- **Hardhat** development environment
-- **Upgradeable architecture** (UUPS proxy)
-- **Comprehensive testing** suite
+- **Frontend**: Pure HTML/CSS/JavaScript with GSAP animations
+- **Blockchain**: Ethereum-compatible (Polygon/Arbitrum for lower fees)
+- **Smart Contracts**: Solidity-based ownership and distribution contracts
+- **Metadata Storage**: IPFS for NFT metadata and property documentation
+- **Payments**: USDC for income distributions
 
-### Backend
-- **Node.js** with Express
-- **PostgreSQL** for data storage
-- **Redis** for caching
-- **Automated services** for blockchain interaction
+## 📱 Responsive Design
 
-## 📁 Project Architecture
+- Mobile-first approach
+- Glassmorphism design system
+- Smooth animations and transitions
+- Accessibility features (WCAG compliant)
+- Performance optimized
+
+## 🛡️ Security & Compliance
+
+- Smart contracts audited by blockchain security experts
+- Estonian financial regulations compliance
+- German real estate law adherence
+- Risk disclosures and investor protection
+
+## 🏗️ Project Structure
 
 ```
 coinestate-platform/
-├── 🖥️ frontend/              # React Application
-│   ├── src/components/       # UI components with GSAP animations
-│   ├── src/pages/           # Route-based pages
-│   └── src/contexts/        # Web3 integration context
-├── 🏗️ contracts/             # Smart Contracts
-│   ├── contracts/           # Solidity source files
-│   ├── test/               # Comprehensive test suite
-│   └── scripts/            # Deployment automation
-├── 🔧 backend/               # API Server
-│   ├── src/routes/         # RESTful API endpoints
-│   ├── src/services/       # Automated blockchain services
-│   └── src/middleware/     # Authentication & error handling
-└── 📚 docs/                  # Technical documentation
+├── index.html              # Main landing page
+├── README.md               # Project documentation
+├── assets/                 # Static assets
+│   ├── images/            # Property images and icons
+│   ├── documents/         # Legal documents and prospectus
+│   └── contracts/         # Smart contract ABIs
+├── styles/                # CSS modules (if separated)
+├── scripts/               # JavaScript modules (if separated)
+└── docs/                  # Additional documentation
 ```
 
-## 🔍 Key Technical Features
+## 🚦 Getting Started
 
-### **Smart Contract Innovation**
-- ERC20 token with capped supply and burn mechanisms
-- ERC721 NFTs for ownership representation
-- Automated distribution systems
-- Upgradeable proxy patterns
-- Gas-optimized implementations
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/[username]/coinestate-platform.git
+   cd coinestate-platform
+   ```
 
-### **Frontend Excellence**
-- Responsive design with premium animations
-- Real-time blockchain data integration
-- Wallet connection flows
-- TypeScript for type safety
-- Modern React patterns (hooks, context, custom hooks)
+2. **Open locally**
+   ```bash
+   # Simple HTTP server
+   python -m http.server 8000
+   # Or use Live Server extension in VS Code
+   ```
 
-### **Backend Architecture**
-- RESTful API design
-- Automated blockchain monitoring
-- Event-driven architecture
-- Secure authentication patterns
-- Error handling and logging
+3. **Access the application**
+   - Open browser to `http://localhost:8000`
 
-## 🛡️ Security Implementation
+## 📊 Investment Calculator
 
-### **Smart Contract Security**
-- OpenZeppelin battle-tested contracts
-- Reentrancy protection mechanisms
-- Access control patterns
-- Emergency pause functionality
-- Comprehensive audit-ready code
+The platform includes an interactive calculator to help investors:
+- Calculate NFT shares based on investment amount
+- Project monthly and annual income
+- Estimate total returns over time periods
+- Adjust for different yield scenarios
 
-### **Application Security**
-- Input validation and sanitization
-- JWT authentication implementation
-- Rate limiting and DDoS protection
-- Secure environment variable handling
+## 🔮 Roadmap
 
-## 📊 Technical Highlights
+### Phase 1: Platform Launch (Current)
+- [x] Landing page and investor onboarding
+- [x] Investment calculator and property showcase
+- [ ] Smart contract deployment
+- [ ] NFT minting interface
 
-### **Code Examples**
+### Phase 2: Property Acquisition
+- [ ] Complete €2.5M fundraising
+- [ ] Acquire Kamp-Lintfort property
+- [ ] Estonian company formation
+- [ ] Begin rental income generation
 
-#### Smart Contract Patterns
-```solidity
-// Upgradeable proxy pattern
-contract VaultBrickToken is ERC20Upgradeable, OwnableUpgradeable {
-    function mint(address to, uint256 amount) external onlyAuthorized {
-        require(totalSupply() + amount <= MAX_SUPPLY, "Exceeds cap");
-        _mint(to, amount);
-    }
-}
+### Phase 3: Platform Evolution
+- [ ] Secondary NFT marketplace
+- [ ] Additional property investments
+- [ ] DAO governance implementation
+- [ ] Mobile app development
 
-// Security patterns
-modifier onlyAuthorized() {
-    require(authorizedMinters[msg.sender], "Not authorized");
-    _;
-}
-```
+## 💰 Investment Details
 
-#### React Integration
-```typescript
-// Custom Web3 hook
-const useWeb3 = () => {
-    const [account, setAccount] = useState<string>();
-    const [balance, setBalance] = useState<string>('0');
-    
-    const connect = async () => {
-        // Wallet connection logic
-    };
-    
-    return { account, balance, connect };
-};
+**Minimum Investment**: €1,000 (1 NFT)
+**Total Supply**: 2,500 NFTs
+**Management Fee**: 2% annually
+**Income Distribution**: Monthly in USDC
+**Expected Yield**: 5-7% per annum
 
-// Component with Web3 integration
-const VBKSalesWidget: React.FC = () => {
-    const { account, signer } = useWeb3();
-    // Purchase flow implementation
-};
-```
+## ⚖️ Legal & Risk Disclosure
 
-#### Backend Services
-```javascript
-// Automated distribution service
-class AutomatedDistribution {
-    async distributeMonthlyIncome() {
-        const snapshot = await this.createSnapshot();
-        await this.processDistributions(snapshot);
-    }
-    
-    async monitorContractEvents() {
-        // Real-time blockchain monitoring
-    }
-}
-```
+Real estate investments carry inherent risks including:
+- Market volatility and property value fluctuations
+- Liquidity constraints in secondary markets
+- Regulatory changes affecting operations
+- Property management and maintenance costs
 
-## 🏗️ Architecture Decisions
+**This is not financial advice.** Consult qualified advisors before investing.
 
-### **Why This Tech Stack?**
-- **React + TypeScript**: Type safety and modern component patterns
-- **GSAP**: Premium animation capabilities for enhanced UX
-- **Hardhat**: Comprehensive smart contract development environment
-- **OpenZeppelin**: Battle-tested security standards
-- **PostgreSQL**: Reliable data persistence for off-chain data
+## 🤝 Contact & Support
 
-### **Design Patterns Implemented**
-- **Proxy Pattern**: For upgradeable smart contracts
-- **Event Sourcing**: For blockchain state synchronization
-- **Repository Pattern**: For data access abstraction
-- **Factory Pattern**: For contract deployment
-- **Observer Pattern**: For real-time UI updates
-
-## 🎓 Educational Value
-
-This project demonstrates:
-- **Full-stack blockchain development** with modern tools
-- **Smart contract patterns** and security practices  
-- **Web3 integration** in React applications
-- **Automated blockchain services** architecture
-- **Professional development** workflows and testing
-
-Perfect for developers interested in:
-- Blockchain application development
-- Modern React and TypeScript patterns
-- Smart contract architecture
-- Web3 integration techniques
-
-## 📚 Documentation
-
-- [Smart Contract Architecture](./docs/SMART_CONTRACTS.md)
-- [Technical Overview](./PROJECT_OVERVIEW.md)
-
-## 🤝 Technical Discussion
-
-This is a technical demonstration project showcasing modern blockchain development practices. The codebase serves as:
-
-- **Learning Resource** for blockchain developers
-- **Reference Implementation** for Web3 applications  
-- **Portfolio Showcase** of technical capabilities
-- **Educational Tool** for understanding full-stack blockchain development
-
-Feel free to explore the implementation details and use the patterns demonstrated here as reference for your own projects.
+- **Website**: [coinestate.io](https://coinestate.io)
+- **Email**: info@coinestate.io
+- **Support**: support@coinestate.io
+- **Legal**: legal@coinestate.io
 
 ## 📄 License
 
-MIT License - feel free to use this code for learning and reference.
+Copyright © 2024 CoinEstate. All rights reserved.
+
+Licensed under Estonian regulations and EU compliance frameworks.
 
 ---
 
-**Note**: This is a technical demonstration platform showcasing modern blockchain development practices. The codebase is designed for educational purposes and technical reference.
-
-## 🔗 Technical Contact
-
-For technical questions about the implementation or architecture, feel free to reach out through GitHub issues.
+**🏡 Building the future of real estate investment through blockchain technology.**

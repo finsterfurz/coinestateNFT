@@ -1,90 +1,45 @@
 {
   "name": "coinestate-platform",
   "version": "1.0.0",
-  "description": "CoinEstate - Fractional Real Estate Investment Platform",
-  "private": true,
-  "workspaces": [
-    "frontend",
-    "backend",
-    "contracts"
-  ],
+  "description": "Professional real estate investment platform enabling fractional ownership through NFTs",
+  "main": "index.html",
   "scripts": {
-    "install:all": "npm install && npm run install:frontend && npm run install:backend && npm run install:contracts",
-    "install:frontend": "cd frontend && npm install",
-    "install:backend": "cd backend && npm install",
-    "install:contracts": "cd contracts && npm install",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:frontend": "cd frontend && npm start",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:contracts": "cd contracts && npx hardhat node",
-    "build": "npm run build:frontend && npm run build:contracts",
-    "build:frontend": "cd frontend && npm run build",
-    "build:contracts": "cd contracts && npx hardhat compile",
-    "test": "npm run test:frontend && npm run test:backend && npm run test:contracts",
-    "test:frontend": "cd frontend && npm test -- --coverage --watchAll=false",
-    "test:backend": "cd backend && npm test",
-    "test:contracts": "cd contracts && npx hardhat test",
-    "lint": "npm run lint:frontend && npm run lint:backend",
-    "lint:frontend": "cd frontend && npm run lint",
-    "lint:backend": "cd backend && npm run lint",
-    "deploy:contracts:localhost": "cd contracts && npx hardhat deploy --network localhost",
-    "deploy:contracts:goerli": "cd contracts && npx hardhat deploy --network goerli",
-    "deploy:contracts:mainnet": "cd contracts && npx hardhat deploy --network mainnet",
-    "clean": "npm run clean:frontend && npm run clean:backend && npm run clean:contracts",
-    "clean:frontend": "cd frontend && rm -rf build node_modules",
-    "clean:backend": "cd backend && rm -rf node_modules",
-    "clean:contracts": "cd contracts && rm -rf artifacts cache node_modules",
-    "reset": "npm run clean && npm run install:all",
-    "docs": "npm run docs:contracts",
-    "docs:contracts": "cd contracts && npx hardhat docgen",
-    "security": "npm audit --audit-level moderate",
-    "security:fix": "npm audit fix"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
-    }
-  },
-  "lint-staged": {
-    "frontend/src/**/*.{js,jsx,ts,tsx}": [
-      "cd frontend && npm run lint:fix",
-      "git add"
-    ],
-    "backend/src/**/*.js": [
-      "cd backend && npm run lint:fix",
-      "git add"
-    ],
-    "contracts/contracts/**/*.sol": [
-      "cd contracts && npx hardhat compile"
-    ]
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build process required'",
+    "deploy": "echo 'Deploy to hosting platform'",
+    "lint": "eslint scripts/",
+    "format": "prettier --write ."
   },
   "keywords": [
-    "real-estate",
-    "blockchain",
+    "real estate",
     "nft",
-    "defi",
-    "ethereum",
-    "fractional-ownership",
-    "investment"
+    "blockchain",
+    "investment",
+    "fractional ownership",
+    "property",
+    "defi"
   ],
   "author": "CoinEstate Team",
-  "license": "MIT",
+  "license": "Proprietary",
   "repository": {
     "type": "git",
-    "url": "https://github.com/finsterfurz/coinestate-platform.git"
-  },
-  "bugs": {
-    "url": "https://github.com/finsterfurz/coinestate-platform/issues"
+    "url": "git+https://github.com/somidax/coinestate-platform.git"
   },
   "homepage": "https://coinestate.io",
+  "bugs": {
+    "url": "https://github.com/somidax/coinestate-platform/issues",
+    "email": "support@coinestate.io"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0"
+  },
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
-  }
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
