@@ -24,7 +24,9 @@
         }
         
         :root {
-            --primary-900: #0c1526;
+            /* Enhanced color system with better contrast */
+            --primary-950: #020617;
+            --primary-900: #0f172a;
             --primary-800: #1e293b;
             --primary-700: #334155;
             --primary-600: #475569;
@@ -33,28 +35,72 @@
             --primary-300: #cbd5e1;
             --primary-200: #e2e8f0;
             --primary-100: #f1f5f9;
+            --primary-50: #f8fafc;
             
+            /* Improved accent colors with better contrast */
+            --blue-700: #1d4ed8;
             --blue-600: #2563eb;
             --blue-500: #3b82f6;
             --blue-400: #60a5fa;
+            --blue-300: #93c5fd;
+            --blue-100: #dbeafe;
+            
+            --green-600: #059669;
             --green-500: #10b981;
             --green-400: #34d399;
-            --purple-500: #8b5cf6;
-            --yellow-500: #eab308;
-            --red-500: #ef4444;
-            --orange-500: #f97316;
+            --green-100: #d1fae5;
             
-            --glass-bg: rgba(30, 41, 59, 0.4);
-            --glass-border: rgba(148, 163, 184, 0.1);
-            --glass-hover: rgba(59, 130, 246, 0.1);
+            --purple-600: #7c3aed;
+            --purple-500: #8b5cf6;
+            --purple-400: #a78bfa;
+            
+            --yellow-500: #eab308;
+            --yellow-400: #facc15;
+            
+            --red-600: #dc2626;
+            --red-500: #ef4444;
+            --red-100: #fee2e2;
+            
+            --orange-500: #f97316;
+            --orange-400: #fb923c;
+            
+            /* Glass effects with better opacity */
+            --glass-bg: rgba(30, 41, 59, 0.6);
+            --glass-bg-light: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(203, 213, 225, 0.2);
+            --glass-hover: rgba(59, 130, 246, 0.15);
+            
+            /* Enhanced shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--primary-900) 0%, #0f172a 50%, var(--primary-800) 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-950) 0%, var(--primary-900) 50%, var(--primary-800) 100%);
+            color: var(--primary-100);
             min-height: 100vh;
             overflow-x: hidden;
+        }
+        
+        /* SVG Icons as inline styles */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .icon-lg {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .icon-xl {
+            width: 48px;
+            height: 48px;
         }
         
         /* Loading Animation */
@@ -64,7 +110,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-900);
+            background: var(--primary-950);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -79,7 +125,7 @@
         .loading-logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -87,6 +133,7 @@
             font-size: 2rem;
             margin: 0 auto 1rem auto;
             animation: pulse 2s infinite;
+            box-shadow: var(--shadow-xl);
         }
         
         @keyframes pulse {
@@ -108,7 +155,7 @@
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.98);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-xl);
         }
         
         .header-content {
@@ -129,24 +176,24 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
         }
         
         .logo h1 {
             font-size: 1.75rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, var(--blue-400));
+            background: linear-gradient(135deg, var(--primary-50), var(--blue-300));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .logo span {
-            color: var(--primary-400);
+            color: var(--primary-300);
             font-weight: 500;
             font-size: 0.875rem;
         }
@@ -158,15 +205,18 @@
         }
         
         .nav-link {
-            color: var(--primary-400);
+            color: var(--primary-300);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
         
-        .nav-link:hover {
-            color: white;
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--primary-50);
+            outline: none;
         }
         
         .nav-link.active::after {
@@ -181,19 +231,23 @@
         }
         
         .header-cta {
-            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-            color: white;
+            background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+            color: var(--primary-50);
             padding: 0.75rem 1.5rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .header-cta:hover {
+        .header-cta:hover,
+        .header-cta:focus {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow-xl);
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            outline: none;
         }
         
         /* Mobile Navigation */
@@ -201,9 +255,17 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--primary-200);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: var(--glass-bg-light);
+            color: var(--primary-50);
         }
         
         /* Enhanced Hero */
@@ -221,7 +283,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(59,130,246,0.05)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23g1)"/><circle cx="800" cy="700" r="150" fill="url(%23g1)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(59,130,246,0.08)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23g1)"/><circle cx="800" cy="700" r="150" fill="url(%23g1)"/></svg>');
             pointer-events: none;
         }
         
@@ -235,7 +297,7 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             padding: 0.75rem 1.5rem;
@@ -244,13 +306,14 @@
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
             animation: fadeInUp 0.8s ease 0.2s both;
+            box-shadow: var(--shadow-md);
         }
         
         .hero h1 {
             font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, var(--blue-400) 30%, var(--purple-500) 70%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--primary-50) 0%, var(--blue-300) 30%, var(--purple-400) 70%, var(--primary-50) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.1;
@@ -260,7 +323,7 @@
         
         .hero-subtitle {
             font-size: 1.5rem;
-            color: var(--primary-300);
+            color: var(--primary-200);
             margin-bottom: 1rem;
             font-weight: 500;
             animation: fadeInUp 0.8s ease 0.6s both;
@@ -268,7 +331,7 @@
         
         .hero-description {
             font-size: 1.125rem;
-            color: var(--primary-400);
+            color: var(--primary-300);
             margin-bottom: 3rem;
             max-width: 800px;
             margin-left: auto;
@@ -287,17 +350,18 @@
         }
         
         .primary-cta {
-            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-            color: white;
+            background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+            color: var(--primary-50);
             padding: 1.25rem 2.5rem;
             border-radius: 16px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.125rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow-xl);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .primary-cta::before {
@@ -311,9 +375,11 @@
             transition: left 0.5s;
         }
         
-        .primary-cta:hover {
+        .primary-cta:hover,
+        .primary-cta:focus {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4);
+            outline: none;
         }
         
         .primary-cta:hover::before {
@@ -322,7 +388,7 @@
         
         .secondary-cta {
             background: var(--glass-bg);
-            color: white;
+            color: var(--primary-50);
             padding: 1.25rem 2.5rem;
             border-radius: 16px;
             text-decoration: none;
@@ -333,9 +399,12 @@
             backdrop-filter: blur(10px);
         }
         
-        .secondary-cta:hover {
+        .secondary-cta:hover,
+        .secondary-cta:focus {
             border-color: var(--blue-500);
-            background: rgba(59, 130, 246, 0.1);
+            background: var(--glass-hover);
+            transform: translateY(-2px);
+            outline: none;
         }
         
         @keyframes fadeInUp {
@@ -368,7 +437,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 3rem;
-            color: var(--primary-200);
+            color: var(--primary-100);
         }
         
         .trust-grid {
@@ -382,38 +451,43 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem 1.5rem;
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
         }
         
         .trust-item:hover {
             transform: translateY(-5px);
             border-color: var(--blue-500);
+            box-shadow: var(--shadow-xl);
         }
         
         .trust-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            color: var(--primary-50);
+            box-shadow: var(--shadow-lg);
         }
         
         .trust-text {
             font-weight: 600;
-            color: var(--primary-200);
+            color: var(--primary-100);
+            font-size: 1.1rem;
         }
         
         .trust-description {
             font-size: 0.875rem;
-            color: var(--primary-400);
+            color: var(--primary-300);
             text-align: center;
+            line-height: 1.5;
         }
         
         /* Property Showcase */
@@ -432,7 +506,7 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
@@ -442,9 +516,10 @@
         
         .section-subtitle {
             font-size: 1.25rem;
-            color: var(--primary-400);
+            color: var(--primary-300);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
         }
         
         .property-showcase {
@@ -462,7 +537,7 @@
         .property-image {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-700), var(--purple-600));
             border-radius: 24px;
             display: flex;
             align-items: center;
@@ -470,6 +545,8 @@
             font-size: 5rem;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--glass-border);
         }
         
         .property-image::before {
@@ -479,7 +556,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
         }
         
         .property-badges {
@@ -494,12 +571,13 @@
         
         .property-badge {
             background: rgba(16, 185, 129, 0.95);
-            color: white;
+            color: var(--primary-50);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 700;
             backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
         }
         
         .property-info {
@@ -510,16 +588,16 @@
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            color: var(--primary-100);
+            color: var(--primary-50);
         }
         
         .property-location {
-            color: var(--primary-400);
+            color: var(--primary-300);
             font-size: 1.125rem;
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
         
         .property-stats {
@@ -535,6 +613,13 @@
             border-radius: 16px;
             padding: 1.5rem;
             text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
         
         .stat-value {
@@ -550,11 +635,11 @@
         }
         
         .stat-value.area {
-            color: var(--green-500);
+            color: var(--green-400);
         }
         
         .stat-label {
-            color: var(--primary-400);
+            color: var(--primary-300);
             font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -568,18 +653,25 @@
         }
         
         .property-features li {
-            padding: 0.5rem 0;
-            color: var(--primary-300);
+            padding: 0.75rem 0;
+            color: var(--primary-200);
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            font-size: 1rem;
         }
         
         .property-features li::before {
-            content: '✓';
-            color: var(--green-500);
-            font-weight: bold;
-            font-size: 1.125rem;
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--green-500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
         }
         
         /* Enhanced Investment Calculator */
@@ -600,6 +692,7 @@
             border-radius: 24px;
             padding: 3rem;
             margin-top: 2rem;
+            box-shadow: var(--shadow-xl);
         }
         
         .calculator-inputs {
@@ -617,7 +710,7 @@
         
         .input-label {
             font-weight: 600;
-            color: var(--primary-300);
+            color: var(--primary-200);
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -628,7 +721,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 1rem 1.5rem;
-            color: white;
+            color: var(--primary-50);
             font-size: 1.125rem;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -637,16 +730,18 @@
         .input-field:focus {
             outline: none;
             border-color: var(--blue-500);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            background: rgba(15, 23, 42, 0.9);
         }
         
         .input-slider {
             -webkit-appearance: none;
             appearance: none;
             height: 8px;
-            background: var(--primary-700);
+            background: var(--primary-600);
             border-radius: 4px;
             outline: none;
+            cursor: pointer;
         }
         
         .input-slider::-webkit-slider-thumb {
@@ -654,9 +749,16 @@
             appearance: none;
             width: 24px;
             height: 24px;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
             border-radius: 50%;
             cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .input-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
         }
         
         .calculator-results {
@@ -672,11 +774,13 @@
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
         }
         
         .result-card:hover {
             transform: translateY(-5px);
             border-color: var(--blue-500);
+            box-shadow: var(--shadow-xl);
         }
         
         .result-value {
@@ -692,15 +796,15 @@
         }
         
         .result-value.income {
-            color: var(--green-500);
+            color: var(--green-400);
         }
         
         .result-value.yield {
-            color: var(--yellow-500);
+            color: var(--yellow-400);
         }
         
         .result-label {
-            color: var(--primary-400);
+            color: var(--primary-300);
             font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -710,7 +814,7 @@
         /* NFT Information Section */
         .nft-info-section {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08));
         }
         
         .nft-info-content {
@@ -733,46 +837,48 @@
             text-align: center;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
         }
         
         .nft-card:hover {
             transform: translateY(-10px);
             border-color: var(--blue-500);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.25);
         }
         
         .nft-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            color: var(--primary-50);
             margin: 0 auto 1.5rem auto;
+            box-shadow: var(--shadow-lg);
         }
         
         .nft-title {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--primary-100);
+            color: var(--primary-50);
         }
         
         .nft-description {
-            color: var(--primary-400);
+            color: var(--primary-300);
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
         
         .nft-highlight {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.15);
             border: 1px solid var(--blue-500);
             border-radius: 12px;
             padding: 1rem;
             font-weight: 600;
-            color: var(--blue-400);
+            color: var(--blue-300);
         }
         
         /* FAQ Section */
@@ -791,6 +897,12 @@
             border-radius: 16px;
             margin-bottom: 1rem;
             overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
         }
         
         .faq-question {
@@ -800,22 +912,23 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: var(--primary-200);
+            color: var(--primary-100);
             transition: all 0.3s ease;
         }
         
         .faq-question:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: var(--glass-hover);
         }
         
         .faq-icon {
             font-size: 1.25rem;
             transition: transform 0.3s ease;
+            color: var(--blue-400);
         }
         
         .faq-answer {
             padding: 0 2rem 1.5rem 2rem;
-            color: var(--primary-400);
+            color: var(--primary-300);
             line-height: 1.6;
             display: none;
         }
@@ -831,7 +944,7 @@
         /* CTA Section */
         .cta-section {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.12));
             text-align: center;
         }
         
@@ -841,7 +954,7 @@
         }
         
         .cta-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
@@ -851,8 +964,9 @@
         
         .cta-description {
             font-size: 1.25rem;
-            color: var(--primary-400);
+            color: var(--primary-300);
             margin-bottom: 3rem;
+            line-height: 1.6;
         }
         
         .email-capture {
@@ -860,41 +974,53 @@
             gap: 1rem;
             max-width: 500px;
             margin: 0 auto 2rem auto;
+            box-shadow: var(--shadow-lg);
+            border-radius: 16px;
+            overflow: hidden;
         }
         
         .email-input {
             flex: 1;
             padding: 1rem 1.5rem;
             border: 1px solid var(--glass-border);
-            border-radius: 12px;
+            border-radius: 12px 0 0 12px;
             background: var(--glass-bg);
-            color: white;
+            color: var(--primary-50);
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: var(--blue-500);
+            background: rgba(15, 23, 42, 0.8);
         }
         
         .email-input::placeholder {
-            color: var(--primary-500);
+            color: var(--primary-400);
         }
         
         .email-submit {
-            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-            color: white;
+            background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+            color: var(--primary-50);
             border: none;
             padding: 1rem 2rem;
-            border-radius: 12px;
+            border-radius: 0 12px 12px 0;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .email-submit:hover {
+        .email-submit:hover,
+        .email-submit:focus {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            outline: none;
         }
         
         /* Footer */
         .footer {
-            background: var(--primary-900);
+            background: var(--primary-950);
             padding: 4rem 2rem 2rem 2rem;
             border-top: 1px solid var(--glass-border);
         }
@@ -914,19 +1040,21 @@
         .footer-section h4 {
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--primary-200);
+            color: var(--primary-100);
         }
         
         .footer-section p,
         .footer-section a {
-            color: var(--primary-400);
+            color: var(--primary-300);
             text-decoration: none;
             line-height: 1.6;
             transition: color 0.3s ease;
         }
         
-        .footer-section a:hover {
-            color: var(--blue-400);
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: var(--blue-300);
+            outline: none;
         }
         
         .footer-links {
@@ -942,30 +1070,31 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid var(--glass-border);
-            color: var(--primary-500);
+            color: var(--primary-400);
             font-size: 0.875rem;
         }
         
         /* Risk Disclosure */
         .risk-disclosure {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(220, 38, 38, 0.1);
             border: 1px solid var(--red-500);
             border-radius: 16px;
             padding: 2rem;
             margin: 2rem 0;
+            box-shadow: var(--shadow-md);
         }
         
         .risk-title {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             font-weight: 700;
             color: var(--red-500);
             margin-bottom: 1rem;
         }
         
         .risk-text {
-            color: var(--primary-300);
+            color: var(--primary-200);
             font-size: 0.875rem;
             line-height: 1.6;
         }
@@ -1009,6 +1138,15 @@
             
             .email-capture {
                 flex-direction: column;
+                border-radius: 16px;
+            }
+            
+            .email-input {
+                border-radius: 12px;
+            }
+            
+            .email-submit {
+                border-radius: 12px;
             }
             
             .trust-grid {
@@ -1059,17 +1197,130 @@
         /* High contrast mode */
         @media (prefers-contrast: high) {
             :root {
-                --glass-bg: rgba(0, 0, 0, 0.8);
-                --glass-border: rgba(255, 255, 255, 0.3);
+                --glass-bg: rgba(0, 0, 0, 0.9);
+                --glass-border: rgba(255, 255, 255, 0.4);
+                --primary-300: #ffffff;
+                --primary-400: #ffffff;
             }
+        }
+        
+        /* Focus styles for better accessibility */
+        *:focus {
+            outline: 2px solid var(--blue-500);
+            outline-offset: 2px;
+        }
+        
+        .btn:focus,
+        .primary-cta:focus,
+        .secondary-cta:focus,
+        .header-cta:focus {
+            outline: 2px solid var(--blue-300);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
+    <!-- SVG Sprite for Icons -->
+    <svg style="display: none;">
+        <defs>
+            <!-- Building Icon -->
+            <symbol id="icon-building" viewBox="0 0 24 24">
+                <path d="M3 21h18v-2H3v2zM5 10h2v2H5v-2zM5 6h2v2H5V6zM9 10h2v2H9v-2zM9 6h2v2H9V6zM9 14h2v2H9v-2zM13 10h2v2h-2v-2zM13 6h2v2h-2V6zM13 14h2v2h-2v-2zM17 10h2v2h-2v-2zM17 6h2v2h-2V6zM17 14h2v2h-2v-2zM3 8h18V4H3v4z"/>
+            </symbol>
+            
+            <!-- Shield Icon -->
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+            </symbol>
+            
+            <!-- Chart Icon -->
+            <symbol id="icon-chart" viewBox="0 0 24 24">
+                <path d="M3 17v4h4l11-11-4-4L3 17z"/>
+                <path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75 1.84-1.83z"/>
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+            
+            <!-- Money Icon -->
+            <symbol id="icon-money" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+                <path d="M16 8a6 6 0 11-10.3 0"/>
+                <path d="M8 16a6 6 0 1010.3 0"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="12" x2="16" y2="16"/>
+            </symbol>
+            
+            <!-- Palette Icon for NFT -->
+            <symbol id="icon-palette" viewBox="0 0 24 24">
+                <circle cx="13.5" cy="6.5" r=".5"/>
+                <circle cx="17.5" cy="10.5" r=".5"/>
+                <circle cx="8.5" cy="7.5" r=".5"/>
+                <circle cx="6.5" cy="12.5" r=".5"/>
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+            </symbol>
+            
+            <!-- Diamond Icon -->
+            <symbol id="icon-diamond" viewBox="0 0 24 24">
+                <polygon points="6,3 18,3 21,9 12,20 3,9"/>
+                <polygon points="6,3 12,9 18,3"/>
+                <polygon points="6,9 12,20 18,9"/>
+            </symbol>
+            
+            <!-- Refresh Icon -->
+            <symbol id="icon-refresh" viewBox="0 0 24 24">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 003.51 15"/>
+            </symbol>
+            
+            <!-- Location Icon -->
+            <symbol id="icon-location" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+            </symbol>
+            
+            <!-- Target Icon -->
+            <symbol id="icon-target" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+            </symbol>
+            
+            <!-- Rocket Icon -->
+            <symbol id="icon-rocket" viewBox="0 0 24 24">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/>
+                <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </symbol>
+            
+            <!-- Menu Icon -->
+            <symbol id="icon-menu" viewBox="0 0 24 24">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+            </symbol>
+            
+            <!-- Warning Icon -->
+            <symbol id="icon-warning" viewBox="0 0 24 24">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </symbol>
+        </defs>
+    </svg>
+
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <div class="loading-logo">🏢</div>
+            <div class="loading-logo">
+                <svg class="icon icon-xl">
+                    <use href="#icon-building"></use>
+                </svg>
+            </div>
             <h3>CoinEstate</h3>
             <p>Loading investment opportunity...</p>
         </div>
@@ -1079,7 +1330,11 @@
     <header class="header" id="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-icon">🏢</div>
+                <div class="logo-icon">
+                    <svg class="icon icon-lg">
+                        <use href="#icon-building"></use>
+                    </svg>
+                </div>
                 <div>
                     <h1>CoinEstate</h1>
                     <span>Real Estate Investment NFTs</span>
@@ -1093,7 +1348,11 @@
                 <a href="#legal" class="nav-link">Legal</a>
                 <a href="#invest" class="header-cta">Get Early Access</a>
             </nav>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <svg class="icon">
+                    <use href="#icon-menu"></use>
+                </svg>
+            </button>
         </div>
     </header>
 
@@ -1101,7 +1360,9 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
-                <span>🎯</span>
+                <svg class="icon">
+                    <use href="#icon-target"></use>
+                </svg>
                 <span>Live Investment • €1,795,000 Property • Kamp-Lintfort, Germany</span>
             </div>
             
@@ -1113,7 +1374,12 @@
             </p>
             
             <div class="hero-cta-group">
-                <a href="#invest" class="primary-cta">🚀 Start Investing</a>
+                <a href="#invest" class="primary-cta">
+                    <svg class="icon" style="margin-right: 0.5rem;">
+                        <use href="#icon-rocket"></use>
+                    </svg>
+                    Start Investing
+                </a>
                 <a href="#property" class="secondary-cta">View Property Details</a>
             </div>
         </div>
@@ -1125,22 +1391,38 @@
             <h3 class="trust-title">Trusted Investment Platform</h3>
             <div class="trust-grid">
                 <div class="trust-item">
-                    <div class="trust-icon">🏛️</div>
+                    <div class="trust-icon">
+                        <svg class="icon icon-lg">
+                            <use href="#icon-building"></use>
+                        </svg>
+                    </div>
                     <div class="trust-text">Estonian Licensed</div>
                     <div class="trust-description">Official company formation & EU compliance</div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-icon">
+                        <svg class="icon icon-lg">
+                            <use href="#icon-shield"></use>
+                        </svg>
+                    </div>
                     <div class="trust-text">Smart Contract Audited</div>
                     <div class="trust-description">Security verified by blockchain experts</div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">📊</div>
+                    <div class="trust-icon">
+                        <svg class="icon icon-lg">
+                            <use href="#icon-chart"></use>
+                        </svg>
+                    </div>
                     <div class="trust-text">2,500 NFTs Total</div>
                     <div class="trust-description">Limited fractional ownership available</div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">💰</div>
+                    <div class="trust-icon">
+                        <svg class="icon icon-lg">
+                            <use href="#icon-money"></use>
+                        </svg>
+                    </div>
                     <div class="trust-text">Monthly Distributions</div>
                     <div class="trust-description">Consistent income payments in USDC</div>
                 </div>
@@ -1163,14 +1445,18 @@
                             <div class="property-badge">Mixed-Use Building</div>
                             <div class="property-badge" style="background: rgba(59, 130, 246, 0.95);">✓ Verified</div>
                         </div>
-                        <span style="z-index: 2; position: relative;">🏢</span>
+                        <svg class="icon" style="width: 120px; height: 120px; z-index: 2; position: relative; color: rgba(255,255,255,0.8);">
+                            <use href="#icon-building"></use>
+                        </svg>
                     </div>
                 </div>
                 
                 <div class="property-info">
                     <h3 class="property-title">Kamp-Lintfort Center</h3>
                     <p class="property-location">
-                        <span>📍</span>
+                        <svg class="icon">
+                            <use href="#icon-location"></use>
+                        </svg>
                         <span>City Center, Kamp-Lintfort, Germany</span>
                     </p>
                     
@@ -1216,7 +1502,11 @@
             
             <div class="nft-grid scroll-reveal">
                 <div class="nft-card">
-                    <div class="nft-icon">🎨</div>
+                    <div class="nft-icon">
+                        <svg class="icon icon-xl">
+                            <use href="#icon-palette"></use>
+                        </svg>
+                    </div>
                     <h3 class="nft-title">Digital Ownership</h3>
                     <p class="nft-description">
                         Each NFT is a unique digital certificate representing €1,000 of direct property ownership. 
@@ -1226,7 +1516,11 @@
                 </div>
                 
                 <div class="nft-card">
-                    <div class="nft-icon">💎</div>
+                    <div class="nft-icon">
+                        <svg class="icon icon-xl">
+                            <use href="#icon-diamond"></use>
+                        </svg>
+                    </div>
                     <h3 class="nft-title">Fractional Ownership</h3>
                     <p class="nft-description">
                         Own a proportional share of the property with rights to rental income, 
@@ -1236,7 +1530,11 @@
                 </div>
                 
                 <div class="nft-card">
-                    <div class="nft-icon">🔄</div>
+                    <div class="nft-icon">
+                        <svg class="icon icon-xl">
+                            <use href="#icon-refresh"></use>
+                        </svg>
+                    </div>
                     <h3 class="nft-title">Tradeable Assets</h3>
                     <p class="nft-description">
                         NFTs can be traded on secondary markets, providing liquidity 
@@ -1395,7 +1693,9 @@
             
             <div class="risk-disclosure">
                 <div class="risk-title">
-                    <span>⚠️</span>
+                    <svg class="icon">
+                        <use href="#icon-warning"></use>
+                    </svg>
                     <span>Investment Risk Warning</span>
                 </div>
                 <div class="risk-text">
@@ -1546,6 +1846,13 @@
             event.preventDefault();
             const email = event.target.querySelector('input[type="email"]').value;
             
+            // Enhanced email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
             // Here you would typically send to your backend
             alert(`Thank you! We'll send early access information to ${email}`);
             event.target.reset();
@@ -1565,10 +1872,26 @@
             });
         });
 
-        // Mobile menu functionality
+        // Enhanced mobile menu functionality
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             const nav = document.querySelector('.nav');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            const isVisible = nav.style.display === 'flex';
+            
+            if (isVisible) {
+                nav.style.display = 'none';
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                nav.style.display = 'flex';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = 'var(--primary-900)';
+                nav.style.flexDirection = 'column';
+                nav.style.padding = '1rem';
+                nav.style.borderTop = '1px solid var(--glass-border)';
+                this.setAttribute('aria-expanded', 'true');
+            }
         });
 
         // Performance optimization: Intersection Observer for animations
@@ -1601,6 +1924,55 @@
                 document.querySelectorAll('.faq-item.active').forEach(item => {
                     item.classList.remove('active');
                 });
+                
+                // Close mobile menu
+                const nav = document.querySelector('.nav');
+                if (nav.style.display === 'flex') {
+                    nav.style.display = 'none';
+                    document.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+
+        // Improved form validation
+        function validateForm(form) {
+            const inputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'var(--red-500)';
+                } else {
+                    input.style.borderColor = 'var(--glass-border)';
+                }
+            });
+            
+            return isValid;
+        }
+
+        // Add focus management for better accessibility
+        const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                const focusable = Array.from(document.querySelectorAll(focusableElements))
+                    .filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+                
+                const firstFocusable = focusable[0];
+                const lastFocusable = focusable[focusable.length - 1];
+                
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusable) {
+                        lastFocusable.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusable) {
+                        firstFocusable.focus();
+                        e.preventDefault();
+                    }
+                }
             }
         });
     </script>
