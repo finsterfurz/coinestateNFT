@@ -1,33 +1,36 @@
 {
-  "name": "coinestate-platform",
+  "name": "coinestate-nft",
   "version": "1.0.0",
-  "description": "Professional real estate investment platform enabling fractional ownership through NFTs",
+  "description": "Fractional real estate ownership through NFTs - Direct property investment starting from €1,000",
   "main": "index.html",
   "scripts": {
     "dev": "python -m http.server 8000",
     "build": "echo 'Static site - no build process required'",
-    "deploy": "echo 'Deploy to hosting platform'",
-    "lint": "eslint scripts/",
-    "format": "prettier --write ."
+    "deploy": "vercel deploy",
+    "lint": "eslint js/",
+    "format": "prettier --write .",
+    "contracts": "cd contracts && npm run compile && npm run test"
   },
   "keywords": [
     "real estate",
     "nft",
-    "blockchain",
-    "investment",
     "fractional ownership",
-    "property",
-    "defi"
+    "property investment",
+    "blockchain",
+    "ethereum",
+    "defi",
+    "kamp-lintfort",
+    "germany"
   ],
   "author": "CoinEstate Team",
   "license": "Proprietary",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/somidax/coinestate-platform.git"
+    "url": "git+https://github.com/finsterfurz/coinestateNFT.git"
   },
   "homepage": "https://coinestate.io",
   "bugs": {
-    "url": "https://github.com/somidax/coinestate-platform/issues",
+    "url": "https://github.com/finsterfurz/coinestateNFT/issues",
     "email": "support@coinestate.io"
   },
   "devDependencies": {
@@ -35,7 +38,7 @@
     "prettier": "^2.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "browserslist": [
     "> 1%",
