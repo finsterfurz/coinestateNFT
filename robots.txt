@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://coinestate.io/sitemap.xml
+
+# Block common bot paths
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /test/
+Disallow: /staging/
+
+# Allow important resources
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay for politeness
+Crawl-delay: 1
