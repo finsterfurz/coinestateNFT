@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinEstate - Invest in German Real Estate Through NFTs | €1,795,000 Kamp-Lintfort Property</title>
+    <meta name="description" content="Fractional property ownership through NFTs. Invest in premium German real estate starting from €1,000. Expected 5-7% annual yield from rental income.">
+    
+    <!-- Web3 Dependencies -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
+    <script type="module" src="js/web3-integration.js"></script>
+    
+    <!-- Existing head content... -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    
+    <!-- Existing styles... -->
+    <style>
+        /* All existing styles from original index.html */
+        /* Plus new Web3 integration styles... */
+        
+        .web3-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .connect-wallet-btn {
+            background: linear-gradient(135deg, var(--purple-600), var(--blue-600));
+            color: var(--primary-50);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 1rem;
+        }
+        
+        .connect-wallet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .purchase-section {
+            display: none;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .purchase-section.show {
+            display: block;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .quantity-btn {
+            background: var(--primary-700);
+            border: 1px solid var(--glass-border);
+            color: var(--primary-100);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--blue-600);
+        }
+        
+        .quantity-display {
+            background: var(--primary-800);
+            border: 1px solid var(--glass-border);
+            color: var(--primary-100);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            min-width: 80px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .cost-display {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .cost-label {
+            color: var(--primary-300);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-value {
+            color: var(--blue-400);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .wallet-status {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .wallet-status.connected {
+            display: block;
+            border-color: var(--green-500);
+        }
+        
+        .sales-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--blue-400);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--primary-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+        
+        .progress-bar {
+            background: var(--primary-700);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--blue-500), var(--green-500));
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Header with Wallet Connection -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">🏢</div>
+                <div><h1>CoinEstate</h1></div>
+            </a>
+            <nav class="nav">
+                <a href="#property" class="nav-link active">Investment</a>
+                <a href="#calculator" class="nav-link">Calculator</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="connectWallet" class="connect-wallet-btn" onclick="window.coinEstateWeb3?.connectWallet()">
+                    Connect Wallet
+                </button>
+                <div id="walletInfo" class="wallet-status"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced Hero with Real-time Data -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🏢 Live Investment • €1,795,000 Property • Kamp-Lintfort, Germany</span>
+            </div>
+            
+            <h1>Invest in German Real Estate Through NFTs</h1>
+            <p class="hero-subtitle">Fractional property ownership starting from €1,000</p>
+            <p class="hero-description">
+                Own shares of a prime mixed-use property in Kamp-Lintfort city center. 
+                Each NFT represents direct ownership with monthly income distribution in USDC.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">€1.795M</div>
+                    <div class="hero-stat-label">Property Value</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">5-7%</div>
+                    <div class="hero-stat-label">Expected Yield</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-stat="available">2,500</div>
+                    <div class="hero-stat-label">NFTs Available</div>
+                </div>
+            </div>
+            
+            <!-- Real-time Sales Progress -->
+            <div class="progress-bar">
+                <div id="salesProgress" class="progress-fill"></div>
+            </div>
+            
+            <div class="hero-cta-group">
+                <a href="#investment" class="cta-button">Start Investing</a>
+                <a href="#property" class="secondary-cta">View Property Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web3 Investment Section -->
+    <section class="web3-section" id="investment">
+        <div class="container">
+            <h2 class="section-title">Purchase Property NFTs</h2>
+            <p class="section-subtitle">
+                Connect your wallet to purchase fractional ownership NFTs
+            </p>
+            
+            <!-- Real-time Sales Stats -->
+            <div class="sales-stats">
+                <div class="stat-card">
+                    <div class="stat-value" data-stat="sold">0</div>
+                    <div class="stat-label">NFTs Sold</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-stat="available">2,500</div>
+                    <div class="stat-label">Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-stat="raised">€0</div>
+                    <div class="stat-label">Funds Raised</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-stat="price">€1,000</div>
+                    <div class="stat-label">Price per NFT</div>
+                </div>
+            </div>
+            
+            <!-- Purchase Interface -->
+            <div id="purchaseInterface" class="purchase-section">
+                <h3>Select Quantity</h3>
+                
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="adjustQuantity(-1)">−</button>
+                    <div id="quantityDisplay" class="quantity-display">1</div>
+                    <button class="quantity-btn" onclick="adjustQuantity(1)">+</button>
+                </div>
+                
+                <div class="cost-display">
+                    <div class="cost-label">Total Cost</div>
+                    <div id="totalCost" class="cost-value">€1,000</div>
+                </div>
+                
+                <button id="purchaseButton" class="cta-button" onclick="purchaseNFTs()">
+                    Purchase NFTs
+                </button>
+                
+                <p style="font-size: 0.875rem; color: var(--primary-400); margin-top: 1rem;">
+                    ⚠️ Ensure you're connected to the correct network before purchasing
+                </p>
+            </div>
+            
+            <div id="connectPrompt" class="web3-section">
+                <h3>Connect Your Wallet</h3>
+                <p>Connect your Web3 wallet to purchase CoinEstate NFTs</p>
+                <button class="cta-button" onclick="window.coinEstateWeb3?.connectWallet()">
+                    🦊 Connect MetaMask
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rest of existing content... -->
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <!-- Existing trust section content -->
+    </section>
+
+    <!-- Property Section -->
+    <section class="property-section" id="property">
+        <!-- Existing property section content -->
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <!-- Existing calculator content -->
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <!-- Existing FAQ content -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <!-- Existing footer content -->
+    </footer>
+
+    <script>
+        // Enhanced JavaScript with Web3 Integration
+        let currentQuantity = 1;
+        const pricePerNFT = 1000; // €1,000 per NFT
+        
+        function adjustQuantity(change) {
+            const newQuantity = currentQuantity + change;
+            if (newQuantity >= 1 && newQuantity <= 50) {
+                currentQuantity = newQuantity;
+                updatePurchaseDisplay();
+            }
+        }
+        
+        function updatePurchaseDisplay() {
+            document.getElementById('quantityDisplay').textContent = currentQuantity;
+            document.getElementById('totalCost').textContent = `€${(currentQuantity * pricePerNFT).toLocaleString()}`;
+        }
+        
+        async function purchaseNFTs() {
+            if (window.coinEstateWeb3 && window.coinEstateWeb3.isConnected) {
+                try {
+                    await window.coinEstateWeb3.buyNFTs(currentQuantity);
+                } catch (error) {
+                    console.error('Purchase failed:', error);
+                }
+            } else {
+                alert('Please connect your wallet first');
+            }
+        }
+        
+        // Update UI based on wallet connection status
+        function updateConnectionStatus(isConnected) {
+            const purchaseInterface = document.getElementById('purchaseInterface');
+            const connectPrompt = document.getElementById('connectPrompt');
+            
+            if (isConnected) {
+                purchaseInterface.classList.add('show');
+                connectPrompt.style.display = 'none';
+            } else {
+                purchaseInterface.classList.remove('show');
+                connectPrompt.style.display = 'block';
+            }
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            updatePurchaseDisplay();
+            updateConnectionStatus(false);
+        });
+        
+        // Listen for Web3 connection changes
+        window.addEventListener('web3Connected', (event) => {
+            updateConnectionStatus(true);
+        });
+        
+        window.addEventListener('web3Disconnected', () => {
+            updateConnectionStatus(false);
+        });
+        
+        // Existing JavaScript functionality...
+        // (All the existing calculator, FAQ, scroll effects, etc.)
+    </script>
+</body>
+</html>
