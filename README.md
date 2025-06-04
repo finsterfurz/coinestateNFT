@@ -1,120 +1,49 @@
-# CoinEstate - Fractional Real Estate NFTs
+# CoinEstate - Invest in German Real Estate Through NFTs
 
-Professional real estate investment platform enabling direct property ownership through NFTs. Invest in premium German properties starting from €1,000.
+**Fractional property ownership starting from €1,000**
 
 ## 🏢 Current Investment Opportunity
 
 **Kamp-Lintfort Mixed-Use Property**
 - **Property Value**: €1,795,000
-- **Total NFTs**: 2,500 (€1,000 each)
-- **Rentable Area**: 2,103 sqm (1,009 sqm residential + 1,094 sqm commercial)
-- **Expected Yield**: 5-7% annually
+- **Investment Options**: 2,500 NFTs at €1,000 each
+- **Expected Annual Yield**: 5-7%
 - **Location**: City Center, Kamp-Lintfort, Germany
+- **Property Type**: Mixed residential & commercial (2,103 sqm)
 
 ## ✨ How It Works
 
-- **Direct Ownership**: Each NFT = €1,000 fractional property ownership
-- **Monthly Income**: USDC distributions from rental income
-- **Instant Liquidity**: Trade NFTs on secondary markets
-- **Transparent**: All transactions on blockchain
+1. **Purchase NFTs**: Each NFT represents €1,000 of direct property ownership
+2. **Receive Income**: Monthly USDC payments from rental income
+3. **Trade Anytime**: Sell your NFTs on secondary markets for instant liquidity
+4. **EU Regulated**: Estonian company formation with full compliance
+
+## 💰 Investment Benefits
+
+- **Low Minimum**: Start with just €1,000 (vs €100,000+ traditional property)
+- **Monthly Income**: Consistent rental yield distributions
+- **Instant Liquidity**: Trade NFTs without lengthy property sales
+- **Transparent**: All transactions recorded on blockchain
+- **Professional Management**: 2% annual fee for full property management
+
+## 🛡️ Security & Legal
+
 - **EU Compliant**: Estonian company formation
+- **German Property Law**: Full regulatory compliance
+- **Smart Contracts**: Audited blockchain technology
+- **Investor Protection**: Complete risk disclosures
 
-## 🚀 Technology Stack
+## 🚀 Get Started
 
-- **Smart Contracts**: Solidity-based ownership and income distribution
-- **Blockchain**: Ethereum-compatible (Polygon/Arbitrum for lower fees)
-- **Frontend**: HTML/CSS/JavaScript with GSAP animations
-- **Metadata**: IPFS for NFT metadata and property documentation
-- **Payments**: Direct ETH/USDC, no token complexity
+Visit our platform at **[coinestate.io](https://coinestate.io)** to:
+- View detailed property information
+- Calculate your potential returns
+- Join the early access list
+- Learn about the investment process
 
-## 🏗️ Project Architecture
+## ⚠️ Investment Risk Warning
 
-```
-coinestateNFT/
-├── contracts/              # Smart contracts
-│   ├── PropertyNFT.sol    # Main NFT contract
-│   ├── VaultBrickSales.sol # Sales management
-│   └── test/              # Contract tests
-├── frontend/              # Web interface
-├── backend/               # API server
-├── index.html             # Landing page
-└── docs/                  # Documentation
-```
-
-## 💰 Investment Details
-
-| Aspect | Details |
-|--------|---------|
-| **Minimum Investment** | €1,000 (1 NFT) |
-| **Total Supply** | 2,500 NFTs |
-| **Property Value** | €1,795,000 |
-| **Management Fee** | 2% annually |
-| **Income Distribution** | Monthly in USDC |
-| **Expected Yield** | 5-7% per annum |
-
-## 🚦 Development Status
-
-### ✅ Completed
-- [x] Smart contract architecture
-- [x] Landing page with investment calculator
-- [x] PropertyNFT contract with income distribution
-- [x] Professional UI/UX design
-- [x] Security implementations
-
-### 🔄 In Progress
-- [ ] Smart contract deployment to testnet
-- [ ] Web3 wallet integration
-- [ ] NFT minting interface
-- [ ] Estonian company formation
-
-### 📅 Planned
-- [ ] Property acquisition (€1.795M)
-- [ ] Income distribution automation
-- [ ] Secondary marketplace
-- [ ] Additional properties
-
-## 🛡️ Security Features
-
-- **Audited Contracts**: OpenZeppelin security patterns
-- **Access Controls**: Multi-signature and role-based permissions
-- **Emergency Controls**: Pause functionality for security incidents
-- **Transparent Operations**: All transactions publicly verifiable
-
-## 🌍 Legal Compliance
-
-- **Estonian Entity**: EU-regulated company formation
-- **German Real Estate Law**: Full compliance with property regulations
-- **Risk Disclosures**: Complete investor protection measures
-- **Tax Compliance**: Proper reporting and documentation
-
-## 🚀 Quick Start
-
-```bash
-# Clone repository
-git clone https://github.com/finsterfurz/coinestateNFT.git
-cd coinestateNFT
-
-# View landing page
-python -m http.server 8000
-# Open http://localhost:8000
-
-# Smart contracts
-cd contracts
-npm install
-npx hardhat compile
-npx hardhat test
-```
-
-## ⚠️ Investment Risks
-
-Real estate investments carry inherent risks:
-- Property value fluctuations
-- Rental income variability  
-- Market liquidity constraints
-- Regulatory changes
-- Technology risks
-
-**This is not financial advice.** Consult qualified advisors before investing.
+Real estate investments carry risks including market volatility, property value fluctuations, and potential loss of capital. Rental income is not guaranteed. This is not financial advice - consult qualified advisors before investing.
 
 ## 📞 Contact
 
@@ -124,4 +53,4 @@ Real estate investments carry inherent risks:
 
 ---
 
-**🏡 Direct property ownership through blockchain technology**
+**Building the future of real estate investment through blockchain technology**
