@@ -499,60 +499,6 @@
             font-size: 1.05rem;
         }
 
-        /* Quick Preview Section */
-        .quick-preview {
-            background: white;
-        }
-
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .preview-card {
-            background: var(--gradient-bg);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid var(--border);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .preview-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .preview-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .preview-card h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .preview-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .coming-soon-badge {
-            background: var(--warning);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
-        }
-
         /* Legal Notice */
         .legal-notice {
             background: rgba(0, 212, 255, 0.05);
@@ -711,10 +657,6 @@
             .section {
                 padding: 4rem 0;
             }
-
-            .preview-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -724,10 +666,6 @@
             
             .hero-content {
                 padding: 5rem 0 2rem;
-            }
-
-            .preview-card {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -750,7 +688,6 @@
             
             <ul class="nav-links">
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#features-preview">Features</a></li>
                 <li><a href="#legal-transparency">Legal</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
             </ul>
@@ -774,7 +711,7 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span>🚀</span>
-                    <span>EU-Compliant Real Estate Communities</span>
+                    <span>Launching Juli 2025 - EU-Compliant Real Estate Communities</span>
                 </div>
                 
                 <h1>Real Estate Membership<br>Reimagined for Web3</h1>
@@ -784,13 +721,13 @@
                 </p>
                 
                 <div class="hero-cta">
-                    <button class="btn-primary" id="mintNFT">
-                        <span>🏆</span>
-                        <span>Join Waitlist</span>
+                    <button class="btn-primary" id="joinWaitlist">
+                        <span>🎯</span>
+                        <span>Join Juli 2025 Waitlist</span>
                     </button>
-                    <a href="#whitepaper" class="btn-secondary">
+                    <a href="#legal-transparency" class="btn-secondary">
                         <span>📖</span>
-                        <span>Read Whitepaper</span>
+                        <span>Legal Framework</span>
                     </a>
                 </div>
                 
@@ -817,76 +754,20 @@
             <div class="steps-grid">
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">1</div>
-                    <h3>Mint NFT Membership</h3>
-                    <p>Purchase an NFT to join a specific real estate community. Each property has its own limited collection, granting exclusive access and lifelong participation rights in that community. NFTs include timestamped mint records for full transparency.</p>
+                    <h3>Mint Kamp-Lintfort NFT</h3>
+                    <p>Purchase an NFT (0.15 ETH) to join the Kamp-Lintfort property community. Limited to 500 NFTs with lifelong membership rights and upgrade options to Gold/Platin tiers.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">2</div>
-                    <h3>Access Gated Property Insights</h3>
-                    <p>Access gated, non-commercial property insights and dashboards for informational purposes only. Track property performance through detailed analytics, renovation updates, and market insights with blockchain-verified reporting.</p>
+                    <h3>Access Member Dashboard</h3>
+                    <p>Get exclusive access to property analytics, financial transparency reports, and community features. Track performance and participate in non-binding governance discussions.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>Non-binding Community Participation</h3>
-                    <p>Non-binding participation in community discussions about future property projects. Advisory voting only with no financial consequence or decision-making power, ensuring full legal compliance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Preview -->
-    <section class="section quick-preview" id="features-preview">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Coming Soon: Full Platform Experience</h2>
-                <p class="section-subtitle">
-                    We're building comprehensive features for the ultimate real estate community platform
-                </p>
-            </div>
-            
-            <div class="preview-grid">
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">🏢</div>
-                    <h4>Interactive Property Tours</h4>
-                    <p>Virtual 3D tours, neighborhood insights, and transparent performance data for each property in our collection.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">📊</div>
-                    <h4>Member Dashboard</h4>
-                    <p>Comprehensive analytics, community features, governance participation, and NFT management in one place.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">❓</div>
-                    <h4>Enhanced FAQ System</h4>
-                    <p>Searchable knowledge base covering legal compliance, NFT utility, property details, and community governance.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">👥</div>
-                    <h4>Team Profiles</h4>
-                    <p>Detailed backgrounds of our leadership team, advisory board, and trusted partners with full transparency.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">🗳️</div>
-                    <h4>Community Governance</h4>
-                    <p>Non-binding advisory voting, proposal discussions, and community input on property-related decisions.</p>
-                    <span class="coming-soon-badge">Q2 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">⚖️</div>
-                    <h4>Legal Transparency Hub</h4>
-                    <p>Real-time compliance status, regulatory updates, financial transparency, and legal documentation access.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
+                    <h3>Benefit from Future Expansion</h3>
+                    <p>Enjoy tier-based discounts on future services post-MiCA compliance. Early members gain priority access to international properties and enhanced platform features.</p>
                 </div>
             </div>
         </div>
@@ -895,6 +776,13 @@
     <!-- Legal Notice -->
     <section class="section" id="legal-transparency">
         <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Legal Transparency & Compliance</h2>
+                <p class="section-subtitle">
+                    Full regulatory compliance with ongoing legal oversight and transparent operations
+                </p>
+            </div>
+            
             <div class="legal-notice animate-on-scroll">
                 <h3>🏛️ Legal Transparency & Compliance Framework</h3>
                 <p>
@@ -910,37 +798,27 @@
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Development Roadmap</h2>
                 <p class="section-subtitle">
-                    Our path to regulatory compliance and community empowerment
+                    Our path from property acquisition to international expansion and MiCA compliance
                 </p>
             </div>
             
-            <div class="preview-grid">
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">🏗️</div>
-                    <h4>Phase 1: Foundation</h4>
-                    <p>Platform launch with first NFT collection, legal entity establishment, and initial property acquisition via compliant GmbH structure.</p>
-                    <span class="coming-soon-badge">Q1 2025</span>
+            <div class="steps-grid">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">Q3</div>
+                    <h3>Foundation Launch</h3>
+                    <p>Property acquisition, smart contract deployment, NFT minting, and community platform launch with tier system activation.</p>
                 </div>
                 
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">👥</div>
-                    <h4>Phase 2: Community Growth</h4>
-                    <p>Enhanced features, non-binding governance (DAO-lite), comprehensive dashboards, and transparent revenue reporting with 90% income freezing.</p>
-                    <span class="coming-soon-badge">Q2 2025</span>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">Q4</div>
+                    <h3>Community Building</h3>
+                    <p>Enhanced member dashboard, transparent revenue reporting, non-binding governance activation, and 6-month operating history for MiCA preparation.</p>
                 </div>
                 
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">⚖️</div>
-                    <h4>Phase 3: MiCA Application</h4>
-                    <p>Formal MiCA regulatory compliance application, enhanced governance structures, and preparation for community benefits activation.</p>
-                    <span class="coming-soon-badge">Q4 2025</span>
-                </div>
-                
-                <div class="preview-card animate-on-scroll">
-                    <div class="preview-icon">🚀</div>
-                    <h4>Phase 4: Rights Activation</h4>
-                    <p>Upon MiCA approval: unlock frozen revenue streams, introduce compliant community benefits, and scale with full regulatory compliance.</p>
-                    <span class="coming-soon-badge">2026</span>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">2026</div>
+                    <h3>MiCA Application</h3>
+                    <p>Submit formal MiCA application, enhanced legal framework, and preparation for revenue unfreeze with compliant community benefits.</p>
                 </div>
             </div>
         </div>
@@ -950,16 +828,16 @@
     <section class="section" style="background: white; text-align: center;">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Stay Updated</h2>
+                <h2 class="section-title">Join the Juli 2025 Launch</h2>
                 <p class="section-subtitle">
-                    Join our community to get early access to features and be notified when NFT minting begins
+                    Be among the first to mint Kamp-Lintfort NFTs and secure your place in the future of real estate community membership
                 </p>
             </div>
             
             <div class="hero-cta animate-on-scroll">
                 <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
                     <span>💬</span>
-                    <span>Join Discord Community</span>
+                    <span>Join Discord für Juli Launch</span>
                 </button>
                 <button class="btn-secondary" onclick="window.open('https://t.me/coinestate', '_blank')">
                     <span>✈️</span>
@@ -985,46 +863,41 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Platform</h4>
-                    <a href="#">Member Dashboard (Coming Soon)</a>
-                    <a href="#">Mint NFT (Coming Soon)</a>
-                    <a href="#">Community Governance</a>
-                    <a href="#">Property Analytics</a>
-                    <a href="#">Roadmap Status</a>
+                    <h4>Kamp-Lintfort Collection</h4>
+                    <a href="#">Property Details</a>
+                    <a href="#">Juli 2025 Mint Info</a>
+                    <a href="#">Tier System Guide</a>
+                    <a href="#">Member Benefits</a>
+                    <a href="#">Waitlist Registration</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Legal & Compliance</h4>
-                    <a href="#">Legal Transparency Page</a>
+                    <a href="#">MiCA Compliance Status</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Privacy Policy</a>
-                    <a href="#">MiCA Compliance Status</a>
-                    <a href="#">Regulatory FAQ</a>
-                    <a href="#">Compliance Reports</a>
-                    <a href="#">Imprint</a>
+                    <a href="#">Revenue Transparency</a>
+                    <a href="#">Estonian Registration</a>
+                    <a href="#">Legal Opinions</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Resources</h4>
-                    <a href="#">Whitepaper (Coming Soon)</a>
-                    <a href="#">Smart Contract Audits</a>
-                    <a href="#">Technical Documentation</a>
-                    <a href="#">Community FAQ</a>
-                    <a href="#">Security Reports</a>
-                    <a href="#">Legal Archive</a>
+                    <h4>Community Resources</h4>
+                    <a href="#">Discord Community</a>
+                    <a href="#">Member Dashboard (Soon)</a>
+                    <a href="#">NFT Tier Calculator</a>
+                    <a href="#">Future Roadmap</a>
+                    <a href="#">FAQ & Support</a>
                 </div>
             </div>
             
             <div class="footer-disclaimer">
                 <p>
-                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs are non-financial digital assets providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. No financial returns, profits, yields, or investment benefits are provided, promised, or implied. All governance participation is purely advisory with no financial consequence or decision-making power. CoinEstate commits to full alignment with MiCA Article 4(1)(d) (NFT exclusion clause), reviewed at each new issuance.
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    Past performance does not guarantee future results. Cryptocurrency and NFT investments carry significant risks including total loss of value. Community proposals remain symbolic unless and until full legal compliance is reached under MiCA or successor regulation. Please read our comprehensive legal disclaimers and consult with qualified professionals before participating.
+                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs sind non-financial digital assets die ausschließlich Platform-Zugang und Membership-Benefits gewähren. Sie stellen keine Wertpapiere unter EU-Finanzregulierung dar und gewähren keine Ansprüche auf Umsätze, Dividenden oder Eigentumsanteile. Keine finanziellen Renditen, Gewinne oder Investment-Benefits werden bereitgestellt, versprochen oder impliziert. Alle Governance-Teilnahme ist rein beratend ohne finanzielle Konsequenzen. Tier-basierte Rabatte gelten für zukünftige Platform-Services nach MiCA-Compliance.
                 </p>
                 <p style="margin-top: 1.5rem; opacity: 0.8;">
-                    &copy; 2024 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
-                    Regular compliance reviews conducted by EU-licensed legal counsel.
+                    &copy; 2025 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
+                    Kamp-Lintfort Collection Launch: Juli 2025 | Property Acquisition: Juni 2025
                 </p>
             </div>
         </div>
@@ -1037,13 +910,13 @@
                 this.isConnected = false;
                 this.currentAccount = null;
                 this.walletButton = document.getElementById('walletConnect');
-                this.mintButton = document.getElementById('mintNFT');
+                this.waitlistButton = document.getElementById('joinWaitlist');
                 this.init();
             }
 
             init() {
                 this.walletButton.addEventListener('click', () => this.toggleConnection());
-                this.mintButton.addEventListener('click', () => this.handleMint());
+                this.waitlistButton.addEventListener('click', () => this.handleWaitlist());
                 this.checkExistingConnection();
             }
 
@@ -1083,7 +956,7 @@
                     });
                     
                     this.handleConnectionSuccess(accounts[0]);
-                    this.showNotification('Wallet connected successfully!', 'success');
+                    this.showNotification('Wallet connected! Ready for Juli 2025 launch.', 'success');
                 } catch (error) {
                     console.error('Wallet connection failed:', error);
                     this.showNotification('Wallet connection failed. Please try again.', 'error');
@@ -1112,8 +985,8 @@
                 this.walletButton.disabled = false;
             }
 
-            handleMint() {
-                this.showNotification('Join our Discord to get notified when minting begins!', 'info');
+            handleWaitlist() {
+                this.showNotification('Join our Discord for Juli 2025 launch updates!', 'info');
                 setTimeout(() => {
                     window.open('https://discord.gg/coinestate', '_blank');
                 }, 2000);
@@ -1174,8 +1047,7 @@
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
                             // Add staggered animation for grid items
-                            if (entry.target.parentElement.classList.contains('steps-grid') ||
-                                entry.target.parentElement.classList.contains('preview-grid')) {
+                            if (entry.target.parentElement.classList.contains('steps-grid')) {
                                 const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
                                 entry.target.style.animationDelay = `${delay}ms`;
                             }
