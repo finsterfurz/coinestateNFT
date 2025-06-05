@@ -499,6 +499,83 @@
             font-size: 1.05rem;
         }
 
+        /* Quick Preview Section */
+        .quick-preview {
+            background: white;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .preview-card {
+            background: var(--gradient-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .preview-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .preview-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .preview-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .coming-soon-badge {
+            background: var(--warning);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Legal Notice */
+        .legal-notice {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .legal-notice h3 {
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .legal-notice p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         /* Footer */
         .footer {
             background: var(--primary);
@@ -634,6 +711,10 @@
             .section {
                 padding: 4rem 0;
             }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -643,6 +724,10 @@
             
             .hero-content {
                 padding: 5rem 0 2rem;
+            }
+
+            .preview-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -665,9 +750,9 @@
             
             <ul class="nav-links">
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#dashboard-preview">Dashboard</a></li>
-                <li><a href="#trust">Team</a></li>
-                <li><a href="#legal">Legal</a></li>
+                <li><a href="#features-preview">Features</a></li>
+                <li><a href="#legal-transparency">Legal</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -701,11 +786,11 @@
                 <div class="hero-cta">
                     <button class="btn-primary" id="mintNFT">
                         <span>🏆</span>
-                        <span>Mint Your NFT</span>
+                        <span>Join Waitlist</span>
                     </button>
-                    <a href="#how-it-works" class="btn-secondary">
+                    <a href="#whitepaper" class="btn-secondary">
                         <span>📖</span>
-                        <span>Learn More</span>
+                        <span>Read Whitepaper</span>
                     </a>
                 </div>
                 
@@ -733,44 +818,153 @@
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">1</div>
                     <h3>Mint NFT Membership</h3>
-                    <p>Purchase an NFT to join a specific real estate community. Each property has its own limited collection, granting exclusive access and lifelong participation rights in that community.</p>
+                    <p>Purchase an NFT to join a specific real estate community. Each property has its own limited collection, granting exclusive access and lifelong participation rights in that community. NFTs include timestamped mint records for full transparency.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">2</div>
-                    <h3>Access Premium Dashboard</h3>
-                    <p>Access gated, non-commercial property insights and dashboards for informational purposes only. Track property performance through detailed analytics and market insights.</p>
+                    <h3>Access Gated Property Insights</h3>
+                    <p>Access gated, non-commercial property insights and dashboards for informational purposes only. Track property performance through detailed analytics, renovation updates, and market insights with blockchain-verified reporting.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>Join Community Governance</h3>
-                    <p>Non-binding participation in community discussions about future property projects. Advisory voting only with no financial consequence, ensuring full legal compliance.</p>
+                    <h3>Non-binding Community Participation</h3>
+                    <p>Non-binding participation in community discussions about future property projects. Advisory voting only with no financial consequence or decision-making power, ensuring full legal compliance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Coming Soon -->
-    <section class="section" id="dashboard-preview" style="background: var(--bg-secondary); text-align: center;">
+    <!-- Features Preview -->
+    <section class="section quick-preview" id="features-preview">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Dashboard Preview Coming Soon</h2>
+                <h2 class="section-title">Coming Soon: Full Platform Experience</h2>
                 <p class="section-subtitle">
-                    Interactive property dashboard, team profiles, and comprehensive FAQ system are being finalized
+                    We're building comprehensive features for the ultimate real estate community platform
                 </p>
             </div>
             
-            <div class="step-card animate-on-scroll" style="max-width: 600px; margin: 0 auto;">
-                <div style="font-size: 4rem; margin-bottom: 2rem;">🚧</div>
-                <h3>Enhanced Features In Development</h3>
-                <p>We're putting the finishing touches on interactive property visualization, comprehensive FAQ system, and detailed team profiles. Join our Discord to get early access!</p>
-                <div style="margin-top: 2rem;">
-                    <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
-                        <span>💬</span>
-                        <span>Join Discord Community</span>
-                    </button>
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🏢</div>
+                    <h4>Interactive Property Tours</h4>
+                    <p>Virtual 3D tours, neighborhood insights, and transparent performance data for each property in our collection.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
                 </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">📊</div>
+                    <h4>Member Dashboard</h4>
+                    <p>Comprehensive analytics, community features, governance participation, and NFT management in one place.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">❓</div>
+                    <h4>Enhanced FAQ System</h4>
+                    <p>Searchable knowledge base covering legal compliance, NFT utility, property details, and community governance.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">👥</div>
+                    <h4>Team Profiles</h4>
+                    <p>Detailed backgrounds of our leadership team, advisory board, and trusted partners with full transparency.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🗳️</div>
+                    <h4>Community Governance</h4>
+                    <p>Non-binding advisory voting, proposal discussions, and community input on property-related decisions.</p>
+                    <span class="coming-soon-badge">Q2 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">⚖️</div>
+                    <h4>Legal Transparency Hub</h4>
+                    <p>Real-time compliance status, regulatory updates, financial transparency, and legal documentation access.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Notice -->
+    <section class="section" id="legal-transparency">
+        <div class="container">
+            <div class="legal-notice animate-on-scroll">
+                <h3>🏛️ Legal Transparency & Compliance Framework</h3>
+                <p>
+                    CoinEstate operates under a comprehensive EU compliance framework with Estonian incorporation (CoinEstate OÜ, Registry Code: 16284726) and German property holding structure. We maintain 90% revenue freezing protocols until MiCA regulatory compliance, ensuring maximum legal protection while building toward future community benefits activation under proper regulatory oversight. Regular compliance reviews by EU-licensed counsel ensure continued regulatory alignment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Preview -->
+    <section class="section" id="roadmap" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Development Roadmap</h2>
+                <p class="section-subtitle">
+                    Our path to regulatory compliance and community empowerment
+                </p>
+            </div>
+            
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🏗️</div>
+                    <h4>Phase 1: Foundation</h4>
+                    <p>Platform launch with first NFT collection, legal entity establishment, and initial property acquisition via compliant GmbH structure.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">👥</div>
+                    <h4>Phase 2: Community Growth</h4>
+                    <p>Enhanced features, non-binding governance (DAO-lite), comprehensive dashboards, and transparent revenue reporting with 90% income freezing.</p>
+                    <span class="coming-soon-badge">Q2 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">⚖️</div>
+                    <h4>Phase 3: MiCA Application</h4>
+                    <p>Formal MiCA regulatory compliance application, enhanced governance structures, and preparation for community benefits activation.</p>
+                    <span class="coming-soon-badge">Q4 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🚀</div>
+                    <h4>Phase 4: Rights Activation</h4>
+                    <p>Upon MiCA approval: unlock frozen revenue streams, introduce compliant community benefits, and scale with full regulatory compliance.</p>
+                    <span class="coming-soon-badge">2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community -->
+    <section class="section" style="background: white; text-align: center;">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Stay Updated</h2>
+                <p class="section-subtitle">
+                    Join our community to get early access to features and be notified when NFT minting begins
+                </p>
+            </div>
+            
+            <div class="hero-cta animate-on-scroll">
+                <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
+                    <span>💬</span>
+                    <span>Join Discord Community</span>
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://t.me/coinestate', '_blank')">
+                    <span>✈️</span>
+                    <span>Follow on Telegram</span>
+                </button>
             </div>
         </div>
     </section>
@@ -792,8 +986,8 @@
                 
                 <div class="footer-section">
                     <h4>Platform</h4>
-                    <a href="#">Member Dashboard</a>
-                    <a href="#">Mint NFT</a>
+                    <a href="#">Member Dashboard (Coming Soon)</a>
+                    <a href="#">Mint NFT (Coming Soon)</a>
                     <a href="#">Community Governance</a>
                     <a href="#">Property Analytics</a>
                     <a href="#">Roadmap Status</a>
@@ -801,29 +995,35 @@
                 
                 <div class="footer-section">
                     <h4>Legal & Compliance</h4>
-                    <a href="#">Legal Transparency</a>
+                    <a href="#">Legal Transparency Page</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Privacy Policy</a>
-                    <a href="#">MiCA Compliance</a>
+                    <a href="#">MiCA Compliance Status</a>
                     <a href="#">Regulatory FAQ</a>
+                    <a href="#">Compliance Reports</a>
+                    <a href="#">Imprint</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Resources</h4>
-                    <a href="#">Whitepaper</a>
+                    <a href="#">Whitepaper (Coming Soon)</a>
                     <a href="#">Smart Contract Audits</a>
                     <a href="#">Technical Documentation</a>
                     <a href="#">Community FAQ</a>
                     <a href="#">Security Reports</a>
+                    <a href="#">Legal Archive</a>
                 </div>
             </div>
             
             <div class="footer-disclaimer">
                 <p>
-                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs are non-financial digital assets providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. No financial returns, profits, yields, or investment benefits are provided, promised, or implied. All governance participation is purely advisory with no financial consequence.
+                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs are non-financial digital assets providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. No financial returns, profits, yields, or investment benefits are provided, promised, or implied. All governance participation is purely advisory with no financial consequence or decision-making power. CoinEstate commits to full alignment with MiCA Article 4(1)(d) (NFT exclusion clause), reviewed at each new issuance.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Past performance does not guarantee future results. Cryptocurrency and NFT investments carry significant risks including total loss of value. Community proposals remain symbolic unless and until full legal compliance is reached under MiCA or successor regulation. Please read our comprehensive legal disclaimers and consult with qualified professionals before participating.
                 </p>
                 <p style="margin-top: 1.5rem; opacity: 0.8;">
-                    &copy; 2025 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
+                    &copy; 2024 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
                     Regular compliance reviews conducted by EU-licensed legal counsel.
                 </p>
             </div>
@@ -831,7 +1031,7 @@
     </footer>
 
     <script>
-        // Enhanced Wallet Connection
+        // Enhanced Wallet Connection with Better UX
         class WalletManager {
             constructor() {
                 this.isConnected = false;
@@ -913,12 +1113,10 @@
             }
 
             handleMint() {
-                if (!this.isConnected) {
-                    this.showNotification('Please connect your wallet first.', 'warning');
-                    return;
-                }
-                
-                this.showNotification('Minting will be available at launch! Join our Discord for early access.', 'info');
+                this.showNotification('Join our Discord to get notified when minting begins!', 'info');
+                setTimeout(() => {
+                    window.open('https://discord.gg/coinestate', '_blank');
+                }, 2000);
             }
 
             showNotification(message, type = 'info') {
@@ -975,7 +1173,9 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
-                            if (entry.target.parentElement.classList.contains('steps-grid')) {
+                            // Add staggered animation for grid items
+                            if (entry.target.parentElement.classList.contains('steps-grid') ||
+                                entry.target.parentElement.classList.contains('preview-grid')) {
                                 const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
                                 entry.target.style.animationDelay = `${delay}ms`;
                             }
@@ -1001,7 +1201,7 @@
             }
         }
 
-        // Smooth Scrolling
+        // Smooth Scrolling Enhancement
         class SmoothScrolling {
             constructor() {
                 this.init();
@@ -1042,7 +1242,7 @@
             }
         }
 
-        // Initialize everything
+        // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new WalletManager();
             new ScrollAnimations();
@@ -1050,7 +1250,7 @@
             new MobileMenu();
         });
 
-        // Interactive background
+        // Add some interactive elements
         document.addEventListener('mousemove', (e) => {
             const shapes = document.querySelectorAll('.shape');
             const x = e.clientX / window.innerWidth;
