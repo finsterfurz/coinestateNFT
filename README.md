@@ -1,278 +1,266 @@
-# 🏠 CoinEstate - The Future of Real Estate Membership
+# CoinEstate NFT - Real Estate Membership Platform
 
-> **EU-Compliant Real Estate Communities Through NFT Membership**
+> **🚀 Development Status**: Pre-Launch Development Phase | **Target Launch**: Juli 2025
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![MiCA Compliant](https://img.shields.io/badge/MiCA-Preparing-orange.svg)](https://www.esma.europa.eu/)
-[![Security Audited](https://img.shields.io/badge/Security-Audited-green.svg)](https://certik.com/)
 [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://finsterfurz.github.io/coinestateNFT/)
 
-## 🎯 Vision
+## 🏠 Project Overview
 
-CoinEstate revolutionizes real estate investment by creating **exclusive property communities** through NFT membership. Join transparent, legally-compliant communities where you can:
+CoinEstate NFT is revolutionizing real estate community membership through blockchain technology. Our platform provides transparent access to property insights, non-binding governance participation, and exclusive community benefits for a premium mixed-use property complex in Kamp-Lintfort, Germany.
 
-- 🏢 **Access Premium Properties** - Interactive tours and insights into Kamp-Lintfort and future international locations
-- 📊 **Comprehensive Analytics** - Real-time property performance dashboards with market data
-- 🗳️ **Community Governance** - Non-binding advisory voting on property decisions
-- ⚖️ **Legal Compliance** - EU-regulated with MiCA preparation and revenue freezing protocols
-- 💎 **Utility NFTs** - Membership tokens with real community benefits, not financial instruments
+### 🎯 Mission Statement
+Democratizing access to premium commercial real estate communities while maintaining full legal compliance and regulatory transparency.
 
-## 🚀 **Recent Updates (June 2025)**
+## 🏢 **Kamp-Lintfort Mixed-Use Complex**
 
-### **Enhanced Landing Page (Major Update)**
-We've significantly improved our platform with two distinct landing page experiences:
+### **Property Portfolio Overview**
+- **Total Investment**: €1,795,000
+- **Location**: Downtown Kamp-Lintfort Shopping District, NRW, Germany
+- **Property Type**: Mixed-use commercial and residential complex
+- **Total Plot Size**: 1,797 m²
 
-#### **📱 Main Landing Page (`index.html`)**
-- **Streamlined Experience**: Focus on core value proposition and Juli 2025 launch
-- **Mobile-First Design**: Optimized for fast loading and mobile engagement
-- **Essential Sections**: How It Works, Legal Transparency, Roadmap, Community
-- **Call-to-Action Focused**: Direct paths to Discord community and waitlist registration
+### **Building Details**
+```
+Haus I (Built 1967)
+├── 3½-story commercial building
+├── Rear extensions included
+└── Oil central heating (shared with Haus II)
 
-#### **🎯 Comprehensive Version (`comprehensive-index.html`)**
-- **Complete Feature Showcase**: All platform capabilities in one comprehensive experience
-- **Interactive Dashboard Preview**: Fully functional member dashboard simulation
-- **Detailed Team Profiles**: Complete leadership and advisory board sections
-- **Advanced Property Showcase**: Kamp-Lintfort collection with financial transparency
-- **NFT Tier System**: Standard, Gold, and Platinum membership levels
-- **Full Legal Framework**: Comprehensive compliance and transparency sections
+Haus II (Built 1976)  
+├── 3½-story commercial building
+├── Oil central heating (shared with Haus I)
+└── Modern commercial spaces
 
-### **Key Improvements**
-✅ **Juli 2025 Launch Focus** - Clear messaging about upcoming Kamp-Lintfort launch  
-✅ **Enhanced Legal Transparency** - Detailed compliance status and MiCA preparation  
-✅ **Interactive Elements** - Dashboard preview with functional tabs and simulated data  
-✅ **Mobile Optimization** - Improved responsive design for all devices  
-✅ **Performance** - Faster loading times with optimized assets and code  
-
-## 🌟 Comprehensive Landing Page Features
-
-### 🏛️ **Legal Transparency & Compliance**
-- **Real-time compliance status** with MiCA Article 4(1)(d) alignment
-- **Revenue transparency dashboard** showing 90% income freezing
-- **Regulatory timeline** with Q4 2025 MiCA application target
-- **Banking transparency** with Swedbank Estonia segregated accounts
-
-### 🏠 **Kamp-Lintfort Property Showcase**
-- **Detailed property metrics** - 24 units, 92% occupancy, €18,400 monthly income
-- **Strategic location** - 45 minutes to Düsseldorf, 15 minutes to Netherlands
-- **NFT collection details** - 500 NFTs at 0.15 ETH on Polygon network
-- **Financial transparency** - Complete income/expense breakdown with 90% freezing
-
-### 💎 **NFT Tier System**
-- **Standard NFT (1-9 NFTs)**: Core community access and analytics
-- **Gold NFT (10+ NFTs)**: 20% discount on future services + enhanced benefits  
-- **Platinum NFT (100+ NFTs)**: Maximum discount level (up to 90%) + exclusive access
-
-### 👥 **Team & Trust Section**
-- **Leadership profiles** with verified credentials and backgrounds
-- **Advisory board** featuring EU regulation experts and real estate professionals
-- **Trusted partners** including legal counsel, auditors, and property managers
-- **Social proof** with community stats and testimonials
-
-### 📊 **Interactive Dashboard Preview**
-- **Property overview** with real-time data and recent updates
-- **Analytics visualization** with market performance charts
-- **Community features** with discussion previews and member benefits
-- **Governance simulation** showing advisory voting processes
-- **NFT showcase** with metadata and benefit tracking
-
-### 🗺️ **Development Roadmap**
-- **Phase 1 (Juli-September 2025)**: Kamp-Lintfort launch and NFT minting
-- **Phase 2 (Oktober 2025-März 2026)**: Community building and analytics enhancement
-- **Phase 3 (Q2 2026)**: MiCA application and regulatory compliance
-- **Phase 4 (Q3 2026+)**: International expansion and Airbnb-style services
-
-## 🚀 **Getting Started**
-
-### **For Users:**
-1. **Visit Landing Page** - Experience comprehensive feature preview at [finsterfurz.github.io/coinestateNFT](https://finsterfurz.github.io/coinestateNFT/)
-2. **Connect Wallet** - MetaMask or Web3 wallet on Polygon network
-3. **Join Community** - Discord access for early members and Juli 2025 updates
-4. **Stay Updated** - Waitlist for Kamp-Lintfort NFT launch
-
-### **For Developers:**
-```bash
-# Clone repository
-git clone https://github.com/finsterfurz/coinestateNFT.git
-cd coinestateNFT
-
-# View the main landing page
-open index.html
-
-# View the comprehensive version
-open comprehensive-index.html
-
-# Deploy to GitHub Pages
-# Enable GitHub Pages in repository settings
+Haus III (Built 1920)
+├── 3½-story commercial building  
+├── Historic building with character
+├── Rear extensions included
+└── Gas central heating (independent)
 ```
 
-## 📋 **Development Progress**
+### **Space Allocation**
+- **Commercial Space**: 1,094 m² (prime downtown retail/office)
+- **Residential Space**: 1,009 m² (apartments and living units)
+- **Parking**: 4 garages + 11 parking spaces
+- **Strategic Location**: Accessible downtown shopping zone
 
-### ✅ **Completed (June 2025)**
-- [x] **Enhanced landing page** with Juli 2025 launch focus
-- [x] **Comprehensive feature showcase** with all platform capabilities
-- [x] **Interactive dashboard preview** with functional tabs and simulated data
-- [x] **Legal framework** (Estonia + Germany entities)
-- [x] **Team profiles** and trust indicators with verified credentials
-- [x] **Mobile responsive** design with advanced animations
-- [x] **Wallet integration** with MetaMask support
+## 💎 **NFT Collection Details**
 
-### 🚧 **In Development (Q3 2025)**
-- [ ] **Property acquisition** (Kamp-Lintfort - 24 units)
-- [ ] **Smart contract deployment** on Polygon mainnet
-- [ ] **Backend API** for member authentication
-- [ ] **Real dashboard** replacing preview version
-- [ ] **Community platform** integration with Discord
+### **Collection Overview**
+- **Total NFTs**: 2,500 NFTs
+- **Mint Price**: €1,000 per NFT
+- **Total Collection Value**: €2,500,000
+- **Property Coverage**: €1,795,000 (72% of collection value)
+- **Operational Reserve**: €705,000 (28% for platform, legal, operations)
 
-### 🎯 **Upcoming (Q4 2025 - Q2 2026)**
-- [ ] **First NFT collection** launch (Kamp-Lintfort - 500 NFTs at 0.15 ETH)
-- [ ] **Live property data** integration with German systems
-- [ ] **Governance implementation** with binding advisory votes
-- [ ] **MiCA application** submission for regulatory compliance
-- [ ] **Additional properties** (international expansion)
+### **Membership Tiers**
+- **Standard Tier** (1-9 NFTs): Community access and property analytics
+- **Gold Tier** (10+ NFTs): 20% discount on future services + enhanced benefits  
+- **Platinum Tier** (100+ NFTs): Maximum discounts (up to 90%) + exclusive access
 
-## 🏗️ **Technical Architecture**
+### **Revenue Model**
+- **Revenue Source**: Commercial rent + residential rent from 3-building complex
+- **Transparency**: 90% income legally frozen until EU MiCA compliance
+- **Reporting**: Real-time revenue dashboard for community members
+- **Distribution**: Post-compliance benefit activation planned
 
-### **Frontend**
-- **Landing Page**: Responsive HTML5 with modern CSS animations and interactive elements
-- **Property Tours**: Interactive visualization components with real property data
-- **Dashboard Preview**: Fully functional member portal simulation with multiple tabs
-- **Wallet Integration**: Web3.js with multi-wallet support and connection status
+## 🛠️ Technology Stack
 
-### **Blockchain**
-- **Network**: Polygon (low fees, eco-friendly)
-- **Smart Contracts**: ERC-721 NFT membership with utility functions
-- **Security**: Multi-signature wallets with timelock mechanisms
-- **Audits**: CertiK and Quantstamp verified contracts
+### **Smart Contracts**
+- **Standard**: ERC-721 with custom tier system
+- **Network**: Polygon (MATIC) for low transaction costs
+- **Total Supply**: 2,500 NFTs (property-specific collection)
+- **Upgrade System**: Automatic tier progression based on holdings
 
-### **Backend**
-- **API**: Node.js/Express for member verification and data
-- **Database**: PostgreSQL for property data and member analytics
-- **Integration**: German property management and legal systems
-- **Compliance**: Automated regulatory reporting and income freezing
+### **Frontend & Backend**
+- **Frontend**: React 18 + TypeScript + Tailwind CSS
+- **Backend**: Node.js + PostgreSQL + Express
+- **Web3**: Ethers.js for blockchain interaction
+- **Storage**: IPFS for NFT metadata and property documents
 
-## ⚖️ **Legal Compliance Framework**
+### **Property Integration**
+- **Property Management**: Direct integration with property management systems
+- **Revenue Tracking**: Real-time income monitoring and reporting
+- **Legal Compliance**: EU MiCA regulation compliance framework
+- **Transparency Dashboard**: Live property performance metrics
 
-### **Regulatory Status**
-- ✅ **Estonian Digital Assets Framework** - Active compliance (CoinEstate OÜ - Registry: 16284726)
-- ✅ **German Real Estate Law** - GmbH property ownership structure
-- 🔄 **MiCA Regulation** - Preparing formal application for Q4 2025
-- ✅ **GDPR** - Privacy-compliant data handling and member protection
+## ⚖️ **Legal & Compliance Framework**
 
-### **Enhanced Legal Protections**
-- **90% Income Freezing** - Revenue held in segregated accounts until MiCA compliance
-- **Non-Securities Structure** - NFTs provide community access only, no financial returns
-- **Advisory Governance** - All voting non-binding with no financial consequences
-- **Regular Legal Review** - 6-month compliance audits by EU-licensed counsel
+### **EU MiCA Regulation Compliance**
+- **Classification**: Utility tokens (non-financial assets)
+- **Article 4(1)(d)**: NFT exclusion qualification strategy
+- **Revenue Freeze**: 90% legally restricted until regulatory approval
+- **Legal Review**: Ongoing EU compliance monitoring
 
-### **Critical Disclaimers**
-> **CoinEstate NFTs are non-financial digital assets** providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity.
+### **Corporate Structure**
+```
+Estonian Jurisdiction (Planned Q2 2025)
+├── CoinEstate OÜ: Platform operations and NFT technology
+└── German Property Holding: Real estate ownership and management
 
-- **No Investment Returns**: NFTs provide community benefits and access only
-- **No Financial Rights**: No profit-sharing, dividends, or revenue distribution
-- **Advisory Only**: All governance participation is purely advisory without financial impact
-- **Compliance First**: All operations structured to maintain regulatory alignment
+Property Acquisition
+├── Purchase Price: €1,795,000
+├── Financing: NFT collection proceeds (€2,500,000)
+├── Legal Structure: Transparent ownership through German GmbH
+└── Management: Professional property management services
+```
 
-## 🏢 **Property Portfolio**
+## 📊 **Financial Transparency**
 
-### **Active Development**
-- **Kamp-Lintfort Collection** - 24-unit residential complex (Nordrhein-Westfalen)
-  - 📍 Strategic location: 45 min to Düsseldorf, 15 min to Netherlands border
-  - 🏗️ Built 2018, modern amenities, currently 92% occupied
-  - 💰 €18,400 monthly income (90% frozen for compliance)
-  - 🎫 500 NFTs at 0.15 ETH each (Juli 2025 launch)
+### **Collection Economics**
+```
+NFT Collection Revenue: €2,500,000
+├── Property Acquisition: €1,795,000 (71.8%)
+├── Legal & Compliance: €200,000 (8.0%)
+├── Platform Development: €300,000 (12.0%)
+├── Marketing & Operations: €150,000 (6.0%)
+└── Reserve Fund: €55,000 (2.2%)
+```
 
-### **Future Pipeline**
-- **International Expansion** - Thailand and Spain properties (Q3 2026+)
-- **Airbnb-Style Services** - Booking platform for member properties
-- **Commercial Real Estate** - Office and retail spaces in major cities
+### **Property Revenue Potential**
+- **Commercial Rent**: Premium downtown location pricing
+- **Residential Income**: Stable rental income from apartments
+- **Total Annual Revenue**: Estimated based on local market rates
+- **Member Benefits**: Tier-based discounts on future platform services
 
-## 🤝 **Community & Engagement**
+## 👨‍💼 **Team & Development**
 
-### **Community Stats**
-- **Discord Members**: 1,847+ (growing 15% monthly)
-- **NFT Pre-orders**: 247 reserved (49% of Kamp-Lintfort supply)
-- **Community Rating**: 4.9/5 (based on 150+ reviews)
-- **Security Record**: Zero incidents to date
+### **Current Team**
+- **Founder & CEO**: Solo developer with legal-first approach
+- **Advisory Board**: Recruiting Q3 2025 (EU legal, property, blockchain experts)
+- **Property Management**: Local Kamp-Lintfort property management partner
+- **Legal Counsel**: EU MiCA compliance specialists (planned engagement)
 
-### **Join the Community**
-- **Discord**: [Join Juli 2025 Launch Updates](https://discord.gg/coinestate)
-- **Twitter**: [@CoinEstate](https://twitter.com/coinestate)
-- **Telegram**: [CoinEstate Official](https://t.me/coinestate)
-- **Email**: team@coinestate.io
+### **Development Strategy**
+- **Solo Development**: Focused approach with strategic outsourcing
+- **Community Building**: Discord/Telegram community growth
+- **Legal Priority**: Compliance-first development methodology
+- **Scalable Architecture**: Built for multi-property expansion
+
+## 🗓️ **Development Roadmap**
+
+### **Q2 2025: Foundation**
+- [ ] Smart contract development (ERC-721 with 2,500 NFT supply)
+- [ ] Property acquisition finalization (€1,795,000)
+- [ ] Estonian entity registration (CoinEstate OÜ)
+- [ ] Legal compliance framework completion
+
+### **Juli 2025: Launch**
+- [ ] Public NFT minting (2,500 NFTs at €1,000 each)
+- [ ] Property community platform activation
+- [ ] Member dashboard with real-time property data
+- [ ] Tier system and governance implementation
+
+### **Q4 2025: Scale**
+- [ ] EU MiCA compliance application
+- [ ] Revenue transparency reporting
+- [ ] Advisory board completion
+- [ ] International expansion planning
+
+## 🎯 **Investment & Community Metrics**
+
+### **Launch Targets (Juli 2025)**
+- **NFT Sales Goal**: 1,800+ NFTs sold (72% of collection)
+- **Community Size**: 1,000+ Discord members
+- **Property Occupancy**: 95%+ across all three buildings
+- **Platform Engagement**: 80%+ member dashboard usage
+
+### **Financial Milestones**
+- **Break-even**: 1,795 NFTs sold (covers property acquisition)
+- **Full Collection**: 2,500 NFTs × €1,000 = €2,500,000 total
+- **Revenue Generation**: Immediate property income upon acquisition
+- **Transparency**: Real-time financial reporting for all members
+
+## 🚨 **Risk Factors & Mitigation**
+
+### **Key Risks**
+1. **Property Market Risk**: Downtown Kamp-Lintfort real estate values
+2. **Regulatory Risk**: EU MiCA regulation changes or classification
+3. **Technical Risk**: Smart contract security and platform scalability
+4. **Market Risk**: NFT adoption and community building success
+
+### **Risk Mitigation**
+- **Property Insurance**: Comprehensive coverage for €1,795,000 asset
+- **Legal Review**: Ongoing EU compliance monitoring
+- **Security Audits**: Professional smart contract auditing
+- **Conservative Planning**: 28% operational reserve from collection
+
+## 📞 **Contact & Community**
+
+### **Development Updates**
+- **Discord**: Primary community hub for development updates
+- **Telegram**: Quick announcements and milestones
+- **Email**: team@coinestate.io for direct communication
+- **Twitter**: Daily progress and community engagement
+
+### **Investment Inquiries**
+- **Property Details**: Detailed property documentation available
+- **Legal Framework**: Compliance documentation and structure
+- **Financial Projections**: Revenue models and transparency reports
+- **Advisory Opportunities**: Advisory board application process
+
+## 🔮 **Long-Term Vision**
+
+### **Platform Evolution (2026+)**
+- **Multi-Property Portfolio**: Additional premium properties across EU
+- **Advanced Analytics**: AI-powered property performance insights  
+- **Institutional Partnerships**: Traditional real estate industry integration
+- **Global Expansion**: International property community network
+
+### **Community Impact**
+- **Democratized Access**: 2,500+ members with premium property exposure
+- **Transparency Standard**: Leading model for real estate blockchain integration
+- **Economic Development**: Supporting local Kamp-Lintfort economy
+- **Innovation Leadership**: Setting standards for property tokenization
 
 ## 📚 **Documentation & Resources**
 
-### **Core Documentation**
-- **[Main Landing Page](index.html)** - Streamlined experience with Juli 2025 focus
-- **[Comprehensive Landing Page](comprehensive-index.html)** - Complete feature showcase
-- **[Project Overview](PROJECT_OVERVIEW.md)** - Technical specifications and roadmap
-- **[Security Checklist](SECURITY_CHECKLIST.md)** - Security measures and protocols
-- **[Legal Framework](docs/)** - Compliance documentation and regulatory status
+### **Core Files**
+- **[Landing Page](index.html)** - Main project showcase
+- **[Project Overview](PROJECT_OVERVIEW.md)** - Technical specifications
+- **[Security Checklist](SECURITY_CHECKLIST.md)** - Security protocols
+- **[Legal Framework](docs/)** - Compliance documentation
 
-### **Technical Resources**
-- **Smart Contracts**: Solidity code with comprehensive documentation
-- **API Documentation**: RESTful API for member and property data
-- **Integration Guides**: Wallet connection and platform interaction
-- **Security Audits**: CertiK and Quantstamp reports
+### **Development Resources**
+- **Smart Contracts**: Solidity code in `/contracts` folder
+- **Frontend**: React components in `/frontend` folder
+- **Backend**: API server in `/backend` folder
+- **Documentation**: Comprehensive guides in `/docs` folder
 
-## 🛡️ **Security & Trust**
+## 🛡️ **Security & Compliance**
 
 ### **Technical Security**
-- **Smart Contract Audits**: Verified by CertiK & Quantstamp
-- **Multi-signature Wallets**: 3-of-5 signature requirements
-- **Timelock Mechanisms**: 48-hour delay on critical operations
-- **Regular Penetration Testing**: Quarterly security assessments
+- **Smart Contract Audits**: Planned CertiK & Quantstamp reviews
+- **Multi-signature Wallets**: Enhanced fund security
+- **Regular Testing**: Comprehensive security assessments
+- **Bug Bounty**: Community-driven security improvements
 
-### **Legal Security**
-- **EU-Licensed Counsel**: Fischer & Partners legal oversight
-- **Regular Compliance Reviews**: 6-month regulatory audits with Ernst & Young Estonia
-- **Segregated Accounts**: Member funds protected via Swedbank Estonia
-- **Insurance Coverage**: Platform and property protection
+### **Legal Compliance**
+- **EU MiCA Preparation**: Article 4(1)(d) compliance framework
+- **Estonian Registration**: CoinEstate OÜ entity planning
+- **German Property Law**: Compliant ownership structure
+- **GDPR**: Privacy-compliant member data handling
 
-## 🌍 **Global Reach & Compliance**
+## 🚨 **Important Disclaimers**
 
-### **Operating Jurisdictions**
-- **🇪🇪 Estonia**: Platform operations (CoinEstate OÜ - Registry: 16284726)
-- **🇩🇪 Germany**: Property ownership and management (GmbH structure)
-- **🇪🇺 EU-Wide**: MiCA regulation preparation for market expansion
+> **⚠️ Development Notice**: CoinEstate is currently in development phase. All features, legal structures, and timelines are planned and subject to change based on legal advice, regulatory developments, and business requirements.
 
-### **Regulatory Preparation**
-- **MiCA Article 4(1)(d)**: NFT exclusion clause alignment
-- **Anti-Money Laundering**: KYC/AML procedures for platform access
-- **Data Protection**: GDPR-compliant member data handling
-- **Financial Reporting**: Transparent revenue and expense tracking
+> **💎 Non-Financial Assets**: CoinEstate NFTs will be utility tokens providing community access only. No securities, revenue rights, dividends, or investment returns are provided or implied.
 
-## 📞 **Contact Information**
-
-**CoinEstate OÜ**  
-Registry Code: 16284726  
-Tallinn, Estonia  
-European Union
-
-### **Team Contact**
-- **General Inquiries**: hello@coinestate.io
-- **Legal & Compliance**: legal@coinestate.io
-- **Technical Support**: support@coinestate.io
-- **Press & Media**: press@coinestate.io
-- **Community Management**: community@coinestate.io
-
-### **Direct Access**
-- **Alexander Weber (CEO)**: Direct booking available via landing page
-- **Dr. Sofia Kowalski (CTO)**: Technical consultations
-- **Prof. Dr. Martin Fischer (CLO)**: Legal compliance questions
-
-## 📜 **License & Legal**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Legal Entity**: CoinEstate OÜ (Estonia)  
-**Regulation**: EU Digital Assets Framework  
-**Compliance**: MiCA Article 4(1)(d) preparation  
-**Audited By**: Ernst & Young Estonia
+> **🏛️ Regulatory Compliance**: All operations designed for EU MiCA regulation compliance. Revenue remains frozen until regulatory approval.
 
 ---
 
-**🌟 Experience the Future of Real Estate Community**  
-*[Visit Our Landing Page](https://finsterfurz.github.io/coinestateNFT/) - Built with transparency, compliance, and community at its core.*
+**Project Scale**: €2.5M NFT Collection | €1.795M Property Investment | 2,500 Community Members
 
-**Juli 2025 Launch** | **Kamp-Lintfort Collection** | **500 NFTs @ 0.15 ETH**
+**Legal Status**: Development Phase | EU MiCA Compliance Planning | Estonian Jurisdiction
+
+**Launch Timeline**: Juli 2025 | Property Acquisition: Q2 2025 | Platform Beta: Q2 2025
+
+---
+
+**Building premium real estate communities through transparent blockchain technology 🏢⚡**
+
+*Last Updated: June 2025 | Version: 2.0-updated | Next Review: July 2025*
