@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinEstate - The Future of Real Estate Membership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B1426;
+            --primary-light: #1B2B44;
+            --accent: #00D4FF;
+            --accent-dark: #0099CC;
+            --accent-light: #66E3FF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --text-primary: #0B1426;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-tertiary: #F1F5F9;
+            --border: #E2E8F0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --gradient-primary: linear-gradient(135deg, #0B1426 0%, #1B2B44 50%, #00D4FF 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+            --gradient-bg: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 50%, #F1F5F9 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Floating Elements Background */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.05));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 5s; }
+        .shape:nth-child(3) { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 10s; }
+        .shape:nth-child(4) { width: 120px; height: 120px; top: 30%; right: 30%; animation-delay: 15s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .wallet-connect {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wallet-connect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .wallet-connect:hover::before {
+            left: 100%;
+        }
+
+        .wallet-connect:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .wallet-connected {
+            background: var(--success) !important;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--gradient-bg);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 8rem 0 4rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--accent-dark);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 70%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            padding: 1.25rem 2.5rem;
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-disclaimer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 1s both;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-disclaimer h3 {
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .hero-disclaimer p {
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--bg-secondary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Quick Preview Section */
+        .quick-preview {
+            background: white;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .preview-card {
+            background: var(--gradient-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .preview-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .preview-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .preview-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .coming-soon-badge {
+            background: var(--warning);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Legal Notice */
+        .legal-notice {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .legal-notice h3 {
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .legal-notice p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-accent);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-light);
+            transform: translateX(4px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-disclaimer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-disclaimer strong {
+            color: var(--accent-light);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-content {
+                padding: 5rem 0 2rem;
+            }
+
+            .preview-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>CoinEstate</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#features-preview">Features</a></li>
+                <li><a href="#legal-transparency">Legal</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="wallet-connect" id="walletConnect">
+                    <span>Connect Wallet</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀</span>
+                    <span>EU-Compliant Real Estate Communities</span>
+                </div>
+                
+                <h1>Real Estate Membership<br>Reimagined for Web3</h1>
+                
+                <p class="hero-subtitle">
+                    Join exclusive property communities through NFT membership. Access transparent real estate insights, participate in non-binding governance, and connect with like-minded investors in a fully regulated environment.
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn-primary" id="mintNFT">
+                        <span>🏆</span>
+                        <span>Join Waitlist</span>
+                    </button>
+                    <a href="#whitepaper" class="btn-secondary">
+                        <span>📖</span>
+                        <span>Read Whitepaper</span>
+                    </a>
+                </div>
+                
+                <div class="hero-disclaimer">
+                    <h3>💎 Non-Financial Digital Assets - Community Access Only</h3>
+                    <p>
+                        <strong>CoinEstate NFTs are non-financial digital assets.</strong> They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. NFTs provide community access and participation rights only, with no financial returns or profit-sharing provided or implied.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">
+                    Three simple steps to join the future of legally-compliant real estate community membership
+                </p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Mint NFT Membership</h3>
+                    <p>Purchase an NFT to join a specific real estate community. Each property has its own limited collection, granting exclusive access and lifelong participation rights in that community. NFTs include timestamped mint records for full transparency.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Access Gated Property Insights</h3>
+                    <p>Access gated, non-commercial property insights and dashboards for informational purposes only. Track property performance through detailed analytics, renovation updates, and market insights with blockchain-verified reporting.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Non-binding Community Participation</h3>
+                    <p>Non-binding participation in community discussions about future property projects. Advisory voting only with no financial consequence or decision-making power, ensuring full legal compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="section quick-preview" id="features-preview">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Coming Soon: Full Platform Experience</h2>
+                <p class="section-subtitle">
+                    We're building comprehensive features for the ultimate real estate community platform
+                </p>
+            </div>
+            
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🏢</div>
+                    <h4>Interactive Property Tours</h4>
+                    <p>Virtual 3D tours, neighborhood insights, and transparent performance data for each property in our collection.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">📊</div>
+                    <h4>Member Dashboard</h4>
+                    <p>Comprehensive analytics, community features, governance participation, and NFT management in one place.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">❓</div>
+                    <h4>Enhanced FAQ System</h4>
+                    <p>Searchable knowledge base covering legal compliance, NFT utility, property details, and community governance.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">👥</div>
+                    <h4>Team Profiles</h4>
+                    <p>Detailed backgrounds of our leadership team, advisory board, and trusted partners with full transparency.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🗳️</div>
+                    <h4>Community Governance</h4>
+                    <p>Non-binding advisory voting, proposal discussions, and community input on property-related decisions.</p>
+                    <span class="coming-soon-badge">Q2 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">⚖️</div>
+                    <h4>Legal Transparency Hub</h4>
+                    <p>Real-time compliance status, regulatory updates, financial transparency, and legal documentation access.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Notice -->
+    <section class="section" id="legal-transparency">
+        <div class="container">
+            <div class="legal-notice animate-on-scroll">
+                <h3>🏛️ Legal Transparency & Compliance Framework</h3>
+                <p>
+                    CoinEstate operates under a comprehensive EU compliance framework with Estonian incorporation (CoinEstate OÜ, Registry Code: 16284726) and German property holding structure. We maintain 90% revenue freezing protocols until MiCA regulatory compliance, ensuring maximum legal protection while building toward future community benefits activation under proper regulatory oversight. Regular compliance reviews by EU-licensed counsel ensure continued regulatory alignment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Preview -->
+    <section class="section" id="roadmap" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Development Roadmap</h2>
+                <p class="section-subtitle">
+                    Our path to regulatory compliance and community empowerment
+                </p>
+            </div>
+            
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🏗️</div>
+                    <h4>Phase 1: Foundation</h4>
+                    <p>Platform launch with first NFT collection, legal entity establishment, and initial property acquisition via compliant GmbH structure.</p>
+                    <span class="coming-soon-badge">Q1 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">👥</div>
+                    <h4>Phase 2: Community Growth</h4>
+                    <p>Enhanced features, non-binding governance (DAO-lite), comprehensive dashboards, and transparent revenue reporting with 90% income freezing.</p>
+                    <span class="coming-soon-badge">Q2 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">⚖️</div>
+                    <h4>Phase 3: MiCA Application</h4>
+                    <p>Formal MiCA regulatory compliance application, enhanced governance structures, and preparation for community benefits activation.</p>
+                    <span class="coming-soon-badge">Q4 2025</span>
+                </div>
+                
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-icon">🚀</div>
+                    <h4>Phase 4: Rights Activation</h4>
+                    <p>Upon MiCA approval: unlock frozen revenue streams, introduce compliant community benefits, and scale with full regulatory compliance.</p>
+                    <span class="coming-soon-badge">2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community -->
+    <section class="section" style="background: white; text-align: center;">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Stay Updated</h2>
+                <p class="section-subtitle">
+                    Join our community to get early access to features and be notified when NFT minting begins
+                </p>
+            </div>
+            
+            <div class="hero-cta animate-on-scroll">
+                <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
+                    <span>💬</span>
+                    <span>Join Discord Community</span>
+                </button>
+                <button class="btn-secondary" onclick="window.open('https://t.me/coinestate', '_blank')">
+                    <span>✈️</span>
+                    <span>Follow on Telegram</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>CoinEstate</h4>
+                    <p>The future of real estate membership. Built with legal compliance, community focus, and transparent governance at its core under EU regulatory framework.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Discord">💬</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="Telegram">✈️</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <a href="#">Member Dashboard (Coming Soon)</a>
+                    <a href="#">Mint NFT (Coming Soon)</a>
+                    <a href="#">Community Governance</a>
+                    <a href="#">Property Analytics</a>
+                    <a href="#">Roadmap Status</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal & Compliance</h4>
+                    <a href="#">Legal Transparency Page</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">MiCA Compliance Status</a>
+                    <a href="#">Regulatory FAQ</a>
+                    <a href="#">Compliance Reports</a>
+                    <a href="#">Imprint</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Whitepaper (Coming Soon)</a>
+                    <a href="#">Smart Contract Audits</a>
+                    <a href="#">Technical Documentation</a>
+                    <a href="#">Community FAQ</a>
+                    <a href="#">Security Reports</a>
+                    <a href="#">Legal Archive</a>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <p>
+                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs are non-financial digital assets providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. No financial returns, profits, yields, or investment benefits are provided, promised, or implied. All governance participation is purely advisory with no financial consequence or decision-making power. CoinEstate commits to full alignment with MiCA Article 4(1)(d) (NFT exclusion clause), reviewed at each new issuance.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Past performance does not guarantee future results. Cryptocurrency and NFT investments carry significant risks including total loss of value. Community proposals remain symbolic unless and until full legal compliance is reached under MiCA or successor regulation. Please read our comprehensive legal disclaimers and consult with qualified professionals before participating.
+                </p>
+                <p style="margin-top: 1.5rem; opacity: 0.8;">
+                    &copy; 2024 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
+                    Regular compliance reviews conducted by EU-licensed legal counsel.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Wallet Connection with Better UX
+        class WalletManager {
+            constructor() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.walletButton = document.getElementById('walletConnect');
+                this.mintButton = document.getElementById('mintNFT');
+                this.init();
+            }
+
+            init() {
+                this.walletButton.addEventListener('click', () => this.toggleConnection());
+                this.mintButton.addEventListener('click', () => this.handleMint());
+                this.checkExistingConnection();
+            }
+
+            async checkExistingConnection() {
+                if (typeof window.ethereum !== 'undefined') {
+                    try {
+                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                        if (accounts.length > 0) {
+                            this.handleConnectionSuccess(accounts[0]);
+                        }
+                    } catch (error) {
+                        console.error('Error checking existing connection:', error);
+                    }
+                }
+            }
+
+            async toggleConnection() {
+                if (!this.isConnected) {
+                    await this.connectWallet();
+                } else {
+                    this.disconnectWallet();
+                }
+            }
+
+            async connectWallet() {
+                if (typeof window.ethereum === 'undefined') {
+                    this.showNotification('Please install MetaMask or another Web3 wallet.', 'error');
+                    return;
+                }
+
+                try {
+                    this.walletButton.textContent = 'Connecting...';
+                    this.walletButton.disabled = true;
+
+                    const accounts = await window.ethereum.request({ 
+                        method: 'eth_requestAccounts' 
+                    });
+                    
+                    this.handleConnectionSuccess(accounts[0]);
+                    this.showNotification('Wallet connected successfully!', 'success');
+                } catch (error) {
+                    console.error('Wallet connection failed:', error);
+                    this.showNotification('Wallet connection failed. Please try again.', 'error');
+                    this.resetWalletButton();
+                }
+            }
+
+            handleConnectionSuccess(account) {
+                this.isConnected = true;
+                this.currentAccount = account;
+                this.walletButton.textContent = `${account.substring(0, 6)}...${account.substring(38)}`;
+                this.walletButton.classList.add('wallet-connected');
+                this.walletButton.disabled = false;
+            }
+
+            disconnectWallet() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.resetWalletButton();
+                this.showNotification('Wallet disconnected.', 'info');
+            }
+
+            resetWalletButton() {
+                this.walletButton.textContent = 'Connect Wallet';
+                this.walletButton.classList.remove('wallet-connected');
+                this.walletButton.disabled = false;
+            }
+
+            handleMint() {
+                this.showNotification('Join our Discord to get notified when minting begins!', 'info');
+                setTimeout(() => {
+                    window.open('https://discord.gg/coinestate', '_blank');
+                }, 2000);
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: ${type === 'success' ? '#10B981' : type === 'error' ? '#EF4444' : type === 'warning' ? '#F59E0B' : '#3B82F6'};
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 12px;
+                    z-index: 10000;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    max-width: 300px;
+                    font-weight: 500;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 4000);
+            }
+        }
+
+        // Enhanced Scroll Animations
+        class ScrollAnimations {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.observeElements();
+                this.handleNavbarScroll();
+            }
+
+            observeElements() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            // Add staggered animation for grid items
+                            if (entry.target.parentElement.classList.contains('steps-grid') ||
+                                entry.target.parentElement.classList.contains('preview-grid')) {
+                                const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
+                                entry.target.style.animationDelay = `${delay}ms`;
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            handleNavbarScroll() {
+                const navbar = document.getElementById('navbar');
+                
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // Smooth Scrolling Enhancement
+        class SmoothScrolling {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(anchor.getAttribute('href'));
+                        if (target) {
+                            const offsetTop = target.offsetTop - 80;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        }
+
+        // Mobile Menu Handler
+        class MobileMenu {
+            constructor() {
+                this.menuBtn = document.getElementById('mobileMenuBtn');
+                this.isOpen = false;
+                this.init();
+            }
+
+            init() {
+                this.menuBtn.addEventListener('click', () => this.toggle());
+            }
+
+            toggle() {
+                this.isOpen = !this.isOpen;
+                this.menuBtn.classList.toggle('active', this.isOpen);
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new WalletManager();
+            new ScrollAnimations();
+            new SmoothScrolling();
+            new MobileMenu();
+        });
+
+        // Add some interactive elements
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                const xPos = x * speed * 20;
+                const yPos = y * speed * 20;
+                shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
