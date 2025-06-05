@@ -3,352 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoinEstate - Invest in German Real Estate Through NFTs | €1,795,000 Kamp-Lintfort Property</title>
-    <meta name="description" content="Fractional property ownership through NFTs. Invest in premium German real estate starting from €1,000. Expected 5-7% annual yield from rental income.">
-    <meta name="keywords" content="real estate NFT, property investment, German real estate, blockchain property, fractional ownership, property tokenization, real estate crowdfunding">
-    
-    <!-- Enhanced Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="CoinEstate - Real Estate Investment NFTs">
-    <meta property="og:description" content="Own premium German real estate through blockchain technology. Starting from €1,000.">
-    <meta property="og:url" content="https://coinestate.io">
-    <meta property="og:image" content="https://coinestate.io/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CoinEstate - Real Estate Investment NFTs">
-    <meta name="twitter:description" content="Fractional property ownership through NFTs starting from €1,000">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
-    
-    <!-- Preload critical resources -->
+    <title>CoinEstate - The Future of Real Estate Membership</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Critical CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
-        "name": "CoinEstate",
-        "description": "Professional real estate investment platform enabling fractional ownership through NFTs",
-        "url": "https://coinestate.io",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "Estonia"
-        },
-        "offers": {
-            "@type": "Offer",
-            "name": "Kamp-Lintfort Property Investment",
-            "price": "1000",
-            "priceCurrency": "EUR",
-            "description": "Fractional ownership of premium German real estate starting from €1,000"
-        }
-    }
-    </script>
-    
     <style>
+        :root {
+            --primary: #0B1426;
+            --primary-light: #1B2B44;
+            --accent: #00D4FF;
+            --accent-dark: #0099CC;
+            --accent-light: #66E3FF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --text-primary: #0B1426;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-tertiary: #F1F5F9;
+            --border: #E2E8F0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --gradient-primary: linear-gradient(135deg, #0B1426 0%, #1B2B44 50%, #00D4FF 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+            --gradient-bg: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 50%, #F1F5F9 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --primary-950: #020617;
-            --primary-900: #0f172a;
-            --primary-800: #1e293b;
-            --primary-700: #334155;
-            --primary-600: #475569;
-            --primary-500: #64748b;
-            --primary-400: #94a3b8;
-            --primary-300: #cbd5e1;
-            --primary-200: #e2e8f0;
-            --primary-100: #f1f5f9;
-            --primary-50: #f8fafc;
-            
-            --blue-700: #1d4ed8;
-            --blue-600: #2563eb;
-            --blue-500: #3b82f6;
-            --blue-400: #60a5fa;
-            --blue-300: #93c5fd;
-            --blue-100: #dbeafe;
-            
-            --green-600: #059669;
-            --green-500: #10b981;
-            --green-400: #34d399;
-            --green-100: #d1fae5;
-            
-            --purple-600: #7c3aed;
-            --purple-500: #8b5cf6;
-            --purple-400: #a78bfa;
-            
-            --yellow-500: #eab308;
-            --yellow-400: #facc15;
-            
-            --red-600: #dc2626;
-            --red-500: #ef4444;
-            --red-100: #fee2e2;
-            
-            --glass-bg: rgba(30, 41, 59, 0.6);
-            --glass-bg-light: rgba(30, 41, 59, 0.4);
-            --glass-border: rgba(203, 213, 225, 0.2);
-            --glass-hover: rgba(59, 130, 246, 0.15);
-            
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--primary-950) 0%, var(--primary-900) 50%, var(--primary-800) 100%);
-            color: var(--primary-100);
-            min-height: 100vh;
-            overflow-x: hidden;
+
+        html {
             scroll-behavior: smooth;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
         }
-        
-        /* Enhanced Header */
-        .header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Floating Elements Background */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.05));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 5s; }
+        .shape:nth-child(3) { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 10s; }
+        .shape:nth-child(4) { width: 120px; height: 120px; top: 30%; right: 30%; animation-delay: 15s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Navigation */
+        .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .header.scrolled {
-            background: rgba(15, 23, 42, 0.98);
-            box-shadow: var(--shadow-xl);
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        .nav-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
-            color: inherit;
+            transition: all 0.3s ease;
         }
-        
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
+            background: var(--gradient-accent);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow);
         }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-50), var(--blue-300));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .nav {
+
+        .nav-links {
             display: flex;
-            gap: 2rem;
-            align-items: center;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
         }
-        
-        .nav-link {
-            color: var(--primary-300);
+
+        .nav-links a {
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
             padding: 0.5rem 0;
-            position: relative;
         }
-        
-        .nav-link:hover {
-            color: var(--primary-50);
-        }
-        
-        .nav-link.active::after {
+
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--blue-500);
-            border-radius: 1px;
-        }
-        
-        .header-cta {
-            background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
-            color: var(--primary-50);
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary-200);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 12rem 2rem 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
         }
-        
-        .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+
+        .nav-links a:hover {
+            color: var(--accent);
         }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-md);
+
+        .nav-links a:hover::before {
+            width: 100%;
         }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-50) 0%, var(--blue-300) 30%, var(--purple-400) 70%, var(--primary-50) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--primary-200);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--primary-300);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        
-        .hero-stats {
+
+        .nav-actions {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
         }
-        
-        .hero-stat {
-            text-align: center;
-        }
-        
-        .hero-stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--blue-400);
-        }
-        
-        .hero-stat-label {
-            font-size: 0.875rem;
-            color: var(--primary-400);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
-            color: var(--primary-50);
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.125rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-xl);
+
+        .wallet-connect {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            margin: 0 0.5rem;
         }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4);
-        }
-        
-        .cta-button::before {
+
+        .wallet-connect::before {
             content: '';
             position: absolute;
             top: 0;
@@ -356,1312 +204,863 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s ease;
         }
-        
-        .cta-button:hover::before {
+
+        .wallet-connect:hover::before {
             left: 100%;
         }
-        
-        .secondary-cta {
-            background: var(--glass-bg);
-            color: var(--primary-50);
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.125rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            display: inline-block;
-            margin: 0 0.5rem;
-        }
-        
-        .secondary-cta:hover {
-            border-color: var(--blue-500);
-            background: var(--glass-hover);
+
+        .wallet-connect:hover {
             transform: translateY(-2px);
-        }
-        
-        /* Trust Section */
-        .trust-section {
-            padding: 4rem 2rem;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        
-        .trust-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .trust-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--primary-100);
-        }
-        
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            padding: 2rem 1.5rem;
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .trust-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--blue-500);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .trust-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-50);
-            font-size: 1.5rem;
             box-shadow: var(--shadow-lg);
         }
-        
-        .trust-text {
-            font-weight: 600;
-            color: var(--primary-100);
-            font-size: 1.1rem;
+
+        .wallet-connected {
+            background: var(--success) !important;
         }
-        
-        .trust-description {
-            font-size: 0.875rem;
-            color: var(--primary-300);
-            text-align: center;
-            line-height: 1.5;
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
         }
-        
-        /* Property Showcase */
-        .property-section {
-            padding: 6rem 2rem;
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
         }
-        
-        .property-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-        
-        .property-visual {
-            position: relative;
-        }
-        
-        .property-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--blue-700), var(--purple-600));
-            border-radius: 24px;
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             position: relative;
+            background: var(--gradient-bg);
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--glass-border);
         }
-        
-        .property-image::before {
+
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
-        
-        .property-badges {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            right: 1.5rem;
-            display: flex;
-            justify-content: space-between;
+
+        .hero-content {
+            position: relative;
             z-index: 2;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 8rem 0 4rem;
         }
-        
-        .property-badge {
-            background: rgba(16, 185, 129, 0.95);
-            color: var(--primary-50);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .property-info {
-            padding: 2rem;
-        }
-        
-        .property-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--primary-50);
-        }
-        
-        .property-location {
-            color: var(--primary-300);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            display: flex;
+
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .property-highlights {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--accent-dark);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
-        
-        .highlight-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        .highlight-value {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--blue-400);
-        }
-        
-        .highlight-label {
-            font-size: 0.75rem;
-            color: var(--primary-400);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        /* Investment Calculator */
-        .calculator-section {
-            padding: 6rem 2rem;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-        }
-        
-        .calculator-container {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-top: 2rem;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .calculator-inputs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .input-label {
-            font-weight: 600;
-            color: var(--primary-200);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .input-field {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            color: var(--primary-50);
-            font-size: 1.125rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .input-field:focus {
-            outline: none;
-            border-color: var(--blue-500);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-            background: rgba(15, 23, 42, 0.9);
-        }
-        
-        .input-slider {
-            -webkit-appearance: none;
-            appearance: none;
-            height: 8px;
-            background: var(--primary-600);
-            border-radius: 4px;
-            outline: none;
-            cursor: pointer;
-        }
-        
-        .input-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--blue-600), var(--purple-500));
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-        
-        .input-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .calculator-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .result-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .result-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--blue-500);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .result-value {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-        
-        .result-value.primary {
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 70%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
-        
-        .result-value.income {
-            color: var(--green-400);
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
         }
-        
-        .result-value.yield {
-            color: var(--yellow-400);
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+            flex-wrap: wrap;
         }
-        
-        .result-label {
-            color: var(--primary-300);
-            font-size: 0.875rem;
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
         }
-        
-        /* FAQ Section */
-        .faq-section {
-            padding: 6rem 2rem;
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
         }
-        
-        .faq-content {
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            padding: 1.25rem 2.5rem;
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-disclaimer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 1s both;
+            box-shadow: var(--shadow);
         }
-        
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+
+        .hero-disclaimer h3 {
+            color: var(--accent-dark);
             margin-bottom: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-        
-        .faq-item:hover {
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .faq-question {
-            padding: 1.5rem 2rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--primary-100);
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: var(--glass-hover);
-        }
-        
-        .faq-icon {
             font-size: 1.25rem;
-            transition: transform 0.3s ease;
-            color: var(--blue-400);
+            font-weight: 700;
         }
-        
-        .faq-answer {
-            padding: 0 2rem 1.5rem 2rem;
-            color: var(--primary-300);
+
+        .hero-disclaimer p {
+            color: var(--text-secondary);
+            font-weight: 500;
             line-height: 1.6;
-            display: none;
         }
-        
-        .faq-item.active .faq-answer {
-            display: block;
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+            position: relative;
         }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-        
-        /* Section Titles */
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
+
+        .section-header {
             text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
+
         .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--primary-300);
-            text-align: center;
-            max-width: 600px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
         }
-        
-        /* Risk Warning */
-        .risk-warning {
-            background: rgba(220, 38, 38, 0.1);
-            border: 1px solid var(--red-500);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 3rem 2rem;
-            box-shadow: var(--shadow-md);
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--bg-secondary);
         }
-        
-        .risk-title {
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--red-500);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
         }
-        
-        .risk-text {
-            color: var(--primary-200);
-            font-size: 0.9rem;
-            line-height: 1.6;
+
+        .step-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
-        
+
         /* Footer */
         .footer {
-            background: var(--primary-950);
-            padding: 4rem 2rem 2rem 2rem;
-            border-top: 1px solid var(--glass-border);
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
         }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-accent);
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
-        
+
         .footer-section h4 {
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-100);
         }
-        
-        .footer-section p,
-        .footer-section a {
-            color: var(--primary-300);
-            text-decoration: none;
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
-            transition: color 0.3s ease;
+            margin-bottom: 1rem;
         }
-        
-        .footer-section a:hover {
-            color: var(--blue-300);
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-            color: var(--primary-400);
-            font-size: 0.875rem;
-        }
-        
-        /* Accessibility Widget */
-        .accessibility-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        .accessibility-button {
-            background: var(--blue-600);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-xl);
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
             transition: all 0.3s ease;
-        }
-        
-        .accessibility-button:hover {
-            transform: scale(1.1);
-            background: var(--blue-700);
-        }
-        
-        .accessibility-panel {
-            display: none;
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: var(--primary-900);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1rem;
-            min-width: 200px;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .accessibility-panel.active {
             display: block;
-        }
-        
-        .accessibility-option {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             margin-bottom: 0.5rem;
-            color: var(--primary-200);
-            font-size: 0.875rem;
         }
-        
-        .accessibility-option button {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--primary-200);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            cursor: pointer;
+
+        .footer-section a:hover {
+            color: var(--accent-light);
+            transform: translateX(4px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
-        
-        .accessibility-option button:hover {
-            background: var(--blue-600);
-            color: white;
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
         }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
+
+        .footer-disclaimer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-disclaimer strong {
+            color: var(--accent-light);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
             }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .hero {
-                padding: 8rem 1rem 4rem 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-button, .secondary-cta {
-                display: block;
-                margin: 0.5rem auto;
-                text-align: center;
-            }
-            
-            .property-showcase {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .calculator-inputs,
-            .calculator-results {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        
-        /* Scroll Animations */
-        .scroll-reveal {
+
+        .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .scroll-reveal.revealed {
+
+        .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Loading Animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-950);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loading-content {
-            text-align: center;
-        }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--primary-700);
-            border-top: 3px solid var(--blue-500);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* High contrast mode */
-        @media (prefers-contrast: high) {
-            :root {
-                --glass-bg: rgba(0, 0, 0, 0.9);
-                --glass-border: rgba(255, 255, 255, 0.4);
-                --primary-300: #ffffff;
-                --primary-400: #ffffff;
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 4rem 0;
             }
         }
-        
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-content {
+                padding: 5rem 0 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <h3>CoinEstate</h3>
-            <p>Loading investment opportunity...</p>
-        </div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-content">
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">🏢</div>
-                <div>
-                    <h1>CoinEstate</h1>
-                </div>
+                <div class="logo-icon">🏠</div>
+                <span>CoinEstate</span>
             </a>
-            <nav class="nav">
-                <a href="#property" class="nav-link active">Investment</a>
-                <a href="#calculator" class="nav-link">Calculator</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-            <a href="#investment" class="header-cta">Get Started</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#dashboard-preview">Dashboard</a></li>
+                <li><a href="#trust">Team</a></li>
+                <li><a href="#legal">Legal</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="wallet-connect" id="walletConnect">
+                    <span>Connect Wallet</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>🏢 Live Investment • €1,795,000 Property • Kamp-Lintfort, Germany</span>
-            </div>
-            
-            <h1>Invest in German Real Estate Through NFTs</h1>
-            <p class="hero-subtitle">Fractional property ownership starting from €1,000</p>
-            <p class="hero-description">
-                Own shares of a prime mixed-use property in Kamp-Lintfort city center. 
-                Each NFT represents direct ownership with monthly income distribution in USDC.
-            </p>
-            
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-value">€1.795M</div>
-                    <div class="hero-stat-label">Property Value</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">5-7%</div>
-                    <div class="hero-stat-label">Expected Yield</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">2,500</div>
-                    <div class="hero-stat-label">NFTs Available</div>
-                </div>
-            </div>
-            
-            <div class="hero-cta-group">
-                <a href="#investment" class="cta-button">Start Investing</a>
-                <a href="#property" class="secondary-cta">View Property Details</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="trust-content">
-            <h3 class="trust-title">Trusted Investment Platform</h3>
-            <div class="trust-grid">
-                <div class="trust-item scroll-reveal">
-                    <div class="trust-icon">🏛️</div>
-                    <div class="trust-text">EU Licensed</div>
-                    <div class="trust-description">Estonian company formation with full regulatory compliance</div>
-                </div>
-                <div class="trust-item scroll-reveal">
-                    <div class="trust-icon">🛡️</div>
-                    <div class="trust-text">Smart Contract Audited</div>
-                    <div class="trust-description">Security verified by blockchain experts</div>
-                </div>
-                <div class="trust-item scroll-reveal">
-                    <div class="trust-icon">📊</div>
-                    <div class="trust-text">Transparent Operations</div>
-                    <div class="trust-description">All transactions recorded on blockchain</div>
-                </div>
-                <div class="trust-item scroll-reveal">
-                    <div class="trust-icon">💰</div>
-                    <div class="trust-text">Monthly Distributions</div>
-                    <div class="trust-description">Automated USDC income payments</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Property Section -->
-    <section class="property-section" id="property">
         <div class="container">
-            <div class="scroll-reveal">
-                <h2 class="section-title">Investment Property</h2>
-                <p class="section-subtitle">Prime mixed-use building in Kamp-Lintfort city center</p>
-            </div>
-            
-            <div class="property-showcase scroll-reveal">
-                <div class="property-visual">
-                    <div class="property-image">
-                        <div class="property-badges">
-                            <div class="property-badge">Mixed-Use</div>
-                            <div class="property-badge" style="background: rgba(59, 130, 246, 0.95);">✓ Verified</div>
-                        </div>
-                        🏢
-                    </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀</span>
+                    <span>EU-Compliant Real Estate Communities</span>
                 </div>
                 
-                <div class="property-info">
-                    <h3 class="property-title">Kamp-Lintfort Center</h3>
-                    <p class="property-location">
-                        📍 City Center, Kamp-Lintfort, Germany
-                    </p>
-                    
-                    <div class="property-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-value">€1.795M</div>
-                            <div class="highlight-label">Purchase Price</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-value">2,103 m²</div>
-                            <div class="highlight-label">Rentable Area</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-value">1,009 m²</div>
-                            <div class="highlight-label">Residential</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-value">1,094 m²</div>
-                            <div class="highlight-label">Commercial</div>
-                        </div>
-                    </div>
-                    
-                    <ul style="list-style: none; padding: 0; color: var(--primary-300); line-height: 1.8;">
-                        <li>✅ Central city location with high foot traffic</li>
-                        <li>✅ Mixed residential and commercial income streams</li>
-                        <li>✅ 15 dedicated parking spaces</li>
-                        <li>✅ 1,797 sqm land for future development</li>
-                        <li>✅ Near university and transport links</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Calculator -->
-    <section class="calculator-section" id="calculator">
-        <div class="container">
-            <div class="scroll-reveal">
-                <h2 class="section-title">Investment Calculator</h2>
-                <p class="section-subtitle">Calculate your potential returns and monthly income</p>
-            </div>
-            
-            <div class="calculator-container scroll-reveal">
-                <div class="calculator-inputs">
-                    <div class="input-group">
-                        <label class="input-label">Investment Amount (€)</label>
-                        <input type="range" class="input-slider" id="investmentSlider" min="1000" max="50000" step="1000" value="5000">
-                        <input type="number" class="input-field" id="investmentAmount" min="1000" step="1000" value="5000" placeholder="5000">
-                    </div>
-                    <div class="input-group">
-                        <label class="input-label">Investment Period (Years)</label>
-                        <input type="range" class="input-slider" id="periodSlider" min="1" max="10" step="1" value="5">
-                        <input type="number" class="input-field" id="investmentPeriod" min="1" max="10" value="5">
-                    </div>
-                    <div class="input-group">
-                        <label class="input-label">Expected Yield (%)</label>
-                        <input type="range" class="input-slider" id="yieldSlider" min="3" max="10" step="0.5" value="6">
-                        <input type="number" class="input-field" id="expectedYield" min="3" max="10" step="0.5" value="6">
-                    </div>
-                </div>
+                <h1>Real Estate Membership<br>Reimagined for Web3</h1>
                 
-                <div class="calculator-results">
-                    <div class="result-card">
-                        <div class="result-value primary" id="nftShares">5</div>
-                        <div class="result-label">NFT Shares</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-value income" id="monthlyIncome">€25</div>
-                        <div class="result-label">Monthly Income</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-value income" id="annualIncome">€300</div>
-                        <div class="result-label">Annual Income</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-value yield" id="totalReturn">€6,500</div>
-                        <div class="result-label">5-Year Total</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="faq-content">
-            <div class="scroll-reveal">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Everything you need to know about investing in real estate NFTs</p>
-            </div>
-            
-            <div class="scroll-reveal">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How does real estate NFT investment work?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Each NFT represents a €1,000 fractional ownership stake in the property. When you purchase an NFT, you own a proportional share and receive rental income distributions. All ownership and income distribution is managed transparently through smart contracts.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What are the expected returns?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Based on current German mixed-use property markets, we project 5-7% annual yields. This includes rental income from both residential and commercial tenants, distributed monthly in USDC stablecoin directly to your wallet.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How many NFTs are available and at what price?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        There are 2,500 NFTs total, each priced at €1,000. This represents the full €2.5M fundraising goal to acquire the €1.795M property and cover formation costs, legal fees, and initial operating capital.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Is this investment regulated?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, CoinEstate operates under Estonian financial regulations as an EU-licensed entity. All property acquisitions follow German real estate law, and our smart contracts have been independently audited for security and compliance.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Can I sell my NFTs before the property is sold?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes, NFTs can be traded on secondary markets or through our planned marketplace. This provides liquidity compared to traditional real estate investments, though market demand may vary and affect pricing.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="trust-section" id="investment">
-        <div class="container" style="text-align: center;">
-            <div class="scroll-reveal">
-                <h2 class="section-title">Ready to Start Investing?</h2>
-                <p class="section-subtitle">
-                    Join the future of real estate investment with transparent, 
-                    regulated fractional ownership through NFTs.
+                <p class="hero-subtitle">
+                    Join exclusive property communities through NFT membership. Access transparent real estate insights, participate in non-binding governance, and connect with like-minded investors in a fully regulated environment.
                 </p>
                 
-                <div style="margin-top: 3rem;">
-                    <a href="https://coinestate.io" class="cta-button">Visit CoinEstate Platform</a>
-                    <a href="mailto:info@coinestate.io" class="secondary-cta">Contact Us</a>
+                <div class="hero-cta">
+                    <button class="btn-primary" id="mintNFT">
+                        <span>🏆</span>
+                        <span>Mint Your NFT</span>
+                    </button>
+                    <a href="#how-it-works" class="btn-secondary">
+                        <span>📖</span>
+                        <span>Learn More</span>
+                    </a>
+                </div>
+                
+                <div class="hero-disclaimer">
+                    <h3>💎 Non-Financial Digital Assets - Community Access Only</h3>
+                    <p>
+                        <strong>CoinEstate NFTs are non-financial digital assets.</strong> They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. NFTs provide community access and participation rights only, with no financial returns or profit-sharing provided or implied.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Risk Warning -->
-    <div class="risk-warning">
-        <div class="risk-title">
-            <span>⚠️</span>
-            <span>Investment Risk Warning</span>
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">
+                    Three simple steps to join the future of legally-compliant real estate community membership
+                </p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Mint NFT Membership</h3>
+                    <p>Purchase an NFT to join a specific real estate community. Each property has its own limited collection, granting exclusive access and lifelong participation rights in that community.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Access Premium Dashboard</h3>
+                    <p>Access gated, non-commercial property insights and dashboards for informational purposes only. Track property performance through detailed analytics and market insights.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Join Community Governance</h3>
+                    <p>Non-binding participation in community discussions about future property projects. Advisory voting only with no financial consequence, ensuring full legal compliance.</p>
+                </div>
+            </div>
         </div>
-        <div class="risk-text">
-            Real estate investments carry risks including market volatility, property value fluctuations, 
-            and potential capital loss. Rental income is not guaranteed and may vary based on market conditions. 
-            NFTs are digital assets subject to technology risks. This is not financial advice - 
-            please consult qualified financial advisors before investing. All investments are subject to 
-            German and Estonian regulations.
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="section" id="dashboard-preview" style="background: var(--bg-secondary); text-align: center;">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Dashboard Preview Coming Soon</h2>
+                <p class="section-subtitle">
+                    Interactive property dashboard, team profiles, and comprehensive FAQ system are being finalized
+                </p>
+            </div>
+            
+            <div class="step-card animate-on-scroll" style="max-width: 600px; margin: 0 auto;">
+                <div style="font-size: 4rem; margin-bottom: 2rem;">🚧</div>
+                <h3>Enhanced Features In Development</h3>
+                <p>We're putting the finishing touches on interactive property visualization, comprehensive FAQ system, and detailed team profiles. Join our Discord to get early access!</p>
+                <div style="margin-top: 2rem;">
+                    <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
+                        <span>💬</span>
+                        <span>Join Discord Community</span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-content">
+    <footer class="footer">
+        <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>CoinEstate</h4>
-                    <p>Professional real estate investment platform enabling fractional ownership through NFTs. Regulated, transparent, and accessible investment in premium properties.</p>
+                    <p>The future of real estate membership. Built with legal compliance, community focus, and transparent governance at its core under EU regulatory framework.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Discord">💬</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="Telegram">✈️</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Investment</h4>
-                    <ul class="footer-links">
-                        <li><a href="#property">Current Property</a></li>
-                        <li><a href="#calculator">ROI Calculator</a></li>
-                        <li><a href="#faq">Investment FAQ</a></li>
-                        <li><a href="mailto:info@coinestate.io">Investment Guide</a></li>
-                    </ul>
+                    <h4>Platform</h4>
+                    <a href="#">Member Dashboard</a>
+                    <a href="#">Mint NFT</a>
+                    <a href="#">Community Governance</a>
+                    <a href="#">Property Analytics</a>
+                    <a href="#">Roadmap Status</a>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:legal@coinestate.io">Terms of Service</a></li>
-                        <li><a href="mailto:legal@coinestate.io">Privacy Policy</a></li>
-                        <li><a href="mailto:legal@coinestate.io">Risk Disclosure</a></li>
-                        <li><a href="mailto:legal@coinestate.io">Regulatory Compliance</a></li>
-                    </ul>
+                    <h4>Legal & Compliance</h4>
+                    <a href="#">Legal Transparency</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">MiCA Compliance</a>
+                    <a href="#">Regulatory FAQ</a>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:support@coinestate.io">Help Center</a></li>
-                        <li><a href="mailto:info@coinestate.io">Contact Us</a></li>
-                        <li><a href="#faq">Investment FAQ</a></li>
-                        <li><a href="mailto:support@coinestate.io">Technical Support</a></li>
-                    </ul>
+                    <h4>Resources</h4>
+                    <a href="#">Whitepaper</a>
+                    <a href="#">Smart Contract Audits</a>
+                    <a href="#">Technical Documentation</a>
+                    <a href="#">Community FAQ</a>
+                    <a href="#">Security Reports</a>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2024 CoinEstate. All rights reserved. Licensed in Estonia, operating under EU regulations.</p>
+            <div class="footer-disclaimer">
+                <p>
+                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs are non-financial digital assets providing platform access and membership benefits only. They do not constitute securities under EU financial regulations, as they confer no entitlement to revenue, dividends, or equity. No financial returns, profits, yields, or investment benefits are provided, promised, or implied. All governance participation is purely advisory with no financial consequence.
+                </p>
+                <p style="margin-top: 1.5rem; opacity: 0.8;">
+                    &copy; 2025 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
+                    Regular compliance reviews conducted by EU-licensed legal counsel.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Accessibility Widget -->
-    <div class="accessibility-widget">
-        <button class="accessibility-button" onclick="toggleAccessibility()" aria-label="Accessibility Options">
-            ♿
-        </button>
-        <div class="accessibility-panel" id="accessibilityPanel">
-            <div class="accessibility-option">
-                <span>Text Size:</span>
-                <button onclick="adjustTextSize('increase')">A+</button>
-                <button onclick="adjustTextSize('decrease')">A-</button>
-            </div>
-            <div class="accessibility-option">
-                <span>Contrast:</span>
-                <button onclick="toggleHighContrast()">High</button>
-            </div>
-            <div class="accessibility-option">
-                <span>Motion:</span>
-                <button onclick="toggleReducedMotion()">Reduce</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Enhanced page loading
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loadingOverlay').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('loadingOverlay').style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
-
-        // Enhanced header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Enhanced Wallet Connection
+        class WalletManager {
+            constructor() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.walletButton = document.getElementById('walletConnect');
+                this.mintButton = document.getElementById('mintNFT');
+                this.init();
             }
-        });
 
-        // Enhanced scroll reveal animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.scroll-reveal');
-            
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('revealed');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
-
-        // Enhanced investment calculator
-        function updateCalculator() {
-            const investment = parseFloat(document.getElementById('investmentAmount').value) || 0;
-            const period = parseFloat(document.getElementById('investmentPeriod').value) || 1;
-            const yieldRate = parseFloat(document.getElementById('expectedYield').value) || 6;
-            
-            const nftShares = Math.floor(investment / 1000);
-            const annualIncome = investment * (yieldRate / 100);
-            const monthlyIncome = annualIncome / 12;
-            const totalReturn = investment + (annualIncome * period);
-            
-            document.getElementById('nftShares').textContent = nftShares;
-            document.getElementById('monthlyIncome').textContent = `€${Math.round(monthlyIncome)}`;
-            document.getElementById('annualIncome').textContent = `€${Math.round(annualIncome)}`;
-            document.getElementById('totalReturn').textContent = `€${Math.round(totalReturn).toLocaleString()}`;
-            
-            // Update slider progress
-            updateSliderProgress();
-        }
-
-        function updateSliderProgress() {
-            const sliders = document.querySelectorAll('.input-slider');
-            sliders.forEach(slider => {
-                const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-                slider.style.background = `linear-gradient(to right, var(--blue-500) 0%, var(--blue-500) ${percentage}%, var(--primary-600) ${percentage}%, var(--primary-600) 100%)`;
-            });
-        }
-
-        // Sync sliders with inputs
-        function syncSliderInput(sliderId, inputId) {
-            const slider = document.getElementById(sliderId);
-            const input = document.getElementById(inputId);
-            
-            slider.addEventListener('input', function() {
-                input.value = this.value;
-                updateCalculator();
-            });
-            
-            input.addEventListener('input', function() {
-                slider.value = this.value;
-                updateCalculator();
-            });
-        }
-
-        syncSliderInput('investmentSlider', 'investmentAmount');
-        syncSliderInput('periodSlider', 'investmentPeriod');
-        syncSliderInput('yieldSlider', 'expectedYield');
-
-        updateCalculator(); // Initial calculation
-
-        // Enhanced FAQ functionality
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
+            init() {
+                this.walletButton.addEventListener('click', () => this.toggleConnection());
+                this.mintButton.addEventListener('click', () => this.handleMint());
+                this.checkExistingConnection();
             }
-        }
 
-        // Accessibility functions
-        function toggleAccessibility() {
-            const panel = document.getElementById('accessibilityPanel');
-            panel.classList.toggle('active');
-        }
-
-        function adjustTextSize(action) {
-            const root = document.documentElement;
-            const currentSize = parseFloat(getComputedStyle(root).fontSize);
-            
-            if (action === 'increase') {
-                root.style.fontSize = (currentSize + 2) + 'px';
-            } else if (action === 'decrease') {
-                root.style.fontSize = Math.max(currentSize - 2, 12) + 'px';
-            }
-        }
-
-        function toggleHighContrast() {
-            document.body.classList.toggle('high-contrast');
-        }
-
-        function toggleReducedMotion() {
-            document.body.classList.toggle('reduced-motion');
-        }
-
-        // Enhanced smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced mobile menu
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            const nav = document.querySelector('.nav');
-            const isVisible = nav.style.display === 'flex';
-            
-            if (isVisible) {
-                nav.style.display = 'none';
-                this.setAttribute('aria-expanded', 'false');
-            } else {
-                nav.style.display = 'flex';
-                nav.style.position = 'absolute';
-                nav.style.top = '100%';
-                nav.style.left = '0';
-                nav.style.right = '0';
-                nav.style.background = 'var(--primary-900)';
-                nav.style.flexDirection = 'column';
-                nav.style.padding = '1rem';
-                nav.style.borderTop = '1px solid var(--glass-border)';
-                this.setAttribute('aria-expanded', 'true');
-            }
-        });
-
-        // Performance optimization: Intersection Observer
-        if ('IntersectionObserver' in window) {
-            const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
+            async checkExistingConnection() {
+                if (typeof window.ethereum !== 'undefined') {
+                    try {
+                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                        if (accounts.length > 0) {
+                            this.handleConnectionSuccess(accounts[0]);
+                        }
+                    } catch (error) {
+                        console.error('Error checking existing connection:', error);
                     }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                animationObserver.observe(el);
-            });
-        }
-
-        // Enhanced GSAP animations
-        if (typeof gsap !== 'undefined') {
-            gsap.from(".hero-content > *", {
-                duration: 1,
-                y: 30,
-                opacity: 0,
-                stagger: 0.2,
-                ease: "power2.out",
-                delay: 1
-            });
-
-            gsap.from(".hero-stats .hero-stat", {
-                duration: 0.8,
-                scale: 0.8,
-                opacity: 0,
-                stagger: 0.1,
-                ease: "back.out(1.7)",
-                delay: 1.5
-            });
-        }
-
-        // Error handling
-        window.addEventListener('error', function(e) {
-            console.error('Error:', e.error);
-        });
-
-        // Close accessibility panel when clicking outside
-        document.addEventListener('click', function(e) {
-            const widget = document.querySelector('.accessibility-widget');
-            const panel = document.getElementById('accessibilityPanel');
-            
-            if (!widget.contains(e.target)) {
-                panel.classList.remove('active');
-            }
-        });
-
-        // Keyboard navigation improvements
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                // Close any open panels
-                document.querySelectorAll('.faq-item.active').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                document.getElementById('accessibilityPanel').classList.remove('active');
-                
-                // Close mobile menu
-                const nav = document.querySelector('.nav');
-                if (nav.style.display === 'flex') {
-                    nav.style.display = 'none';
-                    document.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded', 'false');
                 }
             }
-        });
 
-        // Enhanced form validation and interaction
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentNode.classList.add('focused');
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentNode.classList.remove('focused');
-            });
-        });
+            async toggleConnection() {
+                if (!this.isConnected) {
+                    await this.connectWallet();
+                } else {
+                    this.disconnectWallet();
+                }
+            }
 
-        // Analytics and tracking (placeholder)
-        function trackEvent(category, action, label) {
-            // Analytics tracking would go here
-            console.log('Event tracked:', category, action, label);
+            async connectWallet() {
+                if (typeof window.ethereum === 'undefined') {
+                    this.showNotification('Please install MetaMask or another Web3 wallet.', 'error');
+                    return;
+                }
+
+                try {
+                    this.walletButton.textContent = 'Connecting...';
+                    this.walletButton.disabled = true;
+
+                    const accounts = await window.ethereum.request({ 
+                        method: 'eth_requestAccounts' 
+                    });
+                    
+                    this.handleConnectionSuccess(accounts[0]);
+                    this.showNotification('Wallet connected successfully!', 'success');
+                } catch (error) {
+                    console.error('Wallet connection failed:', error);
+                    this.showNotification('Wallet connection failed. Please try again.', 'error');
+                    this.resetWalletButton();
+                }
+            }
+
+            handleConnectionSuccess(account) {
+                this.isConnected = true;
+                this.currentAccount = account;
+                this.walletButton.textContent = `${account.substring(0, 6)}...${account.substring(38)}`;
+                this.walletButton.classList.add('wallet-connected');
+                this.walletButton.disabled = false;
+            }
+
+            disconnectWallet() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.resetWalletButton();
+                this.showNotification('Wallet disconnected.', 'info');
+            }
+
+            resetWalletButton() {
+                this.walletButton.textContent = 'Connect Wallet';
+                this.walletButton.classList.remove('wallet-connected');
+                this.walletButton.disabled = false;
+            }
+
+            handleMint() {
+                if (!this.isConnected) {
+                    this.showNotification('Please connect your wallet first.', 'warning');
+                    return;
+                }
+                
+                this.showNotification('Minting will be available at launch! Join our Discord for early access.', 'info');
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: ${type === 'success' ? '#10B981' : type === 'error' ? '#EF4444' : type === 'warning' ? '#F59E0B' : '#3B82F6'};
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 12px;
+                    z-index: 10000;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    max-width: 300px;
+                    font-weight: 500;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 4000);
+            }
         }
 
-        // Track calculator usage
-        document.getElementById('investmentAmount').addEventListener('change', function() {
-            trackEvent('Calculator', 'Investment Amount Changed', this.value);
+        // Enhanced Scroll Animations
+        class ScrollAnimations {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.observeElements();
+                this.handleNavbarScroll();
+            }
+
+            observeElements() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            if (entry.target.parentElement.classList.contains('steps-grid')) {
+                                const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
+                                entry.target.style.animationDelay = `${delay}ms`;
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            handleNavbarScroll() {
+                const navbar = document.getElementById('navbar');
+                
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // Smooth Scrolling
+        class SmoothScrolling {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(anchor.getAttribute('href'));
+                        if (target) {
+                            const offsetTop = target.offsetTop - 80;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        }
+
+        // Mobile Menu Handler
+        class MobileMenu {
+            constructor() {
+                this.menuBtn = document.getElementById('mobileMenuBtn');
+                this.isOpen = false;
+                this.init();
+            }
+
+            init() {
+                this.menuBtn.addEventListener('click', () => this.toggle());
+            }
+
+            toggle() {
+                this.isOpen = !this.isOpen;
+                this.menuBtn.classList.toggle('active', this.isOpen);
+            }
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            new WalletManager();
+            new ScrollAnimations();
+            new SmoothScrolling();
+            new MobileMenu();
         });
 
-        // Track CTA clicks
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                trackEvent('CTA', 'Click', this.textContent);
+        // Interactive background
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                const xPos = x * speed * 20;
+                const yPos = y * speed * 20;
+                shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
             });
         });
     </script>
