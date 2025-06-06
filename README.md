@@ -1,4 +1,4 @@
-# CoinEstate NFT - Real Estate Membership Platform
+# CoinEstate NFT - Premium Real Estate Membership Platform
 
 > **🚀 Development Status**: Pre-Launch Development Phase | **Target Launch**: Juli 2025
 
@@ -219,9 +219,9 @@ NFT Collection Revenue: €2,500,000
 
 ### **Core Files**
 - **[Landing Page](index.html)** - Main project showcase
-- **[Project Overview](PROJECT_OVERVIEW.md)** - Technical specifications
+- **[Property Details](docs/PROPERTY_DETAILS.md)** - Comprehensive property information
+- **[Tokenomics](docs/TOKENOMICS.md)** - Collection economics and tier system
 - **[Security Checklist](SECURITY_CHECKLIST.md)** - Security protocols
-- **[Legal Framework](docs/)** - Compliance documentation
 
 ### **Development Resources**
 - **Smart Contracts**: Solidity code in `/contracts` folder
@@ -263,4 +263,4 @@ NFT Collection Revenue: €2,500,000
 
 **Building premium real estate communities through transparent blockchain technology 🏢⚡**
 
-*Last Updated: June 2025 | Version: 2.0-updated | Next Review: July 2025*
+*Last Updated: June 2025 | Version: 2.0-corrected | Next Review: July 2025*
