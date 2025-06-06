@@ -1233,15 +1233,15 @@
     </footer>
 
     <script>
-        // 🛡️ SECURITY: Verified Contract Addresses (TODO: Update with real addresses)
-        const VERIFIED_CONTRACTS = {
+        // ✅ FIXED: CoinEstate Contract Addresses (TODO: Update with real addresses when deployed)
+        const COINESTATE_CONTRACTS = {
             mainnet: {
-                COINESTATE_NFT: '0x0000000000000000000000000000000000000000', // TODO: Replace
-                VBK_TOKEN: '0x0000000000000000000000000000000000000000'      // TODO: Replace
+                KAMP_LINTFORT_NFT: '0x0000000000000000000000000000000000000000',  // TODO: Replace with actual address
+                PROPERTY_MANAGER: '0x0000000000000000000000000000000000000000'    // TODO: Replace with actual address
             },
             goerli: {
-                COINESTATE_NFT: '0x0000000000000000000000000000000000000000', // TODO: Replace  
-                VBK_TOKEN: '0x0000000000000000000000000000000000000000'      // TODO: Replace
+                KAMP_LINTFORT_NFT: '0x0000000000000000000000000000000000000000',  // TODO: Replace with actual address
+                PROPERTY_MANAGER: '0x0000000000000000000000000000000000000000'    // TODO: Replace with actual address
             }
         };
 
@@ -1262,16 +1262,16 @@
                 return address.substring(0, 6) + '...' + address.substring(38);
             }
 
-            // Validate contract address against whitelist
+            // Validate contract address against CoinEstate whitelist
             static validateContractAddress(address, network) {
-                const contracts = VERIFIED_CONTRACTS[network];
+                const contracts = COINESTATE_CONTRACTS[network];
                 if (!contracts) {
                     throw new Error('Unsupported network');
                 }
                 
                 const validAddresses = Object.values(contracts);
                 if (!validAddresses.includes(address.toLowerCase())) {
-                    console.error('⚠️ SECURITY WARNING: Unverified contract address detected!');
+                    console.error('⚠️ SECURITY WARNING: Unverified CoinEstate contract address detected!');
                     return false;
                 }
                 
@@ -1302,7 +1302,7 @@
 
             // Secure text content setting (prevent XSS)
             static setSecureTextContent(element, content) {
-                if (!element || !element.textContent !== undefined) {
+                if (!element || element.textContent === undefined) {
                     throw new Error('Invalid DOM element');
                 }
                 
@@ -1313,7 +1313,7 @@
                 element.textContent = String(content).substring(0, 100); // Limit length
             }
 
-            // Validate network chain ID
+            // Validate network chain ID (Mainnet & Goerli only for CoinEstate)
             static validateNetwork(chainId) {
                 const supportedNetworks = [1, 5]; // Mainnet, Goerli
                 return supportedNetworks.includes(parseInt(chainId));
@@ -1396,7 +1396,7 @@
                 const chainIdDecimal = parseInt(chainId, 16);
                 
                 if (!SecurityUtils.validateNetwork(chainIdDecimal)) {
-                    this.showSecurityAlert('Unsupported network detected. Please switch to Ethereum Mainnet or Goerli.', 'warning');
+                    this.showSecurityAlert('Unsupported network detected. Please switch to Ethereum Mainnet or Goerli for CoinEstate.', 'warning');
                     this.currentNetwork = null;
                     return;
                 }
@@ -1422,7 +1422,7 @@
                     const chainId = await window.ethereum.request({ method: 'eth_chainId' });
                     
                     await this.handleConnectionSuccess(accounts[0], chainId);
-                    this.showNotification('Wallet connected securely! Ready for Juli 2025 launch.', 'success');
+                    this.showNotification('Wallet connected securely! Ready for CoinEstate Juli 2025 launch.', 'success');
                     
                 } catch (error) {
                     console.error('Wallet connection failed:', error);
@@ -1439,7 +1439,7 @@
                     // Validate network
                     const chainIdDecimal = parseInt(chainId, 16);
                     if (!SecurityUtils.validateNetwork(chainIdDecimal)) {
-                        this.showSecurityAlert('Please switch to a supported network (Mainnet or Goerli).', 'warning');
+                        this.showSecurityAlert('Please switch to a supported network (Mainnet or Goerli) for CoinEstate.', 'warning');
                         return;
                     }
 
@@ -1489,7 +1489,7 @@
             }
 
             handleWaitlist() {
-                this.showNotification('Join our Discord for €2.5M collection launch updates!', 'info');
+                this.showNotification('Join our Discord for CoinEstate €2.5M collection launch updates!', 'info');
                 setTimeout(() => {
                     SecureNavigation.safeOpen('https://discord.gg/coinestate');
                 }, 2000);
@@ -1550,8 +1550,8 @@
                 try {
                     const urlObj = new URL(url);
                     
-                    // Only allow https and specific trusted domains
-                    const trustedDomains = ['discord.gg', 't.me', 'github.com'];
+                    // Only allow https and specific trusted domains for CoinEstate
+                    const trustedDomains = ['discord.gg', 't.me', 'github.com', 'coinestate.io'];
                     
                     if (urlObj.protocol !== 'https:' || !trustedDomains.some(domain => urlObj.hostname.includes(domain))) {
                         console.error('Blocked potentially unsafe URL:', url);
@@ -1665,7 +1665,7 @@
                 new SmoothScrolling();
                 new MobileMenu();
                 
-                console.log('🛡️ CoinEstate loaded with enhanced security features');
+                console.log('🛡️ CoinEstate loaded with enhanced security features - VaultBrick references removed');
             } catch (error) {
                 console.error('Initialization error:', error);
             }
