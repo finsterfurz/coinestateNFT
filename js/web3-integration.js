@@ -1,4 +1,4 @@
-// Web3 Integration für CoinEstate Landing Page
+// Web3 Integration für CoinEstate NFT Landing Page
 import { ethers } from 'ethers';
 
 class CoinEstateWeb3 {
@@ -6,14 +6,12 @@ class CoinEstateWeb3 {
         this.provider = null;
         this.signer = null;
         this.propertyNFTContract = null;
-        this.coinEstateTokenContract = null; // ✅ RENAMED from vaultBrickContract
         this.salesContract = null;
         this.isConnected = false;
         
         // Contract Addresses (werden nach Deployment gesetzt)
         this.contractAddresses = {
             propertyNFT: process.env.PROPERTY_NFT_ADDRESS || '',
-            coinEstateToken: process.env.COINESTATE_TOKEN_ADDRESS || '', // ✅ RENAMED from vaultBrick
             sales: process.env.SALES_CONTRACT_ADDRESS || ''
         };
         
@@ -74,16 +72,9 @@ class CoinEstateWeb3 {
             "function mint(address to, uint256 amount) external",
             "function balanceOf(address owner) view returns (uint256)",
             "function totalSupply() view returns (uint256)",
-            "function maxSupply() view returns (uint256)"
-        ];
-        
-        // ✅ RENAMED from vaultBrickABI to coinEstateTokenABI
-        const coinEstateTokenABI = [
-            "function balanceOf(address account) view returns (uint256)",
-            "function transfer(address to, uint256 amount) returns (bool)",
-            "function decimals() view returns (uint8)",
-            "function name() view returns (string)",
-            "function symbol() view returns (string)"
+            "function maxSupply() view returns (uint256)",
+            "function tokenURI(uint256 tokenId) view returns (string)",
+            "function ownerOf(uint256 tokenId) view returns (address)"
         ];
         
         const salesABI = [
@@ -97,15 +88,6 @@ class CoinEstateWeb3 {
                 this.propertyNFTContract = new ethers.Contract(
                     this.contractAddresses.propertyNFT,
                     propertyNFTABI,
-                    this.signer
-                );
-            }
-            
-            // ✅ UPDATED to use coinEstateToken instead of vaultBrick
-            if (this.contractAddresses.coinEstateToken) {
-                this.coinEstateTokenContract = new ethers.Contract(
-                    this.contractAddresses.coinEstateToken,
-                    coinEstateTokenABI,
                     this.signer
                 );
             }
@@ -133,6 +115,13 @@ class CoinEstateWeb3 {
                 const maxSupply = await this.propertyNFTContract.maxSupply();
                 
                 this.updateNFTStats(totalSupply, maxSupply);
+                
+                // Load user's NFT balance
+                if (this.signer) {
+                    const userAddress = await this.signer.getAddress();
+                    const nftBalance = await this.propertyNFTContract.balanceOf(userAddress);
+                    this.updateNFTBalance(nftBalance);
+                }
             }
             
             if (this.salesContract) {
@@ -142,27 +131,16 @@ class CoinEstateWeb3 {
                 this.updateSalesStats(sold, available, raised, price);
             }
             
-            // ✅ UPDATED to use coinEstateTokenContract
-            if (this.coinEstateTokenContract && this.signer) {
-                const userAddress = await this.signer.getAddress();
-                const tokenBalance = await this.coinEstateTokenContract.balanceOf(userAddress);
-                const tokenName = await this.coinEstateTokenContract.name();
-                const tokenSymbol = await this.coinEstateTokenContract.symbol();
-                
-                this.updateTokenBalance(tokenBalance, tokenName, tokenSymbol);
-            }
-            
         } catch (error) {
             console.error('Failed to load contract data:', error);
         }
     }
     
-    // ✅ NEW METHOD to update token balance display
-    updateTokenBalance(balance, name, symbol) {
-        const tokenBalanceElement = document.querySelector('[data-token-balance]');
-        if (tokenBalanceElement) {
-            const formattedBalance = ethers.formatEther(balance);
-            tokenBalanceElement.textContent = `${parseFloat(formattedBalance).toFixed(2)} ${symbol}`;
+    // Update user's NFT balance display
+    updateNFTBalance(balance) {
+        const nftBalanceElement = document.querySelector('[data-nft-balance]');
+        if (nftBalanceElement) {
+            nftBalanceElement.textContent = `${Number(balance)} NFTs owned`;
         }
     }
     
@@ -236,8 +214,8 @@ class CoinEstateWeb3 {
                     ${address.slice(0, 6)}...${address.slice(-4)}
                 </div>
                 <div class="network">${network.name}</div>
-                <div class="token-balance" data-token-balance>
-                    Loading token balance...
+                <div class="nft-balance" data-nft-balance>
+                    Loading NFT balance...
                 </div>
             `;
             walletInfo.style.display = 'block';
@@ -389,7 +367,7 @@ const web3Styles = `
     color: var(--primary-300);
 }
 
-.token-balance {
+.nft-balance {
     font-size: 0.75rem;
     color: var(--blue-400);
     margin-top: 0.5rem;
