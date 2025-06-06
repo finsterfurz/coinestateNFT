@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoinEstate - The Future of Real Estate Membership</title>
+    <title>CoinEstate - Premium Real Estate Membership Platform</title>
+    <meta name="description" content="Join the exclusive Kamp-Lintfort property community through NFT membership. €1.795M mixed-use complex, 2,500 NFTs at €1,000 each. Juli 2025 launch.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -404,6 +405,71 @@
             line-height: 1.6;
         }
 
+        /* Property Showcase */
+        .property-showcase {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .property-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         /* Section Styling */
         .section {
             padding: 6rem 0;
@@ -497,6 +563,48 @@
             color: var(--text-secondary);
             line-height: 1.7;
             font-size: 1.05rem;
+        }
+
+        /* NFT Collection Details */
+        .nft-details {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .nft-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+        }
+
+        .nft-collection-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-item {
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+        }
+
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Legal Notice */
@@ -657,6 +765,10 @@
             .section {
                 padding: 4rem 0;
             }
+
+            .property-grid, .steps-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -687,6 +799,7 @@
             </a>
             
             <ul class="nav-links">
+                <li><a href="#property-showcase">Property</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#legal-transparency">Legal</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
@@ -711,13 +824,13 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span>🚀</span>
-                    <span>Launching Juli 2025 - EU-Compliant Real Estate Communities</span>
+                    <span>Launching Juli 2025 - €1.795M Mixed-Use Property Complex</span>
                 </div>
                 
-                <h1>Real Estate Membership<br>Reimagined for Web3</h1>
+                <h1>Premium Real Estate<br>Community Platform</h1>
                 
                 <p class="hero-subtitle">
-                    Join exclusive property communities through NFT membership. Access transparent real estate insights, participate in non-binding governance, and connect with like-minded investors in a fully regulated environment.
+                    Join the exclusive Kamp-Lintfort property community through NFT membership. Access a €1.795M mixed-use complex with 2,500 NFTs at €1,000 each. Transparent analytics, non-binding governance, and tier-based benefits in a fully regulated environment.
                 </p>
                 
                 <div class="hero-cta">
@@ -725,9 +838,9 @@
                         <span>🎯</span>
                         <span>Join Juli 2025 Waitlist</span>
                     </button>
-                    <a href="#legal-transparency" class="btn-secondary">
-                        <span>📖</span>
-                        <span>Legal Framework</span>
+                    <a href="#property-showcase" class="btn-secondary">
+                        <span>🏢</span>
+                        <span>View Property Details</span>
                     </a>
                 </div>
                 
@@ -741,21 +854,104 @@
         </div>
     </section>
 
+    <!-- Property Showcase -->
+    <section class="property-showcase" id="property-showcase">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Kamp-Lintfort Mixed-Use Complex</h2>
+                <p class="section-subtitle">
+                    Premium downtown property portfolio featuring three historic buildings with modern amenities
+                </p>
+            </div>
+            
+            <div class="nft-details animate-on-scroll">
+                <div class="nft-price">€1,000</div>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">per NFT • 2,500 Total Collection • €2.5M Community Value</p>
+                
+                <div class="nft-collection-info">
+                    <div class="info-item">
+                        <div class="info-value">€1.795M</div>
+                        <div class="info-label">Property Investment</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value">2,500</div>
+                        <div class="info-label">NFTs Available</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value">3</div>
+                        <div class="info-label">Historic Buildings</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value">1,797m²</div>
+                        <div class="info-label">Total Plot Size</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-grid">
+                <div class="property-card animate-on-scroll">
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">🏢 Building Portfolio</h3>
+                    <div style="text-align: left;">
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-tertiary); border-radius: 12px;">
+                            <strong>Haus I (Built 1967)</strong><br>
+                            3½-story commercial building with rear extensions<br>
+                            <em>Oil central heating (shared with Haus II)</em>
+                        </div>
+                        <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-tertiary); border-radius: 12px;">
+                            <strong>Haus II (Built 1976)</strong><br>
+                            3½-story modern commercial building<br>
+                            <em>Oil central heating (shared with Haus I)</em>
+                        </div>
+                        <div style="padding: 1rem; background: var(--bg-tertiary); border-radius: 12px;">
+                            <strong>Haus III (Built 1920)</strong><br>
+                            Historic 3½-story building with character + extensions<br>
+                            <em>Gas central heating (independent system)</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card animate-on-scroll">
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem; font-size: 1.5rem;">📍 Location & Space</h3>
+                    <p style="text-align: left; margin-bottom: 2rem;">Premium downtown Kamp-Lintfort shopping district location with excellent accessibility and high foot traffic potential.</p>
+                    
+                    <div class="property-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">1,094m²</div>
+                            <div class="stat-label">Commercial Space</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,009m²</div>
+                            <div class="stat-label">Residential Space</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4+11</div>
+                            <div class="stat-label">Garages + Parking</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">45min</div>
+                            <div class="stat-label">To Düsseldorf</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="section how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">How It Works</h2>
                 <p class="section-subtitle">
-                    Three simple steps to join the future of legally-compliant real estate community membership
+                    Three simple steps to join the premium Kamp-Lintfort property community
                 </p>
             </div>
             
             <div class="steps-grid">
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">1</div>
-                    <h3>Mint Kamp-Lintfort NFT</h3>
-                    <p>Purchase an NFT (0.15 ETH) to join the Kamp-Lintfort property community. Limited to 500 NFTs with lifelong membership rights and upgrade options to Gold/Platin tiers.</p>
+                    <h3>Mint Community NFT</h3>
+                    <p>Purchase an NFT (€1,000) to join the Kamp-Lintfort property community. Choose from 2,500 available NFTs with lifelong membership rights and tier progression to Gold/Platinum levels.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
@@ -766,8 +962,8 @@
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>Benefit from Future Expansion</h3>
-                    <p>Enjoy tier-based discounts on future services post-MiCA compliance. Early members gain priority access to international properties and enhanced platform features.</p>
+                    <h3>Benefit from Tier System</h3>
+                    <p>Enjoy tier-based discounts on future services post-MiCA compliance. Standard (1-9 NFTs), Gold (10+ NFTs with 20% discounts), Platinum (100+ NFTs with up to 90% discounts).</p>
                 </div>
             </div>
         </div>
@@ -784,9 +980,9 @@
             </div>
             
             <div class="legal-notice animate-on-scroll">
-                <h3>🏛️ Legal Transparency & Compliance Framework</h3>
+                <h3>🏛️ EU MiCA Regulation Compliance Framework</h3>
                 <p>
-                    CoinEstate operates under a comprehensive EU compliance framework with Estonian incorporation (CoinEstate OÜ, Registry Code: 16284726) and German property holding structure. We maintain 90% revenue freezing protocols until MiCA regulatory compliance, ensuring maximum legal protection while building toward future community benefits activation under proper regulatory oversight. Regular compliance reviews by EU-licensed counsel ensure continued regulatory alignment.
+                    CoinEstate operates under a comprehensive EU compliance framework with Estonian incorporation (CoinEstate OÜ) and German property holding structure. We maintain 90% revenue freezing protocols until MiCA regulatory compliance, ensuring maximum legal protection while building toward future community benefits activation under proper regulatory oversight. All operations designed for Article 4(1)(d) compliance with regular legal reviews.
                 </p>
             </div>
         </div>
@@ -798,27 +994,27 @@
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Development Roadmap</h2>
                 <p class="section-subtitle">
-                    Our path from property acquisition to international expansion and MiCA compliance
+                    From €1.795M property acquisition to international expansion and MiCA compliance
                 </p>
             </div>
             
             <div class="steps-grid">
                 <div class="step-card animate-on-scroll">
+                    <div class="step-number">Q2</div>
+                    <h3>Property Acquisition</h3>
+                    <p>€1.795M Kamp-Lintfort complex acquisition, Estonian entity setup, smart contract development with 2,500 NFT supply, and legal compliance framework completion.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
                     <div class="step-number">Q3</div>
-                    <h3>Foundation Launch</h3>
-                    <p>Property acquisition, smart contract deployment, NFT minting, and community platform launch with tier system activation.</p>
+                    <h3>Juli 2025 Launch</h3>
+                    <p>Public NFT minting (2,500 NFTs at €1,000 each), community platform launch, member dashboard with real-time property data, and tier system activation.</p>
                 </div>
                 
                 <div class="step-card animate-on-scroll">
                     <div class="step-number">Q4</div>
-                    <h3>Community Building</h3>
-                    <p>Enhanced member dashboard, transparent revenue reporting, non-binding governance activation, and 6-month operating history for MiCA preparation.</p>
-                </div>
-                
-                <div class="step-card animate-on-scroll">
-                    <div class="step-number">2026</div>
                     <h3>MiCA Application</h3>
-                    <p>Submit formal MiCA application, enhanced legal framework, and preparation for revenue unfreeze with compliant community benefits.</p>
+                    <p>Submit formal EU MiCA compliance application, enhanced revenue transparency reporting, and preparation for community benefits activation under regulatory approval.</p>
                 </div>
             </div>
         </div>
@@ -830,7 +1026,7 @@
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Join the Juli 2025 Launch</h2>
                 <p class="section-subtitle">
-                    Be among the first to mint Kamp-Lintfort NFTs and secure your place in the future of real estate community membership
+                    Be among the first 2,500 members to mint Kamp-Lintfort NFTs and secure your place in premium real estate community membership
                 </p>
             </div>
             
@@ -841,7 +1037,7 @@
                 </button>
                 <button class="btn-secondary" onclick="window.open('https://t.me/coinestate', '_blank')">
                     <span>✈️</span>
-                    <span>Follow on Telegram</span>
+                    <span>Follow Updates on Telegram</span>
                 </button>
             </div>
         </div>
@@ -853,7 +1049,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>CoinEstate</h4>
-                    <p>The future of real estate membership. Built with legal compliance, community focus, and transparent governance at its core under EU regulatory framework.</p>
+                    <p>Premium real estate community platform. Built with legal compliance, community focus, and transparent governance at its core under EU regulatory framework.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Discord">💬</a>
                         <a href="#" class="social-link" aria-label="Twitter">🐦</a>
@@ -864,40 +1060,39 @@
                 
                 <div class="footer-section">
                     <h4>Kamp-Lintfort Collection</h4>
-                    <a href="#">Property Details</a>
-                    <a href="#">Juli 2025 Mint Info</a>
+                    <a href="#">€1.795M Property Details</a>
+                    <a href="#">2,500 NFT Collection Info</a>
                     <a href="#">Tier System Guide</a>
                     <a href="#">Member Benefits</a>
-                    <a href="#">Waitlist Registration</a>
+                    <a href="#">Juli 2025 Waitlist</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Legal & Compliance</h4>
-                    <a href="#">MiCA Compliance Status</a>
+                    <a href="#">EU MiCA Compliance Status</a>
+                    <a href="#">Estonian Entity (CoinEstate OÜ)</a>
+                    <a href="#">Revenue Transparency</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Privacy Policy</a>
-                    <a href="#">Revenue Transparency</a>
-                    <a href="#">Estonian Registration</a>
-                    <a href="#">Legal Opinions</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Community Resources</h4>
                     <a href="#">Discord Community</a>
                     <a href="#">Member Dashboard (Soon)</a>
-                    <a href="#">NFT Tier Calculator</a>
-                    <a href="#">Future Roadmap</a>
+                    <a href="#">Tier Calculator</a>
+                    <a href="#">Property Analytics</a>
                     <a href="#">FAQ & Support</a>
                 </div>
             </div>
             
             <div class="footer-disclaimer">
                 <p>
-                    <strong>Enhanced Legal Disclaimer:</strong> CoinEstate NFTs sind non-financial digital assets die ausschließlich Platform-Zugang und Membership-Benefits gewähren. Sie stellen keine Wertpapiere unter EU-Finanzregulierung dar und gewähren keine Ansprüche auf Umsätze, Dividenden oder Eigentumsanteile. Keine finanziellen Renditen, Gewinne oder Investment-Benefits werden bereitgestellt, versprochen oder impliziert. Alle Governance-Teilnahme ist rein beratend ohne finanzielle Konsequenzen. Tier-basierte Rabatte gelten für zukünftige Platform-Services nach MiCA-Compliance.
+                    <strong>Legal Disclaimer:</strong> CoinEstate NFTs sind non-financial digital assets die ausschließlich Platform-Zugang und Membership-Benefits gewähren. Sie stellen keine Wertpapiere unter EU-Finanzregulierung dar und gewähren keine Ansprüche auf Umsätze, Dividenden oder Eigentumsanteile. Keine finanziellen Renditen oder Investment-Benefits werden bereitgestellt oder impliziert. Tier-basierte Rabatte gelten für zukünftige Platform-Services nach MiCA-Compliance.
                 </p>
                 <p style="margin-top: 1.5rem; opacity: 0.8;">
-                    &copy; 2025 CoinEstate OÜ. All rights reserved. Registered in Estonia (Registry Code: 16284726).<br>
-                    Kamp-Lintfort Collection Launch: Juli 2025 | Property Acquisition: Juni 2025
+                    &copy; 2025 CoinEstate OÜ. All rights reserved. EU-registered entity (Estonia).<br>
+                    €1.795M Property Investment | 2,500 NFT Community | Juli 2025 Launch
                 </p>
             </div>
         </div>
@@ -986,7 +1181,7 @@
             }
 
             handleWaitlist() {
-                this.showNotification('Join our Discord for Juli 2025 launch updates!', 'info');
+                this.showNotification('Join our Discord for €2.5M collection launch updates!', 'info');
                 setTimeout(() => {
                     window.open('https://discord.gg/coinestate', '_blank');
                 }, 2000);
@@ -1006,7 +1201,7 @@
                     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
                     transform: translateX(100%);
                     transition: transform 0.3s ease;
-                    max-width: 300px;
+                    max-width: 320px;
                     font-weight: 500;
                 `;
                 notification.textContent = message;
@@ -1021,7 +1216,7 @@
                     setTimeout(() => {
                         document.body.removeChild(notification);
                     }, 300);
-                }, 4000);
+                }, 5000);
             }
         }
 
@@ -1047,7 +1242,8 @@
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
                             // Add staggered animation for grid items
-                            if (entry.target.parentElement.classList.contains('steps-grid')) {
+                            if (entry.target.parentElement.classList.contains('steps-grid') || 
+                                entry.target.parentElement.classList.contains('property-grid')) {
                                 const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
                                 entry.target.style.animationDelay = `${delay}ms`;
                             }
