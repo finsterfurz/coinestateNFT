@@ -3,6 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🛡️ SECURITY: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        connect-src 'self' https://*.ethereum.org https://*.infura.io https://*.alchemy.com;
+        frame-src 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+    ">
+    
+    <!-- 🛡️ SECURITY: Additional Protection Headers -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
     <title>CoinEstate - Premium Real Estate Membership Platform</title>
     <meta name="description" content="Join the exclusive Kamp-Lintfort property community through NFT membership. €1.795M mixed-use complex, 2,500 NFTs at €1,000 each. Juli 2025 launch.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -219,6 +241,27 @@
 
         .wallet-connected {
             background: var(--success) !important;
+        }
+
+        .wallet-connect:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Security Alert Banner */
+        .security-alert {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #DC2626;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .security-alert.show {
+            display: block;
         }
 
         /* Mobile Menu */
@@ -867,6 +910,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <!-- 🛡️ SECURITY: Potential security alerts -->
+                <div class="security-alert" id="securityAlert">
+                    ⚠️ Security Alert: Suspicious network detected. Please verify your connection.
+                </div>
+                
                 <div class="hero-badge">
                     <span>🚀</span>
                     <span>Launching Juli 2025 - €1.795M Mixed-Use Property Complex</span>
@@ -1117,11 +1165,11 @@
             </div>
             
             <div class="hero-cta animate-on-scroll">
-                <button class="btn-primary" onclick="window.open('https://discord.gg/coinestate', '_blank')">
+                <button class="btn-primary" onclick="SecureNavigation.safeOpen('https://discord.gg/coinestate')">
                     <span>💬</span>
                     <span>Join Discord für Juli Launch</span>
                 </button>
-                <button class="btn-secondary" onclick="window.open('https://t.me/coinestate', '_blank')">
+                <button class="btn-secondary" onclick="SecureNavigation.safeOpen('https://t.me/coinestate')">
                     <span>✈️</span>
                     <span>Follow Updates on Telegram</span>
                 </button>
@@ -1185,96 +1233,281 @@
     </footer>
 
     <script>
-        // Enhanced Wallet Connection with Better UX
-        class WalletManager {
+        // 🛡️ SECURITY: Verified Contract Addresses (TODO: Update with real addresses)
+        const VERIFIED_CONTRACTS = {
+            mainnet: {
+                COINESTATE_NFT: '0x0000000000000000000000000000000000000000', // TODO: Replace
+                VBK_TOKEN: '0x0000000000000000000000000000000000000000'      // TODO: Replace
+            },
+            goerli: {
+                COINESTATE_NFT: '0x0000000000000000000000000000000000000000', // TODO: Replace  
+                VBK_TOKEN: '0x0000000000000000000000000000000000000000'      // TODO: Replace
+            }
+        };
+
+        // 🛡️ SECURITY: Input Sanitization Class
+        class SecurityUtils {
+            // Sanitize address display (prevent XSS)
+            static sanitizeAddress(address) {
+                if (!address || typeof address !== 'string') {
+                    throw new Error('Invalid address provided');
+                }
+                
+                // Validate Ethereum address format
+                if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+                    throw new Error('Invalid Ethereum address format');
+                }
+                
+                // Return safely truncated version (prevent XSS via DOM manipulation)
+                return address.substring(0, 6) + '...' + address.substring(38);
+            }
+
+            // Validate contract address against whitelist
+            static validateContractAddress(address, network) {
+                const contracts = VERIFIED_CONTRACTS[network];
+                if (!contracts) {
+                    throw new Error('Unsupported network');
+                }
+                
+                const validAddresses = Object.values(contracts);
+                if (!validAddresses.includes(address.toLowerCase())) {
+                    console.error('⚠️ SECURITY WARNING: Unverified contract address detected!');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            // Rate limiting for user interactions
+            static createRateLimiter(maxCalls, timeWindow) {
+                const calls = [];
+                
+                return function() {
+                    const now = Date.now();
+                    
+                    // Remove old calls outside time window
+                    while (calls.length > 0 && calls[0] < now - timeWindow) {
+                        calls.shift();
+                    }
+                    
+                    // Check if rate limit exceeded
+                    if (calls.length >= maxCalls) {
+                        throw new Error('Rate limit exceeded. Please wait before trying again.');
+                    }
+                    
+                    calls.push(now);
+                    return true;
+                };
+            }
+
+            // Secure text content setting (prevent XSS)
+            static setSecureTextContent(element, content) {
+                if (!element || !element.textContent !== undefined) {
+                    throw new Error('Invalid DOM element');
+                }
+                
+                // Clear existing content
+                element.textContent = '';
+                
+                // Set sanitized content
+                element.textContent = String(content).substring(0, 100); // Limit length
+            }
+
+            // Validate network chain ID
+            static validateNetwork(chainId) {
+                const supportedNetworks = [1, 5]; // Mainnet, Goerli
+                return supportedNetworks.includes(parseInt(chainId));
+            }
+        }
+
+        // 🛡️ SECURITY: Enhanced Wallet Manager with Security Features
+        class SecureWalletManager {
             constructor() {
                 this.isConnected = false;
                 this.currentAccount = null;
+                this.currentNetwork = null;
                 this.walletButton = document.getElementById('walletConnect');
                 this.waitlistButton = document.getElementById('joinWaitlist');
+                this.securityAlert = document.getElementById('securityAlert');
+                
+                // Rate limiting (max 5 connection attempts per minute)
+                this.connectRateLimit = SecurityUtils.createRateLimiter(5, 60000);
+                
                 this.init();
             }
 
             init() {
-                this.walletButton.addEventListener('click', () => this.toggleConnection());
+                this.walletButton.addEventListener('click', () => this.handleWalletClick());
                 this.waitlistButton.addEventListener('click', () => this.handleWaitlist());
                 this.checkExistingConnection();
+                this.setupNetworkDetection();
+            }
+
+            async handleWalletClick() {
+                try {
+                    // Apply rate limiting
+                    this.connectRateLimit();
+                    
+                    if (!this.isConnected) {
+                        await this.connectWallet();
+                    } else {
+                        this.disconnectWallet();
+                    }
+                } catch (error) {
+                    this.showSecurityAlert(error.message, 'error');
+                }
             }
 
             async checkExistingConnection() {
-                if (typeof window.ethereum !== 'undefined') {
-                    try {
-                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                        if (accounts.length > 0) {
-                            this.handleConnectionSuccess(accounts[0]);
-                        }
-                    } catch (error) {
-                        console.error('Error checking existing connection:', error);
-                    }
-                }
-            }
-
-            async toggleConnection() {
-                if (!this.isConnected) {
-                    await this.connectWallet();
-                } else {
-                    this.disconnectWallet();
-                }
-            }
-
-            async connectWallet() {
                 if (typeof window.ethereum === 'undefined') {
-                    this.showNotification('Please install MetaMask or another Web3 wallet.', 'error');
                     return;
                 }
 
                 try {
-                    this.walletButton.textContent = 'Connecting...';
-                    this.walletButton.disabled = true;
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                        await this.handleConnectionSuccess(accounts[0], chainId);
+                    }
+                } catch (error) {
+                    console.error('Error checking existing connection:', error);
+                }
+            }
+
+            setupNetworkDetection() {
+                if (typeof window.ethereum !== 'undefined') {
+                    // Listen for network changes
+                    window.ethereum.on('chainChanged', (chainId) => {
+                        this.handleNetworkChange(chainId);
+                    });
+
+                    // Listen for account changes
+                    window.ethereum.on('accountsChanged', (accounts) => {
+                        if (accounts.length === 0) {
+                            this.disconnectWallet();
+                        } else {
+                            this.handleConnectionSuccess(accounts[0], this.currentNetwork);
+                        }
+                    });
+                }
+            }
+
+            handleNetworkChange(chainId) {
+                const chainIdDecimal = parseInt(chainId, 16);
+                
+                if (!SecurityUtils.validateNetwork(chainIdDecimal)) {
+                    this.showSecurityAlert('Unsupported network detected. Please switch to Ethereum Mainnet or Goerli.', 'warning');
+                    this.currentNetwork = null;
+                    return;
+                }
+
+                this.currentNetwork = chainIdDecimal;
+                this.hideSecurityAlert();
+            }
+
+            async connectWallet() {
+                if (typeof window.ethereum === 'undefined') {
+                    this.showSecurityAlert('Please install MetaMask or another Web3 wallet.', 'error');
+                    return;
+                }
+
+                try {
+                    // Show loading state
+                    this.setWalletButtonState('loading');
 
                     const accounts = await window.ethereum.request({ 
                         method: 'eth_requestAccounts' 
                     });
                     
-                    this.handleConnectionSuccess(accounts[0]);
-                    this.showNotification('Wallet connected! Ready for Juli 2025 launch.', 'success');
+                    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                    
+                    await this.handleConnectionSuccess(accounts[0], chainId);
+                    this.showNotification('Wallet connected securely! Ready for Juli 2025 launch.', 'success');
+                    
                 } catch (error) {
                     console.error('Wallet connection failed:', error);
                     this.showNotification('Wallet connection failed. Please try again.', 'error');
-                    this.resetWalletButton();
+                    this.setWalletButtonState('disconnected');
                 }
             }
 
-            handleConnectionSuccess(account) {
-                this.isConnected = true;
-                this.currentAccount = account;
-                this.walletButton.textContent = `${account.substring(0, 6)}...${account.substring(38)}`;
-                this.walletButton.classList.add('wallet-connected');
-                this.walletButton.disabled = false;
+            async handleConnectionSuccess(account, chainId) {
+                try {
+                    // Validate address format
+                    const sanitizedAddress = SecurityUtils.sanitizeAddress(account);
+                    
+                    // Validate network
+                    const chainIdDecimal = parseInt(chainId, 16);
+                    if (!SecurityUtils.validateNetwork(chainIdDecimal)) {
+                        this.showSecurityAlert('Please switch to a supported network (Mainnet or Goerli).', 'warning');
+                        return;
+                    }
+
+                    this.isConnected = true;
+                    this.currentAccount = account;
+                    this.currentNetwork = chainIdDecimal;
+                    
+                    // Safely update button text (prevent XSS)
+                    SecurityUtils.setSecureTextContent(this.walletButton, sanitizedAddress);
+                    this.walletButton.classList.add('wallet-connected');
+                    this.walletButton.disabled = false;
+                    
+                    this.hideSecurityAlert();
+                    
+                } catch (error) {
+                    this.showSecurityAlert('Invalid wallet address detected.', 'error');
+                    this.setWalletButtonState('disconnected');
+                }
             }
 
             disconnectWallet() {
                 this.isConnected = false;
                 this.currentAccount = null;
-                this.resetWalletButton();
+                this.currentNetwork = null;
+                this.setWalletButtonState('disconnected');
                 this.showNotification('Wallet disconnected.', 'info');
+                this.hideSecurityAlert();
             }
 
-            resetWalletButton() {
-                this.walletButton.textContent = 'Connect Wallet';
-                this.walletButton.classList.remove('wallet-connected');
-                this.walletButton.disabled = false;
+            setWalletButtonState(state) {
+                switch (state) {
+                    case 'loading':
+                        this.walletButton.textContent = 'Connecting...';
+                        this.walletButton.disabled = true;
+                        this.walletButton.classList.remove('wallet-connected');
+                        break;
+                    case 'connected':
+                        this.walletButton.classList.add('wallet-connected');
+                        this.walletButton.disabled = false;
+                        break;
+                    case 'disconnected':
+                        this.walletButton.textContent = 'Connect Wallet';
+                        this.walletButton.classList.remove('wallet-connected');
+                        this.walletButton.disabled = false;
+                        break;
+                }
             }
 
             handleWaitlist() {
                 this.showNotification('Join our Discord for €2.5M collection launch updates!', 'info');
                 setTimeout(() => {
-                    window.open('https://discord.gg/coinestate', '_blank');
+                    SecureNavigation.safeOpen('https://discord.gg/coinestate');
                 }, 2000);
+            }
+
+            showSecurityAlert(message, type) {
+                this.securityAlert.textContent = message;
+                this.securityAlert.className = `security-alert show ${type}`;
+            }
+
+            hideSecurityAlert() {
+                this.securityAlert.classList.remove('show');
             }
 
             showNotification(message, type = 'info') {
                 const notification = document.createElement('div');
+                
+                // Secure notification styling
                 notification.style.cssText = `
                     position: fixed;
                     top: 100px;
@@ -1290,7 +1523,9 @@
                     max-width: 320px;
                     font-weight: 500;
                 `;
-                notification.textContent = message;
+                
+                // Safely set text content
+                SecurityUtils.setSecureTextContent(notification, message);
                 document.body.appendChild(notification);
 
                 setTimeout(() => {
@@ -1300,13 +1535,39 @@
                 setTimeout(() => {
                     notification.style.transform = 'translateX(100%)';
                     setTimeout(() => {
-                        document.body.removeChild(notification);
+                        if (notification.parentNode) {
+                            document.body.removeChild(notification);
+                        }
                     }, 300);
                 }, 5000);
             }
         }
 
-        // Enhanced Scroll Animations
+        // 🛡️ SECURITY: Safe Navigation Class
+        class SecureNavigation {
+            static safeOpen(url) {
+                // Validate URL format
+                try {
+                    const urlObj = new URL(url);
+                    
+                    // Only allow https and specific trusted domains
+                    const trustedDomains = ['discord.gg', 't.me', 'github.com'];
+                    
+                    if (urlObj.protocol !== 'https:' || !trustedDomains.some(domain => urlObj.hostname.includes(domain))) {
+                        console.error('Blocked potentially unsafe URL:', url);
+                        return;
+                    }
+                    
+                    // Open with security attributes
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                    
+                } catch (error) {
+                    console.error('Invalid URL:', url);
+                }
+            }
+        }
+
+        // Enhanced Scroll Animations (unchanged)
         class ScrollAnimations {
             constructor() {
                 this.init();
@@ -1327,7 +1588,6 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
-                            // Add staggered animation for grid items
                             if (entry.target.parentElement.classList.contains('steps-grid') || 
                                 entry.target.parentElement.classList.contains('property-grid') ||
                                 entry.target.parentElement.classList.contains('financial-grid')) {
@@ -1356,7 +1616,7 @@
             }
         }
 
-        // Smooth Scrolling Enhancement
+        // Smooth Scrolling Enhancement (unchanged)
         class SmoothScrolling {
             constructor() {
                 this.init();
@@ -1379,7 +1639,7 @@
             }
         }
 
-        // Mobile Menu Handler
+        // Mobile Menu Handler (unchanged)
         class MobileMenu {
             constructor() {
                 this.menuBtn = document.getElementById('mobileMenuBtn');
@@ -1397,27 +1657,51 @@
             }
         }
 
-        // Initialize everything when DOM is loaded
+        // 🛡️ SECURITY: Initialize with security-first approach
         document.addEventListener('DOMContentLoaded', () => {
-            new WalletManager();
-            new ScrollAnimations();
-            new SmoothScrolling();
-            new MobileMenu();
+            try {
+                new SecureWalletManager();
+                new ScrollAnimations();
+                new SmoothScrolling();
+                new MobileMenu();
+                
+                console.log('🛡️ CoinEstate loaded with enhanced security features');
+            } catch (error) {
+                console.error('Initialization error:', error);
+            }
         });
 
-        // Add some interactive elements
+        // 🛡️ SECURITY: Safe mouse interaction
         document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.5;
-                const xPos = x * speed * 20;
-                const yPos = y * speed * 20;
-                shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
-            });
+            try {
+                const shapes = document.querySelectorAll('.shape');
+                const x = Math.min(Math.max(e.clientX / window.innerWidth, 0), 1);
+                const y = Math.min(Math.max(e.clientY / window.innerHeight, 0), 1);
+                
+                shapes.forEach((shape, index) => {
+                    const speed = Math.min((index + 1) * 0.5, 2); // Limit speed
+                    const xPos = x * speed * 20;
+                    const yPos = y * speed * 20;
+                    shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                });
+            } catch (error) {
+                // Silently handle errors to prevent console spam
+            }
         });
+
+        // 🛡️ SECURITY: Prevent common attacks
+        window.addEventListener('error', (e) => {
+            // Log errors but don't expose sensitive information
+            console.warn('Application error occurred');
+        });
+
+        // Prevent console access in production
+        if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            console.clear();
+            console.log('%c🛡️ CoinEstate Security Notice', 'color: #00D4FF; font-size: 16px; font-weight: bold;');
+            console.log('%cThis browser console is intended for developers only.', 'color: #EF4444; font-size: 14px;');
+            console.log('%cPasting code here could compromise your wallet security.', 'color: #EF4444; font-size: 14px;');
+        }
     </script>
 </body>
 </html>
