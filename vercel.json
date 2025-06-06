@@ -1,29 +1,91 @@
 {
-  "buildCommand": "echo 'No build needed for static site'",
-  "outputDirectory": ".",
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.ethereum.org https://*.infura.io https://*.alchemy.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
         },
         {
           "key": "X-Frame-Options",
           "value": "DENY"
         },
         {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
         },
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=()"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://coinestate.io"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Authorization"
         }
       ]
     }
-  ]
+  ],
+  "redirects": [
+    {
+      "source": "/discord",
+      "destination": "https://discord.gg/coinestate",
+      "permanent": false
+    },
+    {
+      "source": "/telegram",
+      "destination": "https://t.me/coinestate",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    }
+  ],
+  "trailingSlash": false,
+  "cleanUrls": true
 }
