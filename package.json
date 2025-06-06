@@ -1,7 +1,7 @@
 {
   "name": "coinestate-nft",
-  "version": "1.0.0",
-  "description": "Fractional real estate ownership through NFTs - Direct property investment starting from €1,000",
+  "version": "2.1.0",
+  "description": "Premium real estate community platform - €1.795M Kamp-Lintfort mixed-use complex with 2,500 NFTs at €1,000 each",
   "main": "index.html",
   "scripts": {
     "dev": "python -m http.server 8000",
@@ -9,7 +9,8 @@
     "deploy": "vercel deploy",
     "lint": "eslint js/",
     "format": "prettier --write .",
-    "contracts": "cd contracts && npm run compile && npm run test"
+    "contracts": "cd contracts && npm run compile && npm run test",
+    "start": "npm run dev"
   },
   "keywords": [
     "real estate",
@@ -18,9 +19,15 @@
     "property investment",
     "blockchain",
     "ethereum",
+    "polygon",
     "defi",
     "kamp-lintfort",
-    "germany"
+    "germany",
+    "mixed-use property",
+    "commercial real estate",
+    "eu mica compliance",
+    "premium membership",
+    "tier system"
   ],
   "author": "CoinEstate Team",
   "license": "Proprietary",
@@ -28,7 +35,7 @@
     "type": "git",
     "url": "git+https://github.com/finsterfurz/coinestateNFT.git"
   },
-  "homepage": "https://coinestate.io",
+  "homepage": "https://finsterfurz.github.io/coinestateNFT/",
   "bugs": {
     "url": "https://github.com/finsterfurz/coinestateNFT/issues",
     "email": "support@coinestate.io"
@@ -44,5 +51,15 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "funding": {
+    "type": "community",
+    "url": "https://discord.gg/coinestate"
+  },
+  "config": {
+    "collection_size": 2500,
+    "mint_price_eur": 1000,
+    "property_value_eur": 1795000,
+    "launch_date": "2025-07"
+  }
 }
